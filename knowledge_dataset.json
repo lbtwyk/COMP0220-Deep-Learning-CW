@@ -1,0 +1,512 @@
+[
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "Why do some Deaf people prefer the term 'Deaf' with a capital D?",
+    "output": "According to Handspeak, 'Deaf' with a capital 'D' denotes a cultural identity. It refers to people who are members of the Deaf community, use sign language (like ASL) as their primary communication, and share Deaf cultural values. Lowercase 'deaf' usually refers to the medical condition of hearing loss."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What does 'CODA' stand for in the Deaf community?",
+    "output": "CODA stands for 'Child of Deaf Adult'. It refers to a hearing person who was raised by one or both Deaf parents and often navigates between the Deaf and hearing worlds."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'Audism'?",
+    "output": "Handspeak defines Audism as the notion that one is superior based on their ability to hear or behave in the manner of one who hears. It is a form of discrimination or prejudice against Deaf people."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'Deafhood'?",
+    "output": "Deafhood is a term (coined by Paddy Ladd) that represents the process of a Deaf person accepting their identity and positive contributions to society, moving away from the 'medical model' of deafness as a loss."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is the concept of 'Deaf Gain'?",
+    "output": "Deaf Gain is a perspective that reframes 'hearing loss' as a benefit or 'gain' to humanity. It highlights the unique contributions Deaf people make to human diversity, such as visual language and unique sensory experiences."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "Is 'hearing impaired' an acceptable term?",
+    "output": "Generally, no. Handspeak notes that many in the Deaf community find 'hearing impaired' offensive because it focuses on what is 'broken' or missing. 'Deaf' or 'Hard of Hearing' are the preferred terms."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is the proper way to get a Deaf person's attention?",
+    "output": "Appropriate methods include tapping them gently on the shoulder or arm, waving your hand in their peripheral vision, or flickering the lights for a large group. Stomping on the floor (to create vibration) is also sometimes used in appropriate settings."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "Why is eye contact important in ASL?",
+    "output": "In Deaf culture, maintaining eye contact is crucial. Breaking eye contact during a conversation is considered rude, as it implies you are not listening. Grammatical signals are also shown on the face, so you must watch the signer."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "Is it rude to walk between two people signing?",
+    "output": "It is better to walk around, but if you must pass through, do so quickly without hunching. Don't stop or hesitate, as that blocks the visual connection for longer."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is the 'Deaf Goodbye'?",
+    "output": "The 'Deaf Goodbye' refers to the cultural custom of long, drawn-out leave-takings. Guests often continue chatting at the door or car for a long time before actually parting, as face-to-face time is highly valued."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "Are Deaf people considered 'blunt'?",
+    "output": "Deaf culture is often more direct than hearing culture. It is not considered rude to be descriptive or direct about appearances or clear facts, as clarity is valued in a visual language."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'Dinner Table Syndrome'?",
+    "output": "This refers to the isolation a Deaf person feels when hearing family members talk among themselves at the dinner table without signing or including the Deaf person, leaving them left out of the conversation."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is the primary sentence structure in ASL?",
+    "output": "While ASL is flexible, 'Topic-Comment' is a very common structure. The signer states the topic first (what they are talking about) and then makes a comment about it."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "How do you indicate a question that requires a Yes or No answer in ASL?",
+    "output": "You raise your eyebrows, lean your head slightly forward, and hold the last sign."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "How do you indicate a 'Wh-question' (who, what, where, etc.) in ASL?",
+    "output": "You furrow (lower) your eyebrows, lean slightly forward, and typically place the 'Wh-word' at the end of the sentence."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What are 'Non-Manual Markers' (NMM)?",
+    "output": "NMMs are facial expressions and body movements used to convey grammatical meaning, such as asking questions, negation, or indicating tone (like 'effortless' or 'intense'). They are a required part of ASL grammar."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What are the 5 parameters of an ASL sign?",
+    "output": "The 5 parameters are: 1. Handshape, 2. Palm Orientation, 3. Location, 4. Movement, and 5. Non-Manual Signals (facial expressions)."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is a 'minimal pair' in ASL?",
+    "output": "A minimal pair is a pair of signs that are identical in all parameters except one (e.g., same handshape and movement, but different location). For example, the signs for 'MOTHER' and 'FATHER' are a minimal pair (distinguished only by location on the face)."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is a 'Rhetorical Question' in ASL?",
+    "output": "A rhetorical question is used to connect a topic to a comment (e.g., 'I am hungry, why? I didn't eat'). It is marked by raised eyebrows during the 'question' part."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "How is 'Time' handled in ASL sentences?",
+    "output": "Time indicators (like 'yesterday', 'tomorrow', 'at 5pm') usually come at the very beginning of the sentence to establish the tense for the entire thought."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'Glossing'?",
+    "output": "Glossing is a system of writing ASL sign-for-sign using English words (often in all caps) to represent the signs and grammatical markers."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What are 'Directional Verbs' (or Agreement Verbs)?",
+    "output": "These are verbs that change their movement direction to indicate the subject and object (e.g., 'HELP-ME' vs. 'HELP-YOU')."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What are 'Classifiers' in ASL?",
+    "output": "Classifiers are specific handshapes used to represent the size, shape, movement, or location of a noun (like a person, vehicle, or object)."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What does the classifier 'CL:1' typically represent?",
+    "output": "CL:1 (index finger up) often represents an upright person walking or standing, or a thin cylindrical object like a pencil or pole."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What does the classifier 'CL:3' typically represent?",
+    "output": "CL:3 (thumb, index, and middle finger extended) often represents a vehicle (like a car, bike, or boat)."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What does the classifier 'CL:V' (inverted) typically represent?",
+    "output": "The inverted 'V' handshape often represents a person's legs (standing, walking, or jumping) or a small animal."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'fingerspelling' used for?",
+    "output": "Fingerspelling is primarily used for proper nouns (names of people, places, brands), titles, and words that do not have a standard sign."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'Lexicalized Fingerspelling'?",
+    "output": "These are fingerspelled words that have changed over time to look like a single sign (often blending letters or changing movement), such as '#JOB' or '#BANK'."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "Should you mouth English words while signing ASL?",
+    "output": "Generally, full English mouthing is discouraged in strict ASL, though some 'mouth morphemes' (specific mouth movements related to ASL adverbs/adjectives) are required. Mouthing every word suggests a mix like Pidgin Signed English (PSE)."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'SimCom'?",
+    "output": "SimCom (Simultaneous Communication) is speaking and signing at the same time. It is often discouraged in ASL instruction because it usually results in poor grammar in both languages or favors the spoken language."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "Who was Laurent Clerc?",
+    "output": "Laurent Clerc was a French Deaf teacher who came to America with Thomas Gallaudet to co-found the first permanent school for the Deaf in the U.S."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "Who was Thomas Hopkins Gallaudet?",
+    "output": "He was an American hearing minister who traveled to Europe to learn methods for teaching Deaf people and brought Laurent Clerc back to the U.S. to establish Deaf education."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What happened at the Milan Conference of 1880?",
+    "output": "It was an international conference of Deaf educators (mostly hearing) that passed a resolution banning the use of sign language in schools, promoting oralism instead. This had a devastating effect on Deaf education and culture."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What was 'Deaf President Now' (DPN)?",
+    "output": "DPN was a student protest in 1988 at Gallaudet University that successfully demanded the selection of the university's first Deaf president, Dr. I. King Jordan."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "Is American Sign Language universal?",
+    "output": "No, sign languages are not universal. Each country has its own sign language (e.g., British Sign Language and ASL are very different)."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "Is ASL based on English?",
+    "output": "No, ASL is a distinct language with its own grammar, syntax, and history, largely influenced by French Sign Language (LSF), not English."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'De'VIA'?",
+    "output": "De'VIA (Deaf View/Image Art) is an art movement where Deaf artists explore their Deaf identity and experiences (both oppression and affirmation) through their art."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is a 'Name Sign'?",
+    "output": "A Name Sign is a specific sign given to a person by a member of the Deaf community to identify them, avoiding the need to fingerspell their name every time."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "Can a hearing person give themselves a Name Sign?",
+    "output": "No, it is a cultural rule that Name Signs must be given by a Deaf person. Hearing people should fingerspell their name until they are given a sign by the community."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What are the two types of Name Signs?",
+    "output": "They are typically 'Arbitrary' (using the first letter of the name in a neutral location) or 'Descriptive' (referring to a physical characteristic or personality trait)."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'Martha's Vineyard Sign Language'?",
+    "output": "It was a sign language used on Martha's Vineyard island in the past where a high percentage of the population was deaf. It is one of the major contributors to modern ASL."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "How do Deaf people use the phone?",
+    "output": "They often use Video Phones (VP) with Video Relay Services (VRS), where an interpreter facilitates the conversation, or they text/email."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "How do Deaf people know when the doorbell rings or baby cries?",
+    "output": "They use alerting systems that flash lights or vibrate (pagers/watches) to indicate sounds like doorbells, fire alarms, or crying babies."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'Initialize' in ASL?",
+    "output": "Initialization is using the handshape of the first letter of the English word for a sign (e.g., the signs for CLASS, FAMILY, and TEAM uses 'C', 'F', and 'T' handshapes in similar circular movements)."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "Why is 'pointing' not considered rude in ASL?",
+    "output": "In ASL, pointing is a grammatical function used for pronouns (referencing people or objects). It is not rude; it is necessary for clear communication."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is the 'dominant hand'?",
+    "output": "The dominant hand is the hand you use for one-handed signs and the active hand in two-handed signs. You should be consistent in using the same dominant hand."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'symmetrical' sign?",
+    "output": "A symmetrical sign is a two-handed sign where both hands perform the same action (e.g., TEACHER, BOOK)."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is a 'non-symmetrical' (or asymmetrical) sign?",
+    "output": "A sign where the dominant hand moves while the non-dominant hand remains stationary (e.g., DRAW, PAPER)."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "How do you show 'negation' in ASL without the word NOT?",
+    "output": "You can negate a sentence by shaking your head while signing the positive sign (e.g., headshake while signing UNDERSTAND means 'I don't understand')."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What does the mouth morpheme 'CHA' indicate?",
+    "output": "It typically indicates something is large, tall, or big."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What does the mouth morpheme 'TH' (tongue slightly out) indicate?",
+    "output": "It often indicates doing something in a careless, sloppy, or lazy manner."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What does the mouth morpheme 'MM' (lips pressed) indicate?",
+    "output": "It typically indicates something is happening normally, regularly, or is of medium size."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'Sign Space'?",
+    "output": "Sign Space is the area in front of the signer's body (usually from top of head to waist, and shoulder to shoulder) where signs are produced."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'Spatial Referencing'?",
+    "output": "It is setting up people or objects in specific locations in your sign space and pointing to those locations to refer back to them (like pronouns)."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'Role Shifting'?",
+    "output": "Role shifting is a storytelling technique where the signer adopts the character of another person (shifting body/gaze) to show dialogue or action from that person's perspective."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "Why do ASL signs sometimes vary by region?",
+    "output": "Like spoken languages have accents and dialects, ASL has regional variations (e.g., the sign for 'BIRTHDAY' or 'HALLOWEEN' may differ in different parts of the U.S.)."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is the difference between 'Noun' and 'Verb' pairs in ASL?",
+    "output": "Many noun-verb pairs (like CHAIR/SIT) are related. Typically, the Noun has a repeated, smaller movement, while the Verb has a single, larger movement."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "How do you sign numbers 1-5 in ASL?",
+    "output": "In ASL, numbers 1-5 are typically signed with the palm facing in (towards the signer) when counting, but palm out for other uses (like time or quantity)."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "Is it okay to look at the interpreter instead of the Deaf person?",
+    "output": "No, you should look directly at the Deaf person you are communicating with, not the interpreter. The interpreter is just facilitating the language."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'Total Communication'?",
+    "output": "Total Communication is an educational philosophy that uses any and all means to communicate (sign, speech, writing, gestures), often associated with SimCom."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'Oralism'?",
+    "output": "Oralism is the educational method that focuses exclusively on teaching Deaf students to speak and lipread, often banning sign language. It is controversial and historically damaging to the Deaf community."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "Can all Deaf people lipread?",
+    "output": "No, lipreading is a difficult skill and not all Deaf people can do it. Even good lipreaders only catch about 30% of spoken English on the lips; the rest is guessing."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "Do Deaf people drive?",
+    "output": "Yes, Deaf people are safe drivers. They rely on their heightened visual awareness and mirrors."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "Do Deaf people enjoy music?",
+    "output": "Many Deaf people enjoy music by feeling the vibrations, watching the performance, or reading lyrics. Some may not be interested, but it varies by individual."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is the 'Ily' sign?",
+    "output": "The 'Ily' sign stands for 'I Love You'. It combines the handshapes for the letters I, L, and Y."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'Visual Vernacular'?",
+    "output": "Visual Vernacular is an expressive theatrical form of storytelling in Deaf culture that uses mime, classifiers, and intense facial expression to tell stories visually, often without standard signs."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'International Sign' (IS)?",
+    "output": "IS is a pidgin or contact communication system used at international Deaf events. It is not a full language like ASL but a mix of iconic signs and gestures."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "Why is 'Deaf-Mute' considered offensive?",
+    "output": "It implies Deaf people cannot communicate or have no voice. Deaf people communicate effectively through sign language and do not lack a 'voice' in society."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "How do you pluralize words in ASL?",
+    "output": "You generally don't add an 's'. Pluralization is shown by repeating the sign, using a number, or using a quantifier (like MANY)."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is the 'Rule of 9'?",
+    "output": "The Rule of 9 allows you to incorporate numbers 1-9 directly into certain signs (like AGE, TIME, DAYS, WEEKS, MONEY). For 10 and above, you usually sign the number and the base sign separately."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is a 'Compound Sign'?",
+    "output": "A compound sign joins two separate signs to create a new meaning (e.g., MOTHER + FATHER = PARENTS, EAT + MORNING = BREAKFAST)."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'Deaf Time'?",
+    "output": "Deaf Time is a cultural concept where events often start late or run long because the opportunity to socialize and share information in a visual environment is prioritized over strict schedules."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "How do you applaud in Deaf culture?",
+    "output": "You wave your hands in the air (the 'Deaf applause' or 'jazz hands') so the applause can be seen rather than heard."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'Gallaudet University'?",
+    "output": "Gallaudet University in Washington D.C. is the world's only liberal arts university specifically for Deaf and Hard of Hearing students."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is the 'medical model' of deafness?",
+    "output": "The medical model views deafness as a defect or pathology that needs to be fixed or cured (e.g., with hearing aids or cochlear implants) to make the person 'normal'."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is the 'cultural model' of deafness?",
+    "output": "The cultural model views Deaf people as a linguistic minority with a rich culture, language, and community, rather than as disabled people needing a cure."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is a 'Relay Service'?",
+    "output": "A service that allows Deaf people to communicate with hearing people via telephone. An operator (or video interpreter) acts as an intermediary."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "Should you correct a Deaf person's English?",
+    "output": "No, it is generally considered rude and patronizing. ASL is their primary language, and their English usage might reflect ASL grammar."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'Contact Sign' or 'Pidgin Signed English' (PSE)?",
+    "output": "It is a contact variety of signing that bridges ASL and English, often using ASL signs in English word order. It is common when Deaf and hearing people interact."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What does the sign 'TRAIN-GONE' mean?",
+    "output": "It is an idiom meaning 'You missed the boat' or 'It's too late to explain what happened, the conversation has moved on'."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What does the sign 'TOUCH-FINISH' mean?",
+    "output": "It is an idiom meaning 'I have already been there' or 'I have done that'."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "How do you sign 'You're welcome' in ASL?",
+    "output": "You can sign 'THANK YOU' back, or use a polite gesture like 'FINE', or simply nod. There isn't a single strict 'you're welcome' sign like in English."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'Baby Sign Language'?",
+    "output": "It is using simple ASL signs with hearing babies to facilitate communication before they can speak, reducing frustration."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "Do you use the verb 'to be' (am, is, are) in ASL?",
+    "output": "Pure ASL generally does not use 'to be' verbs. 'I am happy' is signed 'I HAPPY'."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "How do you show possession in ASL?",
+    "output": "You use the flat palm (B-handshape) facing the owner (e.g., 'MY' is palm to chest, 'YOUR' is palm towards the other person)."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is the difference between pointing (Index finger) and Possessive (Flat hand)?",
+    "output": "Pointing (Index) means 'He/She/It' or 'You'. Flat hand (Open B) means 'His/Her/Its' or 'Your'."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is the 'Question Mark Wiggle'?",
+    "output": "It is a specific sign (flexing the index finger into an X shape repeatedly) used to ask 'Is anyone...?' or express doubt/puzzlement at the end of a sentence."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'Listing' on the hand?",
+    "output": "It is a technique where the non-dominant hand fingers are used as a list (thumb=1, index=2, etc.) to organize multiple items or points in a discussion."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "How do you emphasize a word in ASL?",
+    "output": "You can sign it bigger, hold it longer, or use more intense facial expressions."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What does it mean if a sign is done with a sharp, abrupt movement?",
+    "output": "It often changes the meaning to a command or indicates a negative/strict tone (e.g., 'SIT' vs 'CHAIR')."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'Contrastive Structure'?",
+    "output": "It is shifting the body slightly to the left to talk about one thing, and then to the right to talk about another, often to compare or contrast them."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "How do you sign 'and' in ASL?",
+    "output": "Often you don't use a sign for 'and'. You use listing, contrastive structure, or just pause. There is a sign for AND, but it is used less frequently than in English."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is the 'C' handshape classifier often used for?",
+    "output": "It is often used for cylindrical objects like a cup, a pole, or a thick branch."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is the 'F' handshape classifier often used for?",
+    "output": "It is often used for small, thin, round objects like a coin, a button, or polka dots."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is the 'B' (flat) handshape classifier often used for?",
+    "output": "It is often used for flat surfaces like a table, a wall, a book, or a shelf."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is the 'L' handshape classifier often used for?",
+    "output": "It can represent rectangular objects like a picture frame, a card, or a sign."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "How do you show 'Tense' (Past, Present, Future) if verbs don't conjugate?",
+    "output": "You use an 'imaginary time line' running from behind your body (past) to in front of your body (future). Signs like 'YESTERDAY' move back; 'TOMORROW' moves forward."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is the sign for 'Do-Do'?",
+    "output": "It is a specific WH-question sign (pinching thumb and index fingers) that means 'What are you doing?' or 'What should we do?'."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is the 'Agent Marker'?",
+    "output": "It is the 'person' sign added to a verb to make it a noun (e.g., TEACH + AGENT = TEACHER)."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "How do you sign names of cities?",
+    "output": "Many major cities have specific signs (like NYC, LA, CHICAGO). Others must be fingerspelled."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is 'Code Switching'?",
+    "output": "It is when a Deaf person changes their signing style (e.g., from ASL to English-like signing) to match the skill level of the person they are talking to."
+  },
+  {
+    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+    "input": "What is the difference between 'Deaf' and 'Hearing' goodbyes?",
+    "output": "Hearing goodbyes are often quick. Deaf goodbyes are famously long and involve making plans for the next meeting, due to the history of limited communication access apart from face-to-face."
+  }
+]
