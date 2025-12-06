@@ -117,6 +117,10 @@ def generate_response(
     do_sample: bool = True,
 ) -> str:
     """Generate a response from the model."""
+    # If temperature <= 0, switch to greedy (no sampling) to avoid logits processor error
+    if temperature is not None and temperature <= 0:
+        do_sample = False
+        temperature = None
     
     messages = [
         {"role": "system", "content": system_prompt},
