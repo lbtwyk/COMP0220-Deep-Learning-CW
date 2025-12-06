@@ -11,8 +11,8 @@ from pathlib import Path
 @dataclass
 class ModelConfig:
     """Model configuration."""
-    # Default to the cached instruct checkpoint for this project
-    model_name_or_path: str = "Qwen/Qwen3-4B-Instruct-2507"
+    # Default to the locally cached instruct checkpoint from DeepBattler repo
+    model_name_or_path: str = "/mnt/public/wangyukun/DeepBattler/models/qwen3-4b-instruct-2507/Qwen/Qwen3-4B-Instruct-2507"
     
     # Alternative smaller models for testing
     # model_name_or_path: str = "Qwen/Qwen3-1.7B-Instruct"
@@ -133,7 +133,7 @@ class DataConfig:
     include_education: bool = True
     
     # Education dialogue settings
-    education_max_files: Optional[int] = None  # None = use all files
+    education_max_files: Optional[int] = 1  # Limit to the first file by default
     education_split: str = "train"
     
     # Train/validation split
@@ -183,6 +183,23 @@ def get_config_for_hardware(hardware: str = "default") -> PipelineConfig:
         config.lora.r = 32
         config.lora.lora_alpha = 64
         
+    elif hardware == "a800":
+        # For NVIDIA A800 80GB GPUs
+        config.model.device_map = "auto"
+        config.model.torch_dtype = "bfloat16"
+        config.model.load_in_4bit = False
+        config.model.load_in_8bit = False
+        config.training.per_device_train_batch_size = 4
+        config.training.gradient_accumulation_steps = 4
+        config.training.max_seq_length = 4096
+        config.training.learning_rate = 1.5e-4
+        config.training.warmup_ratio = 0.05
+        config.training.dataloader_num_workers = 8
+        config.training.dataloader_pin_memory = True
+        config.training.gradient_checkpointing = True
+        config.lora.r = 32
+        config.lora.lora_alpha = 64
+
     elif hardware == "mps":
         # For Apple Silicon (M1/M2/M3)
         config.model.torch_dtype = "float16"

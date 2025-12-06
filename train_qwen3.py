@@ -329,7 +329,7 @@ def main():
         "--hardware",
         type=str,
         default="default",
-        choices=["default", "low_memory", "high_memory", "mps", "cpu"],
+        choices=["default", "low_memory", "high_memory", "a800", "mps", "cpu"],
         help="Hardware preset configuration"
     )
     parser.add_argument(
