@@ -264,8 +264,16 @@ def load_qa_dataset(dataset_path: str):
 
     Returns a list of dicts with keys: user_prompt, answer, system.
     """
-    dataset_path = Path(dataset_path)
-    with open(dataset_path, "r", encoding="utf-8") as f:
+    path = Path(dataset_path)
+    # Allow pointing either to a single JSON file or to a directory like knowledge_dataset/
+    if path.is_dir():
+        examples = []
+        for file_path in sorted(path.glob("*.json")):
+            print(f"Loading eval data from {file_path}...")
+            examples.extend(load_qa_dataset(file_path))
+        return examples
+
+    with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
     
     examples = []
@@ -425,7 +433,7 @@ def main():
         "--dataset_path",
         type=str,
         default=None,
-        help="Path to a JSON dataset file (e.g. knowledge_dataset.json or train.json) for evaluation",
+        help="Path to a JSON dataset file or directory (e.g. knowledge_dataset/ or train.json) for evaluation",
     )
     parser.add_argument(
         "--num_samples",
@@ -449,14 +457,19 @@ def main():
         args.device
     )
     
+    # Determine default dataset directory for evaluation if none is provided
+    project_root = Path(__file__).parent
+    default_eval_dir = project_root / "knowledge_dataset"
+
     if args.interactive:
         interactive_chat(model, tokenizer, device)
-    elif args.dataset_path:
+    elif args.dataset_path or default_eval_dir.exists():
+        dataset_path = args.dataset_path or str(default_eval_dir)
         evaluate_model_on_dataset(
             model,
             tokenizer,
             device,
-            dataset_path=args.dataset_path,
+            dataset_path=dataset_path,
             num_samples=args.num_samples,
             max_new_tokens=args.max_new_tokens,
             temperature=args.temperature,

@@ -4,10 +4,10 @@ A complete finetuning pipeline for Qwen3 models using LoRA (Low-Rank Adaptation)
 
 ## Overview
 
-This pipeline finetunes **Qwen/Qwen3-4B-Instruct-2507** on three datasets:
-1. **knowledge_dataset.json** - Deaf culture & ASL knowledge (510 Q&A pairs)
-2. **train.json** - Sign language QA pairs (~85 entries)
-3. **Education-Dialogue-Dataset** - Multi-turn teacher/student conversations (40,000 training examples)
+This pipeline finetunes **Qwen/Qwen3-4B-Instruct-2507** on three data sources:
+1. **knowledge_dataset/** - Directory of Deaf culture & ASL Q&A JSON files (supports both `input`/`output` and `question`/`answer` formats)
+2. **knowledge_dataset/train.json** - Sign language QA pairs (~85 entries)
+3. **Education-Dialogue-Dataset** - Multi-turn teacher/student conversations (40,000+ training examples)
 
 ## Project Structure
 
@@ -16,11 +16,10 @@ DL_CW/
 ├── train_qwen3.py          # Main training script
 ├── config.py               # Configuration classes
 ├── data_preprocessing.py   # Data loading and preprocessing
-├── inference.py            # Inference script for finetuned model
+├── inference.py            # Inference/evaluation script for finetuned model
 ├── requirements.txt        # Python dependencies
-├── knowledge_dataset.json  # Deaf culture dataset
-├── train.json              # Sign language QA dataset
-└── Education-Dialogue-Dataset-main/
+├── knowledge_dataset/      # Deaf culture & ASL knowledge Q&A JSON files
+├── Education-Dialogue-Dataset-main/
     ├── conversations_train1-5.json  # Training data
     └── conversations_eval.json      # Evaluation data
 ```
@@ -118,13 +117,51 @@ After training, use the inference script:
 ```bash
 # Interactive chat
 python inference.py --model_path ./qwen3_finetuned/final --interactive
+```
 
-# Single prompt
+### 2. Single Prompt
+
+```bash
 python inference.py --model_path ./qwen3_finetuned/final --prompt "What is ASL?"
+```
 
-# Demo with sample questions
+### 3. Quick Demo (built-in sample questions)
+
+```bash
 python inference.py --model_path ./qwen3_finetuned/final
 ```
+
+### 4. Dataset Evaluation
+
+By default, if you do **not** pass `--dataset_path`, evaluation will automatically use **all JSON files** under the `knowledge_dataset/` directory (e.g. `knowledge_dataset.json`, `knowledge2.json`, `knowledge3.json`, `knowledge4.json`, ...):
+
+```bash
+python inference.py --model_path ./qwen3_finetuned/final --num_samples 50
+```
+
+You can also specify a custom file or directory:
+
+```bash
+# Evaluate on a specific JSON file (knowledge-style or QA-style)
+python inference.py \
+    --model_path ./qwen3_finetuned/final \
+    --dataset_path ./knowledge_dataset/knowledge_dataset.json \
+    --num_samples 50
+
+# Evaluate on a different dataset directory
+python inference.py \
+    --model_path ./qwen3_finetuned/final \
+    --dataset_path ./knowledge_dataset \
+    --num_samples 100
+```
+
+Supported item formats for evaluation are the same as for training:
+
+- `{ "input": "...", "output": "..." }`
+- `{ "question": "...", "answer": "..." }`
+- `{ "context": "...", "question": "...", "answer": "..." }`
+
+All of them are mapped to the unified conversational format with the same system prompt used in training.
 
 ## Dataset Format
 
@@ -133,20 +170,33 @@ The pipeline converts all datasets to a unified conversational format:
 ```json
 {
   "messages": [
-    {"role": "system", "content": "You are a friendly tutor..."},
+    {"role": "system", "content": "You are a Deaf culture specialist and ASL tutor. Answer clearly."},
     {"role": "user", "content": "What is ASL?"},
     {"role": "assistant", "content": "ASL stands for American Sign Language..."}
   ]
 }
 ```
 
-### Dataset Statistics
+### Dataset Sources
 
-| Dataset | Examples | Format |
-|---------|----------|--------|
-| knowledge_dataset.json | 510 | system/input/output |
-| train.json | ~85 | context/question/answer |
-| Education Dialogue | 40,000 | multi-turn conversations |
+All datasets are normalized to the above conversational format with a *unified system prompt*.
+
+- **knowledge_dataset/**
+  - Multiple JSON files (e.g. `knowledge_dataset.json`, `knowledge2.json`, `knowledge3.json`, `knowledge4.json`, ...)
+  - Supported formats per item:
+    - Knowledge Q&A: `{ "input": "...", "output": "..." }` (optional `"system"` is ignored)
+    - QA: `{ "question": "...", "answer": "..." }` (optional `"context"` is ignored)
+- **knowledge_dataset/train.json**
+  - `{ "context": "...", "question": "...", "answer": "..." }`
+  - Only `question` and `answer` are used during training/eval
+- **Education-Dialogue-Dataset-main/**
+  - Teacher/Student multi-turn dialogues converted into `messages` with a topic-specific system message
+
+## Evaluation
+
+The same `inference.py` script can run interactive chat, single-prompt inference, or dataset evaluation.
+
+### 1. Interactive Chat
 
 ## Training Tips
 
