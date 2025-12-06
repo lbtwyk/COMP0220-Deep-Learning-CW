@@ -424,7 +424,24 @@ def main():
     if args.no_lora:
         config.lora.use_lora = False
     if args.resume:
-        config.training.resume_from_checkpoint = args.resume
+        resume_path = Path(args.resume)
+        trainer_state_file = resume_path / "trainer_state.json"
+        
+        if not resume_path.exists():
+            raise FileNotFoundError(f"Resume path does not exist: {resume_path}")
+        
+        if trainer_state_file.exists():
+            # True resume (continues trainer state)
+            config.training.resume_from_checkpoint = str(resume_path)
+            print(f"Resuming trainer from checkpoint: {resume_path}")
+        else:
+            # Initialize weights from directory and start a fresh trainer run
+            config.model.model_name_or_path = str(resume_path)
+            config.training.resume_from_checkpoint = None
+            print(
+                f"No trainer_state.json in {resume_path}; "
+                "loading weights as init and starting a new training run."
+            )
     
     # Adjust dataset inclusion by stage
     if args.stage == "style":
