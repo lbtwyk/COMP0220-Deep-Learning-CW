@@ -384,6 +384,18 @@ def main():
         default=None,
         help="Resume from checkpoint path"
     )
+    parser.add_argument(
+        "--stage",
+        type=str,
+        default="all",
+        choices=["all", "style", "knowledge"],
+        help=(
+            "Select data mix: "
+            "'style' = education dialogue only (conversational style), "
+            "'knowledge' = deaf-culture QA only (knowledge_dataset + train.json), "
+            "'all' = include everything."
+        ),
+    )
     
     args = parser.parse_args()
     
@@ -413,6 +425,20 @@ def main():
         config.lora.use_lora = False
     if args.resume:
         config.training.resume_from_checkpoint = args.resume
+    
+    # Adjust dataset inclusion by stage
+    if args.stage == "style":
+        config.data.include_knowledge = False
+        config.data.include_qa = False
+        config.data.include_education = True
+    elif args.stage == "knowledge":
+        config.data.include_knowledge = True
+        config.data.include_qa = True
+        config.data.include_education = False
+    else:  # all
+        config.data.include_knowledge = True
+        config.data.include_qa = True
+        config.data.include_education = True
     
     # Set data directory to script location
     config.data.data_dir = str(Path(__file__).parent)

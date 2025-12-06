@@ -14,6 +14,9 @@ from typing import List, Dict, Any, Optional
 from datasets import Dataset, concatenate_datasets
 
 
+SYSTEM_PROMPT = "You are a Deaf culture specialist and ASL tutor. Answer clearly."
+
+
 def load_knowledge_dataset(path: Path) -> List[Dict[str, Any]]:
     """
     Load knowledge_dataset.json with format:
@@ -29,9 +32,8 @@ def load_knowledge_dataset(path: Path) -> List[Dict[str, Any]]:
     for item in data:
         messages = []
         
-        # Add system message if present
-        if item.get("system"):
-            messages.append({"role": "system", "content": item["system"]})
+        # Use unified system prompt for all datasets
+        messages.append({"role": "system", "content": SYSTEM_PROMPT})
         
         # Add user input
         if item.get("input"):
@@ -57,27 +59,18 @@ def load_qa_dataset(path: Path) -> List[Dict[str, Any]]:
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
     
-    system_prompt = "You are a friendly tutor who explains sign languages and Deaf culture clearly."
-    
     conversations = []
     for item in data:
         question = item.get("question", "").strip()
         answer = item.get("answer", "").strip()
-        context = item.get("context", "").strip()
         
         # Skip malformed entries
         if not question or not answer:
             continue
         
-        messages = [{"role": "system", "content": system_prompt}]
-        
-        # Include context in user message if available
-        if context:
-            user_content = f"Context: {context}\n\nQuestion: {question}"
-        else:
-            user_content = question
-        
-        messages.append({"role": "user", "content": user_content})
+        messages = [{"role": "system", "content": SYSTEM_PROMPT}]
+        # Do not embed context in the user turn; keep prompts consistent across datasets
+        messages.append({"role": "user", "content": question})
         messages.append({"role": "assistant", "content": answer})
         
         conversations.append({"messages": messages})

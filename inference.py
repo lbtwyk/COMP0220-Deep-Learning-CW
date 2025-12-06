@@ -11,7 +11,8 @@ from pathlib import Path
 import os
 
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+import torch.nn.functional as F
+from transformers import AutoModelForCausalLM, AutoTokenizer, AutoModel
 from peft import PeftModel
 from collections import Counter
 import json
@@ -179,6 +180,42 @@ def compute_f1(prediction: str, ground_truth: str) -> float:
     return 2 * precision * recall / (precision + recall)
 
 
+def load_embedding_model(model_name: str, device: str):
+    """Load a lightweight embedding model for semantic similarity."""
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = AutoModel.from_pretrained(model_name, trust_remote_code=True)
+    if device in {"cuda", "mps"}:
+        model = model.to(device)
+    model.eval()
+    return model, tokenizer
+
+
+def embed_texts(texts, tokenizer, model, device: str):
+    """Compute mean pooled embeddings."""
+    enc = tokenizer(
+        texts,
+        padding=True,
+        truncation=True,
+        max_length=512,
+        return_tensors="pt",
+    )
+    if device == "cuda":
+        enc = {k: v.cuda() for k, v in enc.items()}
+    elif device == "mps":
+        enc = {k: v.to("mps") for k, v in enc.items()}
+    with torch.no_grad():
+        out = model(**enc)
+        hidden = out.last_hidden_state
+        mask = enc["attention_mask"].unsqueeze(-1)
+        pooled = (hidden * mask).sum(dim=1) / mask.sum(dim=1).clamp(min=1e-6)
+        pooled = F.normalize(pooled, p=2, dim=1)
+    return pooled.cpu()
+
+
+def cosine_similarity(a: torch.Tensor, b: torch.Tensor) -> float:
+    return float((a * b).sum().item())
+
+
 def interactive_chat(model, tokenizer, device: str):
     """Run interactive chat session."""
     print("\n" + "=" * 60)
@@ -231,10 +268,7 @@ def load_qa_dataset(dataset_path: str):
     for item in data:
         if isinstance(item, dict) and "input" in item and "output" in item:
             # knowledge_dataset.json format
-            system_prompt = item.get(
-                "system",
-                "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
-            )
+            system_prompt = "You are a Deaf culture specialist and ASL tutor. Answer clearly."
             examples.append(
                 {
                     "user_prompt": item["input"],
@@ -245,20 +279,13 @@ def load_qa_dataset(dataset_path: str):
         elif isinstance(item, dict) and "question" in item and "answer" in item:
             # train.json format
             question = item["question"]
-            context = item.get("context", "").strip()
-            if context:
-                user_prompt = (
-                    "Use the following context to answer the question.\n\n"
-                    f"Context: {context}\n\n"
-                    f"Question: {question}"
-                )
-            else:
-                user_prompt = question
+            # Ignore context to match training format
+            user_prompt = question
             examples.append(
                 {
                     "user_prompt": user_prompt,
                     "answer": item["answer"],
-                    "system": "You are a friendly tutor who explains sign languages and Deaf culture clearly.",
+                    "system": "You are a Deaf culture specialist and ASL tutor. Answer clearly.",
                 }
             )
     
@@ -273,6 +300,7 @@ def evaluate_model_on_dataset(
     num_samples: int = 20,
     max_new_tokens: int = 256,
     temperature: float = 0.0,
+    embedding_model_name: str = "intfloat/e5-small-v2",
 ):
     """Run evaluation on a JSON dataset and report simple metrics."""
     examples = load_qa_dataset(dataset_path)
@@ -280,11 +308,21 @@ def evaluate_model_on_dataset(
         print(f"No usable examples found in {dataset_path}")
         return
     
+    # Load embedding model once
+    try:
+        emb_model, emb_tokenizer = load_embedding_model(embedding_model_name, device)
+        use_semantic = True
+        print(f"Loaded embedding model for semantic similarity: {embedding_model_name}")
+    except Exception as e:
+        print(f"Warning: semantic embedding model load failed ({e}); skipping semantic similarity.")
+        emb_model, emb_tokenizer, use_semantic = None, None, False
+    
     if num_samples is not None and num_samples > 0 and len(examples) > num_samples:
         examples = random.sample(examples, num_samples)
     
     total_em = 0.0
     total_f1 = 0.0
+    total_sem = 0.0
     
     for idx, ex in enumerate(examples, start=1):
         user_prompt = ex["user_prompt"]
@@ -303,6 +341,11 @@ def evaluate_model_on_dataset(
         
         em = compute_exact_match(prediction, gold)
         f1 = compute_f1(prediction, gold)
+        sem = None
+        if use_semantic:
+            embs = embed_texts([prediction, gold], emb_tokenizer, emb_model, device)
+            sem = cosine_similarity(embs[0], embs[1])
+            total_sem += sem
         
         total_em += em
         total_f1 += f1
@@ -313,7 +356,10 @@ def evaluate_model_on_dataset(
         print(f"User prompt: {user_prompt}")
         print(f"Ground truth: {gold}")
         print(f"Model output: {prediction}")
-        print(f"Exact match: {em:.3f} | F1: {f1:.3f}")
+        if sem is not None:
+            print(f"Exact match: {em:.3f} | F1: {f1:.3f} | Semantic cosine: {sem:.3f}")
+        else:
+            print(f"Exact match: {em:.3f} | F1: {f1:.3f}")
     
     n = len(examples)
     print("\n" + "=" * 80)
@@ -323,6 +369,8 @@ def evaluate_model_on_dataset(
     print(f"Examples evaluated: {n}")
     print(f"Average exact match: {total_em / n:.3f}")
     print(f"Average F1: {total_f1 / n:.3f}")
+    if use_semantic:
+        print(f"Average semantic cosine: {total_sem / n:.3f}")
 
 
 def main():
@@ -381,6 +429,12 @@ def main():
         default=20,
         help="Number of random examples to evaluate from the dataset (0 = all)",
     )
+    parser.add_argument(
+        "--embedding_model",
+        type=str,
+        default="intfloat/e5-small-v2",
+        help="Embedding model for semantic similarity scoring",
+    )
     
     args = parser.parse_args()
     
@@ -402,6 +456,7 @@ def main():
             num_samples=args.num_samples,
             max_new_tokens=args.max_new_tokens,
             temperature=args.temperature,
+            embedding_model_name=args.embedding_model,
         )
     elif args.prompt:
         response = generate_response(
