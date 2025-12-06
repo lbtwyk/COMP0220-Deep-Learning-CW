@@ -19,8 +19,8 @@ SYSTEM_PROMPT = "You are a Deaf culture specialist and ASL tutor. Answer clearly
 
 def load_knowledge_dataset(path: Path) -> List[Dict[str, Any]]:
     """
-    Load knowledge_dataset.json with format:
-    {"system": "...", "input": "...", "output": "..."}
+    Load knowledge-style data with format:
+    {"system": "...", "input": "...", "output": "..."} or {"input": "...", "output": "..."}
     
     Convert to conversational format:
     {"messages": [{"role": "system", ...}, {"role": "user", ...}, {"role": "assistant", ...}]}
@@ -45,6 +45,52 @@ def load_knowledge_dataset(path: Path) -> List[Dict[str, Any]]:
         
         if len(messages) >= 2:  # At least user + assistant
             conversations.append({"messages": messages})
+    
+    return conversations
+
+
+def load_knowledge_directory(
+    dir_path: Path,
+    include_knowledge: bool,
+    include_qa: bool
+) -> List[Dict[str, Any]]:
+    """
+    Load every JSON file under knowledge_dataset/ and convert by format:
+    - knowledge format: {"input", "output"} (optional "system")
+    - QA format: {"question", "answer"} (optional "context")
+    
+    Flags control which formats are included so we don't mix in unwanted data.
+    """
+    conversations: List[Dict[str, Any]] = []
+    
+    if not dir_path.exists():
+        return conversations
+    
+    print(f"Scanning knowledge datasets in {dir_path}...")
+    for file_path in sorted(dir_path.glob("*.json")):
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception as e:
+            print(f"  Skipping {file_path.name}: failed to load ({e})")
+            continue
+        
+        if not isinstance(data, list) or not data:
+            print(f"  Skipping {file_path.name}: not a non-empty list")
+            continue
+        
+        first_item = data[0]
+        
+        if include_knowledge and "input" in first_item and "output" in first_item:
+            file_convs = load_knowledge_dataset(file_path)
+            print(f"  Loaded {len(file_convs)} knowledge samples from {file_path.name}")
+            conversations.extend(file_convs)
+        elif include_qa and "question" in first_item and "answer" in first_item:
+            file_convs = load_qa_dataset(file_path)
+            print(f"  Loaded {len(file_convs)} QA samples from {file_path.name}")
+            conversations.extend(file_convs)
+        else:
+            print(f"  Skipping {file_path.name}: format not included by flags")
     
     return conversations
 
@@ -171,21 +217,33 @@ def create_unified_dataset(
     """
     all_conversations = []
     
-    if include_knowledge:
-        knowledge_path = base_dir / "knowledge_dataset.json"
-        if knowledge_path.exists():
-            print(f"Loading knowledge dataset from {knowledge_path}...")
-            knowledge_data = load_knowledge_dataset(knowledge_path)
-            print(f"  Loaded {len(knowledge_data)} conversations")
-            all_conversations.extend(knowledge_data)
-    
-    if include_qa:
-        qa_path = base_dir / "train.json"
-        if qa_path.exists():
-            print(f"Loading QA dataset from {qa_path}...")
-            qa_data = load_qa_dataset(qa_path)
-            print(f"  Loaded {len(qa_data)} conversations")
-            all_conversations.extend(qa_data)
+    # Unified loading from knowledge_dataset directory (supports knowledge + QA formats)
+    if include_knowledge or include_qa:
+        knowledge_dir = base_dir / "knowledge_dataset"
+        if knowledge_dir.exists():
+            knowledge_convs = load_knowledge_directory(
+                knowledge_dir,
+                include_knowledge=include_knowledge,
+                include_qa=include_qa,
+            )
+            print(f"Loaded {len(knowledge_convs)} conversations from knowledge_dataset/")
+            all_conversations.extend(knowledge_convs)
+        else:
+            # Fallback to legacy single-file paths at root
+            if include_knowledge:
+                knowledge_path = base_dir / "knowledge_dataset.json"
+                if knowledge_path.exists():
+                    print(f"Loading knowledge dataset from {knowledge_path}...")
+                    knowledge_data = load_knowledge_dataset(knowledge_path)
+                    print(f"  Loaded {len(knowledge_data)} conversations")
+                    all_conversations.extend(knowledge_data)
+            if include_qa:
+                qa_path = base_dir / "train.json"
+                if qa_path.exists():
+                    print(f"Loading QA dataset from {qa_path}...")
+                    qa_data = load_qa_dataset(qa_path)
+                    print(f"  Loaded {len(qa_data)} conversations")
+                    all_conversations.extend(qa_data)
     
     if include_education:
         education_dir = base_dir / "Education-Dialogue-Dataset-main"

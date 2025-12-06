@@ -1,0 +1,3406 @@
+[
+  {
+    "input": "What does ASL stand for?",
+    "output": "ASL stands for American Sign Language."
+  },
+  {
+    "input": "Is American Sign Language universal?",
+    "output": "No, American Sign Language is not universal. Different countries have their own unique sign languages."
+  },
+  {
+    "input": "What is the difference between 'Deaf' with a capital D and 'deaf' with a lowercase d?",
+    "output": "'Deaf' (capital D) refers to people who identify as members of the Deaf culture and community. 'deaf' (lowercase d) usually refers to the audiological condition of hearing loss."
+  },
+  {
+    "input": "What does CODA stand for?",
+    "output": "CODA stands for 'Child of Deaf Adult'."
+  },
+  {
+    "input": "Who is considered the 'father' of American Sign Language linguistics?",
+    "output": "William Stokoe is considered the father of ASL linguistics because he proved that ASL is a fully formed language with its own grammatical structure."
+  },
+  {
+    "input": "What serves as the 'voice' or tone in ASL?",
+    "output": "Facial expressions and non-manual markers serve as the 'voice', tone, and grammar in ASL."
+  },
+  {
+    "input": "Where was the first permanent school for the Deaf established in the United States?",
+    "output": "The first permanent school for the Deaf in the U.S. was established in Hartford, Connecticut."
+  },
+  {
+    "input": "In what year was the American School for the Deaf founded?",
+    "output": "The American School for the Deaf was founded in 1817."
+  },
+  {
+    "input": "Who were the two primary founders of the American School for the Deaf?",
+    "output": "Thomas Hopkins Gallaudet and Laurent Clerc were the two primary founders."
+  },
+  {
+    "input": "Which French educator came to America to help establish Deaf education?",
+    "output": "Laurent Clerc came from France to help establish Deaf education in America."
+  },
+  {
+    "input": "What is the primary role of facial expressions in ASL?",
+    "output": "Facial expressions are essential for grammar, conveying emotions, and modifying the meaning of signs (e.g., distinguishing between questions and statements)."
+  },
+  {
+    "input": "What constitutes the five parameters of a sign in ASL?",
+    "output": "The five parameters are Handshape, Palm Orientation, Location, Movement, and Non-Manual Markers (facial expressions)."
+  },
+  {
+    "input": "What is a 'minimal pair' in ASL?",
+    "output": "A minimal pair is a pair of signs that differ by only one of the five parameters (e.g., Mother and Father differ only by location)."
+  },
+  {
+    "input": "Is ASL a form of broken English?",
+    "output": "No, ASL is a distinct language with its own syntax, grammar, and history, separate from English."
+  },
+  {
+    "input": "What happened at the Milan Conference of 1880?",
+    "output": "The Milan Conference of 1880 passed a resolution banning the use of sign language in schools for the Deaf, favoring oralism instead."
+  },
+  {
+    "input": "How did the Milan Conference affect Deaf teachers?",
+    "output": "It led to a massive decline in the number of Deaf teachers, as sign language was removed from classrooms."
+  },
+  {
+    "input": "What is the 'Deaf President Now' movement?",
+    "output": "Deaf President Now (DPN) was a 1988 student protest at Gallaudet University that resulted in the appointment of the university's first Deaf president."
+  },
+  {
+    "input": "Who was the first Deaf president of Gallaudet University?",
+    "output": "Dr. I. King Jordan was the first Deaf president of Gallaudet University."
+  },
+  {
+    "input": "What was the famous quote by I. King Jordan regarding Deaf people's abilities?",
+    "output": "\"Deaf people can do anything hearing people can do, except hear.\""
+  },
+  {
+    "input": "What is fingerspelling primarily used for in ASL?",
+    "output": "Fingerspelling is used for proper nouns (names of people, places), brand names, and words that do not have a standard sign."
+  },
+  {
+    "input": "What is the 'dominant hand' in ASL?",
+    "output": "The dominant hand is the hand a signer uses for most movements and one-handed signs. It is usually the hand they write with."
+  },
+  {
+    "input": "What is the 'non-dominant hand' used for in ASL?",
+    "output": "The non-dominant hand often acts as a base or support for two-handed signs."
+  },
+  {
+    "input": "How do you get a Deaf person's attention appropriately?",
+    "output": "Appropriate ways include tapping them gently on the shoulder, waving your hand in their line of sight, or flashing the lights."
+  },
+  {
+    "input": "Is it rude to walk between two people signing?",
+    "output": "It is generally acceptable to walk quickly between two people signing without stopping, sometimes adding a quick sign for 'excuse me'."
+  },
+  {
+    "input": "Why is eye contact important in ASL conversations?",
+    "output": "Eye contact shows you are listening and paying attention. Breaking eye contact can be interpreted as ignoring the person or ending the conversation."
+  },
+  {
+    "input": "What is a 'Name Sign'?",
+    "output": "A Name Sign is a specific sign given to a person by a member of the Deaf community to identify them, avoiding the need to fingerspell their name every time."
+  },
+  {
+    "input": "Can a hearing person give themselves a Name Sign?",
+    "output": "No, it is considered culturally inappropriate for hearing people to invent their own Name Signs; they must be given by a Deaf person."
+  },
+  {
+    "input": "What is 'Deaf Gain'?",
+    "output": "Deaf Gain is a perspective that views deafness not as a loss, but as a unique way of being that contributes to the diversity of human experience."
+  },
+  {
+    "input": "What does 'Audism' mean?",
+    "output": "Audism is the discrimination or prejudice against individuals who are deaf or hard of hearing."
+  },
+  {
+    "input": "What is the National Association of the Deaf (NAD)?",
+    "output": "The NAD is a civil rights organization in the United States advocating for the rights of Deaf and hard of hearing individuals."
+  },
+  {
+    "input": "What is a TTY?",
+    "output": "A TTY (Teletypewriter) is a device that allows Deaf people to communicate over the phone by typing messages back and forth."
+  },
+  {
+    "input": "What is a Video Relay Service (VRS)?",
+    "output": "VRS is a service that allows Deaf people to communicate with hearing people via telephone using a video connection and a sign language interpreter."
+  },
+  {
+    "input": "What is a 'classifier' in ASL?",
+    "output": "A classifier is a handshape combined with a location and movement to represent an object, person, or element and how it moves or interacts."
+  },
+  {
+    "input": "What does the classifier 'CL:1' typically represent?",
+    "output": "CL:1 typically represents an upright person or a cylindrical object like a pole or pencil."
+  },
+  {
+    "input": "What does the classifier 'CL:3' typically represent?",
+    "output": "CL:3 typically represents a vehicle, such as a car, bus, or bicycle."
+  },
+  {
+    "input": "What is 'Topic-Comment' structure?",
+    "output": "Topic-Comment is a common sentence structure in ASL where the main topic is stated first (with raised eyebrows), followed by a comment about it."
+  },
+  {
+    "input": "How do you indicate a 'Yes/No' question in ASL?",
+    "output": "You raise your eyebrows, lean your head forward slightly, and hold the last sign."
+  },
+  {
+    "input": "How do you indicate a 'Wh-word' question (Who, What, Where, etc.) in ASL?",
+    "output": "You furrow your eyebrows (lower them), lean forward slightly, and hold the last sign."
+  },
+  {
+    "input": "What is 'SimCom'?",
+    "output": "SimCom (Simultaneous Communication) is the act of speaking and signing at the same time."
+  },
+  {
+    "input": "Why is SimCom often discouraged in the Deaf community?",
+    "output": "It is discouraged because it often results in poor grammar in both languages, usually favoring English grammar and degrading the clarity of ASL."
+  },
+  {
+    "input": "What is 'Total Communication'?",
+    "output": "Total Communication is an educational philosophy that uses signs, speech, gestures, and other modes to facilitate communication for Deaf students."
+  },
+  {
+    "input": "What is 'Martha's Vineyard Sign Language'?",
+    "output": "It was a sign language used on Martha's Vineyard for centuries due to a high genetic incidence of deafness, eventually influencing the development of ASL."
+  },
+  {
+    "input": "What is the difference between ASL and BSL (British Sign Language)?",
+    "output": "ASL and BSL are completely different languages with different alphabets and signs. They are not mutually intelligible."
+  },
+  {
+    "input": "Is ASL related to French Sign Language (LSF)?",
+    "output": "Yes, ASL is historically related to French Sign Language, and they share many similar signs."
+  },
+  {
+    "input": "What is 'gloss' in the context of ASL?",
+    "output": "Glossing is a written system used to transcribe ASL sign by sign, often using English words in capital letters to represent the signs."
+  },
+  {
+    "input": "What is 'Initialization' in ASL?",
+    "output": "Initialization is using the handshape of the first letter of an English word as the handshape for the corresponding sign (e.g., the signs for Class, Family, and Team)."
+  },
+  {
+    "input": "What is a 'lexicalized' fingerspelled sign?",
+    "output": "It is a fingerspelled word that has evolved into a sign with its own movement and shape, often spelled quickly (e.g., #BANK, #BUS)."
+  },
+  {
+    "input": "What does 'SODA' stand for?",
+    "output": "SODA stands for 'Sibling of a Deaf Adult'."
+  },
+  {
+    "input": "What is the 'Americans with Disabilities Act' (ADA) impact on Deaf people?",
+    "output": "The ADA prohibits discrimination and mandates accessibility, such as requiring interpreters in hospitals and courts."
+  },
+  {
+    "input": "What is 'Deaf Standard Time' or 'Deaf Time'?",
+    "output": "It refers to the cultural tendency of Deaf social events to start late or run long because of the value placed on socializing and detailed goodbyes."
+  },
+  {
+    "input": "How do Deaf people usually applaud?",
+    "output": "They wave their hands in the air with open palms and twisting wrists, known as the 'visual clap' or 'Deaf applause'."
+  },
+  {
+    "input": "What is the significance of the Gallaudet University football huddle?",
+    "output": "The modern football huddle was invented by the Gallaudet team to prevent opposing teams from seeing their signed plays."
+  },
+  {
+    "input": "What is a 'Residential School' for the Deaf?",
+    "output": "A school where Deaf students live on campus, allowing them to be immersed in Deaf culture and ASL."
+  },
+  {
+    "input": "What does 'Mainstreaming' mean in Deaf education?",
+    "output": "Mainstreaming refers to placing a Deaf student in a regular public school, often with an interpreter or support services."
+  },
+  {
+    "input": "What is the 'Bi-Bi' (Bilingual-Bicultural) approach to education?",
+    "output": "It is an educational philosophy that teaches ASL as the first language and English as the second language (usually written), valuing both Deaf and hearing cultures."
+  },
+  {
+    "input": "What are 'Non-Manual Markers' (NMMs)?",
+    "output": "NMMs are facial expressions, head movements, and body language used to conveying grammatical information and emotion."
+  },
+  {
+    "input": "How do you indicate negation in ASL?",
+    "output": "You shake your head side-to-side while signing, often accompanied by a frown or specific signs like NOT or NONE."
+  },
+  {
+    "input": "What is 'Indexing' or 'Deixis'?",
+    "output": "It is pointing with the index finger to a person, object, or space to establish a referent."
+  },
+  {
+    "input": "What is the 'sign space'?",
+    "output": "The area in front of the signer's body where signs are produced, typically extending from the top of the head to the waist."
+  },
+  {
+    "input": "What is 'Role Shifting'?",
+    "output": "Role shifting involves moving the body or head to take on the character of another person or animal to recount a dialogue or action."
+  },
+  {
+    "input": "What is the 'Rule of 9'?",
+    "output": "The Rule of 9 allows numbers 1-9 to be incorporated directly into certain signs, like age, time, and duration (e.g., 2-WEEKS, 5-YEARS-OLD)."
+  },
+  {
+    "input": "How do you sign age in ASL?",
+    "output": "Age is typically signed by touching the chin and moving the hand outward, often incorporating the number."
+  },
+  {
+    "input": "What is the handshape for personal pronouns like 'I', 'You', 'He/She'?",
+    "output": "The index finger points to the person or space representing the person."
+  },
+  {
+    "input": "What is the handshape for possessive pronouns like 'My', 'Your', 'His/Her'?",
+    "output": "The open flat hand (palm facing the person) is used for possessive pronouns."
+  },
+  {
+    "input": "What is 'Directionality' or 'Inflecting verbs'?",
+    "output": "It refers to verbs that change direction to indicate the subject and object (e.g., 'I-HELP-YOU' vs 'YOU-HELP-ME')."
+  },
+  {
+    "input": "Give an example of a directional verb.",
+    "output": "Common directional verbs include GIVE, ASK, HELP, SHOW, and TELL."
+  },
+  {
+    "input": "What is a 'Plain verb' in ASL?",
+    "output": "A verb that does not change direction or movement to indicate subject/object (e.g., EAT, ENJOY, FORGET)."
+  },
+  {
+    "input": "What is a 'Spatial verb' in ASL?",
+    "output": "A verb that moves from one location to another to show movement in space (e.g., PUT, DRIVE-TO)."
+  },
+  {
+    "input": "What is the function of raised eyebrows in a topic-comment sentence?",
+    "output": "Raised eyebrows identify the topic of the sentence before the signer makes a comment about it."
+  },
+  {
+    "input": "How do you distinguish between 'Late' and 'Not Yet' in ASL?",
+    "output": "'Late' is a single movement; 'Not Yet' uses the same handshape but with a double movement and often the tongue slightly protruding."
+  },
+  {
+    "input": "What does the mouth morpheme 'CHA' indicate?",
+    "output": "It indicates something is very big or tall."
+  },
+  {
+    "input": "What does the mouth morpheme 'MM' indicate?",
+    "output": "It indicates something is normal, average, or happening with ease."
+  },
+  {
+    "input": "What does the mouth morpheme 'OO' indicate?",
+    "output": "It often indicates something is small, thin, or happened a long time ago."
+  },
+  {
+    "input": "What does the mouth morpheme 'TH' indicate?",
+    "output": "It indicates something is done carelessly or unintentionally."
+  },
+  {
+    "input": "What is the difference between 'Noun' and 'Verb' pairs in ASL?",
+    "output": "Nouns typically have a double/repeated movement, while related verbs have a single movement (e.g., CHAIR vs SIT)."
+  },
+  {
+    "input": "What does 'TC' stand for in education?",
+    "output": "TC stands for Total Communication."
+  },
+  {
+    "input": "Who was Alice Cogswell?",
+    "output": "Alice Cogswell was the young Deaf girl who inspired Thomas Hopkins Gallaudet to travel to Europe to learn about Deaf education."
+  },
+  {
+    "input": "What is 'De'VIA'?",
+    "output": "De'VIA (Deaf View/Image Art) is an art movement that explores Deaf experience and culture through visual art."
+  },
+  {
+    "input": "What are the two categories of De'VIA art?",
+    "output": "Resistance (showing oppression) and Affirmation (celebrating Deaf culture)."
+  },
+  {
+    "input": "What is the 'National Theatre of the Deaf'?",
+    "output": "A touring theater company founded in 1967 that performs in a combination of ASL and spoken language."
+  },
+  {
+    "input": "What is a 'TDD'?",
+    "output": "TDD stands for Telecommunications Device for the Deaf (often used interchangeably with TTY)."
+  },
+  {
+    "input": "What is the number '21' handshape rule?",
+    "output": "The number 21 looks like a 'gun' shape with the thumb moving, rather than signing '2' then '1' separately."
+  },
+  {
+    "input": "How are numbers 1-5 produced differently when counting vs giving information?",
+    "output": "When counting, palm faces in (towards signer); when giving quantity (like '2 books'), palm often faces out."
+  },
+  {
+    "input": "What is 'Visual Noise'?",
+    "output": "Visual distractions in the environment that make it hard to see signing, like busy wallpaper or poor lighting."
+  },
+  {
+    "input": "What is the appropriate way to talk about a Deaf person to another person?",
+    "output": "You should focus on their identity and abilities, using 'Deaf' rather than euphemisms like 'hearing impaired'."
+  },
+  {
+    "input": "Why is the term 'Hearing Impaired' considered offensive by many?",
+    "output": "It focuses on what is 'broken' or missing, rather than the cultural identity of being Deaf."
+  },
+  {
+    "input": "What is 'Contact Sign' or 'Pidgin Signed English' (PSE)?",
+    "output": "A communication mode that mixes ASL signs with English word order, often used between Deaf and hearing people."
+  },
+  {
+    "input": "What is the 'Rochester Method'?",
+    "output": "An educational method that involves fingerspelling every word."
+  },
+  {
+    "input": "What does the acronym 'RID' stand for?",
+    "output": "RID stands for the Registry of Interpreters for the Deaf."
+  },
+  {
+    "input": "What is the main certification body for ASL interpreters in the US?",
+    "output": "The Registry of Interpreters for the Deaf (RID)."
+  },
+  {
+    "input": "What is 'Certified Deaf Interpreter' (CDI)?",
+    "output": "A CDI is a Deaf person who is a certified interpreter, often working with a hearing interpreter to facilitate communication for Deaf people with unique language needs."
+  },
+  {
+    "input": "Why might a CDI be needed?",
+    "output": "A CDI is useful for Deaf individuals who have minimal language skills, use non-standard signs, or are from a foreign country."
+  },
+  {
+    "input": "What is 'Cued Speech'?",
+    "output": "A system of hand cues near the mouth used to help distinguish speech sounds that look the same on the lips."
+  },
+  {
+    "input": "Is Cued Speech a language?",
+    "output": "No, Cued Speech is a visual mode of communication for spoken language, not a distinct language like ASL."
+  },
+  {
+    "input": "What is 'Oralism'?",
+    "output": "The educational philosophy that focuses exclusively on teaching Deaf students to speak and lipread, banning sign language."
+  },
+  {
+    "input": "Who was Alexander Graham Bell in relation to the Deaf community?",
+    "output": "He was a strong proponent of oralism and eugenics who sought to prevent the birth of Deaf children and ban sign language."
+  },
+  {
+    "input": "What is 'Eugenics' in the context of Deaf history?",
+    "output": "The belief (supported by people like A.G. Bell) that Deaf people should not marry each other to prevent passing on deafness."
+  },
+  {
+    "input": "What is the 'Golden Age' of Deaf Education?",
+    "output": "The period in the early-to-mid 19th century when ASL was used freely in schools and Deaf teachers were common."
+  },
+  {
+    "input": "What is the 'Dark Age' of Deaf Education?",
+    "output": "The period following the 1880 Milan Conference when sign language was banned and oralism dominated."
+  },
+  {
+    "input": "What is 'Visual-Gestural Communication'?",
+    "output": "Using gestures and body language to communicate without formal signs, often used in theater or international settings."
+  },
+  {
+    "input": "What is 'International Sign' (IS)?",
+    "output": "A pidgin sign system used at international Deaf events (like the Deaflympics) that is not a full language but allows communication across different sign languages."
+  },
+  {
+    "input": "What are the Deaflympics?",
+    "output": "An international multi-sport event sanctioned by the IOC for Deaf athletes."
+  },
+  {
+    "input": "How do track races start in the Deaflympics?",
+    "output": "They use visual signals like flashing lights instead of a starting gun."
+  },
+  {
+    "input": "What is 'Video Remote Interpreting' (VRI)?",
+    "output": "A fee-based service that uses video conferencing to access an off-site interpreter."
+  },
+  {
+    "input": "What is the difference between VRI and VRS?",
+    "output": "VRS is for telephone calls (funded by the FCC), while VRI is for people in the same room using a remote interpreter."
+  },
+  {
+    "input": "What is a 'Relay Operator'?",
+    "output": "The person who voices what the Deaf person signs and signs what the hearing person speaks during a relay call."
+  },
+  {
+    "input": "What is 'Conceptually Accurate Signed English' (CASE)?",
+    "output": "A form of signing that follows English word order but chooses signs based on meaning (concept) rather than just the English word."
+  },
+  {
+    "input": "What is 'Signed Exact English' (SEE)?",
+    "output": "A system of manual communication that strives to differ from ASL by being an exact representation of English grammar and vocabulary."
+  },
+  {
+    "input": "What is the sign for 'I Love You'?",
+    "output": "A combination of the letters I, L, and Y held up simultaneously."
+  },
+  {
+    "input": "What is 'Gallaudet University' known for?",
+    "output": "It is the world's only university designed to be barrier-free for Deaf and hard of hearing students."
+  },
+  {
+    "input": "Where is Gallaudet University located?",
+    "output": "It is located in Washington, D.C."
+  },
+  {
+    "input": "What is the 'Shared Reading Project'?",
+    "output": "A program designed to teach parents how to read to their Deaf children using ASL."
+  },
+  {
+    "input": "What is 'Lead-K'?",
+    "output": "A campaign to ensure Deaf children are kindergarten-ready by promoting language acquisition (ASL and English) in the first 5 years."
+  },
+  {
+    "input": "What percentage of Deaf children are born to hearing parents?",
+    "output": "Approximately 90-95% of Deaf children are born to hearing parents."
+  },
+  {
+    "input": "Why is early language acquisition critical?",
+    "output": "To prevent 'language deprivation,' which can cause permanent cognitive and linguistic delays."
+  },
+  {
+    "input": "What is 'Language Deprivation Syndrome'?",
+    "output": "A condition resulting from a lack of access to a natural language during the critical period of brain development."
+  },
+  {
+    "input": "What is the sign for 'America'?",
+    "output": "Interlocking fingers and moving in a circle."
+  },
+  {
+    "input": "What is the sign for 'Deaf'?",
+    "output": "Touch the index finger to the cheek near the ear, then move it to near the mouth (or vice versa)."
+  },
+  {
+    "input": "How do you sign 'Hearing' (person)?",
+    "output": "The index finger rotates horizontally in front of the mouth."
+  },
+  {
+    "input": "What is a 'Community of Practice' in Deaf culture?",
+    "output": "A group of people who share a concern or passion for something they do and learn how to do it better as they interact (e.g., the Deaf community)."
+  },
+  {
+    "input": "What is 'Incidental Learning'?",
+    "output": "Learning that happens unintentionally, often by overhearing conversations; Deaf children often miss this if not in a signing environment."
+  },
+  {
+    "input": "What is 'Dinner Table Syndrome'?",
+    "output": "The phenomenon where a Deaf person is left out of conversations at family gatherings because everyone is speaking and not signing."
+  },
+  {
+    "input": "What is the 'Helper Model' of interpreting?",
+    "output": "An outdated view where interpreters were seen as caretakers helping 'unfortunate' Deaf people, rather than professional communication facilitators."
+  },
+  {
+    "input": "What is the 'Machine Model' or 'Conduit Model' of interpreting?",
+    "output": "A view where the interpreter acts like a robot, translating words verbatim without cultural mediation (also considered outdated/insufficient)."
+  },
+  {
+    "input": "What is the 'Bi-Bi Model' of interpreting?",
+    "output": "The current standard where interpreters mediate between two languages and two cultures to convey meaning effectively."
+  },
+  {
+    "input": "What is 'Code Switching'?",
+    "output": "Changing the way one signs (e.g., from ASL to PSE) depending on who they are communicating with."
+  },
+  {
+    "input": "What is 'Black ASL'?",
+    "output": "A dialect of ASL that developed in segregated schools for Black Deaf children, characterized by a larger signing space and more two-handed signs."
+  },
+  {
+    "input": "Why did Black ASL develop?",
+    "output": "It developed due to racial segregation in schools, which kept Black Deaf students separated from White Deaf students."
+  },
+  {
+    "input": "What is 'Tactile Signing'?",
+    "output": "A method of communication used by DeafBlind individuals where they place their hands over the signer's hands to feel the signs."
+  },
+  {
+    "input": "What is 'Pro-Tactile'?",
+    "output": "A philosophy and method of communication that prioritizes touch for DeafBlind individuals, allowing them to receive visual information through touch."
+  },
+  {
+    "input": "Who is Helen Keller?",
+    "output": "A famous DeafBlind author and activist, though she is more associated with the blind community and Tadoma method than the modern Deaf community."
+  },
+  {
+    "input": "What is 'Tadoma'?",
+    "output": "A method where a DeafBlind person touches the speaker's lips and throat to feel vibrations and movements."
+  },
+  {
+    "input": "What is the 'bystander effect' in interpreting?",
+    "output": "When people assume the interpreter is handling everything and ignore the Deaf person."
+  },
+  {
+    "input": "Can facial hair affect ASL clarity?",
+    "output": "Yes, heavy beards or mustaches can obscure the mouth, making it harder to read mouth morphemes."
+  },
+  {
+    "input": "What is 'lipreading'?",
+    "output": "Trying to understand speech by watching the speaker's mouth movements."
+  },
+  {
+    "input": "Is lipreading an effective way to communicate for all Deaf people?",
+    "output": "No, it is difficult and often inaccurate, as many sounds look the same on the lips (e.g., 'p', 'b', 'm')."
+  },
+  {
+    "input": "What percentage of English is visible on the lips?",
+    "output": "Only about 30% of English is visible on the lips."
+  },
+  {
+    "input": "What is 'Speechreading'?",
+    "output": "A broader term for lipreading that includes using facial expressions and context clues."
+  },
+  {
+    "input": "What is the 'medical model' of deafness?",
+    "output": "The view that deafness is a disability or defect that needs to be fixed or cured."
+  },
+  {
+    "input": "What is the 'social model' of deafness?",
+    "output": "The view that disability is caused by societal barriers (lack of access) rather than the impairment itself."
+  },
+  {
+    "input": "What is the 'cultural model' of deafness?",
+    "output": "The view that Deaf people form a linguistic minority with a rich culture, history, and language."
+  },
+  {
+    "input": "What is a 'speech impediment' in the context of Deafness?",
+    "output": "Deaf people do not have a speech impediment; their voice quality is different because they cannot hear themselves speak."
+  },
+  {
+    "input": "What is the sign for 'Interpreter'?",
+    "output": "Two 'F' hands moving up and down alternately, or touching at the thumb and index finger and twisting."
+  },
+  {
+    "input": "What is 'Backchanneling' in ASL?",
+    "output": "Using head nods and facial expressions to show the speaker that you are following what they are saying."
+  },
+  {
+    "input": "What is the 'listing principle' in ASL?",
+    "output": "Using the non-dominant hand's fingers to list items (1st, 2nd, 3rd) while the dominant hand discusses them."
+  },
+  {
+    "input": "What is 'Comparative' structure?",
+    "output": "Setting up two referents in space (left and right) and shifting the body to compare them."
+  },
+  {
+    "input": "What is 'Contrastive' structure?",
+    "output": "Similar to comparative, using body shift to contrast two different ideas or events."
+  },
+  {
+    "input": "What is a 'Locative Classifier'?",
+    "output": "A classifier used to show the location of an object relative to others."
+  },
+  {
+    "input": "What is an 'Instrument Classifier'?",
+    "output": "A classifier that shows how the hands manipulate an object (e.g., holding a steering wheel)."
+  },
+  {
+    "input": "What is a 'Body Classifier'?",
+    "output": "Using the upper body to enact the role of a character (e.g., acting out a person pitching a baseball)."
+  },
+  {
+    "input": "What is an 'Element Classifier'?",
+    "output": "A classifier describing elements like fire, water, wind, or smoke (e.g., liquid flowing)."
+  },
+  {
+    "input": "What is a 'Semantic Classifier'?",
+    "output": "A classifier representing a category of nouns (e.g., a person walking upright)."
+  },
+  {
+    "input": "What is 'Pluralization' in ASL?",
+    "output": "Indicating more than one by repeating the sign, using a number, or using a sweeping motion."
+  },
+  {
+    "input": "How do you sign 'Everyone'?",
+    "output": "Often signed by sweeping the 'A' or '1' handshape in a circle or moving the '1' handshape from shoulder to shoulder."
+  },
+  {
+    "input": "What is 'Aspect' in ASL grammar?",
+    "output": "Modifying a verb's movement to show duration or frequency (e.g., doing something 'continuously' or 'regularly')."
+  },
+  {
+    "input": "How do you show a verb happens 'continually'?",
+    "output": "By using a circular movement with the verb sign."
+  },
+  {
+    "input": "How do you show a verb happens 'repeatedly'?",
+    "output": "By repeating the sign with a sharp, distinct movement."
+  },
+  {
+    "input": "What is 'Temporal Aspect'?",
+    "output": "Information about time (frequency and duration) incorporated into the verb movement."
+  },
+  {
+    "input": "What is the 'Time Line' in ASL?",
+    "output": "An imaginary line running from behind the body (past) to in front of the body (future)."
+  },
+  {
+    "input": "Where are 'past tense' signs usually produced?",
+    "output": "Behind or moving towards the shoulder/ear (e.g., YESTERDAY, BEFORE)."
+  },
+  {
+    "input": "Where are 'future tense' signs usually produced?",
+    "output": "Moving forward from the body (e.g., TOMORROW, WILL)."
+  },
+  {
+    "input": "Where are 'present tense' signs usually produced?",
+    "output": "Directly in front of the body (e.g., NOW, TODAY)."
+  },
+  {
+    "input": "What is the sign for 'Culture'?",
+    "output": "The 'C' handshape touching the forehead and then circling."
+  },
+  {
+    "input": "Who is Marlee Matlin?",
+    "output": "A famous Deaf actress who won an Academy Award for 'Children of a Lesser God'."
+  },
+  {
+    "input": "Who is Nyle DiMarco?",
+    "output": "A Deaf model and activist who won 'America's Next Top Model' and 'Dancing with the Stars'."
+  },
+  {
+    "input": "What is the 'sign for name' vs 'name sign'?",
+    "output": "'Sign for name' is the lexical sign NAME; 'name sign' is the specific identifier given to a person."
+  },
+  {
+    "input": "What is 'fingerspelling space'?",
+    "output": "The specific area near the dominant shoulder where fingerspelling is produced."
+  },
+  {
+    "input": "Why shouldn't you bounce your hand while fingerspelling?",
+    "output": "It makes it difficult to read the letters."
+  },
+  {
+    "input": "What is 'Real Time Captioning' (CART)?",
+    "output": "Communication Access Real-time Translation; instant speech-to-text translation."
+  },
+  {
+    "input": "What is 'Open Captioning'?",
+    "output": "Captions that are always visible on the screen and cannot be turned off."
+  },
+  {
+    "input": "What is 'Closed Captioning'?",
+    "output": "Captions that can be turned on or off by the viewer."
+  },
+  {
+    "input": "What is the 'symbol for access' for hearing loss?",
+    "output": "An ear with a slash through it, or the letters 'CC' in a box."
+  },
+  {
+    "input": "What is a 'Hearing Dog'?",
+    "output": "A service dog trained to alert Deaf people to sounds like doorbells, alarms, or crying babies."
+  },
+  {
+    "input": "What color leash do hearing dogs usually wear?",
+    "output": "They often wear a bright orange leash or vest."
+  },
+  {
+    "input": "Is it rude to correct a Deaf person's English?",
+    "output": "Yes, unless asked; focusing on grammar rather than the message is considered disrespectful."
+  },
+  {
+    "input": "Is it rude to correct a student's ASL?",
+    "output": "In a classroom setting, no; but in a social setting, constant correction can be discouraging."
+  },
+  {
+    "input": "What is the 'sandwich method' of feedback?",
+    "output": "Compliment, correction, compliment."
+  },
+  {
+    "input": "What is 'Deaf Space' architecture?",
+    "output": "Designing buildings with wider hallways, good lighting, and clear sightlines to accommodate visual communication."
+  },
+  {
+    "input": "Why are round tables preferred in Deaf Space?",
+    "output": "They allow everyone to see each other clearly for signing."
+  },
+  {
+    "input": "Why is lighting crucial in Deaf environments?",
+    "output": "Poor lighting causes eye strain and makes it hard to see signs and facial expressions."
+  },
+  {
+    "input": "What are 'visual alarms'?",
+    "output": "Flashing strobe lights used to alert Deaf people to fire or emergencies."
+  },
+  {
+    "input": "How do Deaf people wake up?",
+    "output": "Using vibrating alarm clocks (bed shakers) or flashing lamp alarms."
+  },
+  {
+    "input": "What is the sign for 'Bathroom'?",
+    "output": "The letter 'T' shaken side to side."
+  },
+  {
+    "input": "What is the sign for 'Thank You'?",
+    "output": "Touching the chin with fingertips and moving the hand forward."
+  },
+  {
+    "input": "What is the sign for 'Please'?",
+    "output": "Rubbing the chest in a circle with a flat hand."
+  },
+  {
+    "input": "What is the sign for 'Sorry'?",
+    "output": "Rubbing the chest in a circle with the 'A' (fist) handshape."
+  },
+  {
+    "input": "What is 'Iconicity' in ASL?",
+    "output": "When a sign looks like the object or action it represents (e.g., DRINK, BALL)."
+  },
+  {
+    "input": "What is 'Arbitrariness' in ASL?",
+    "output": "When a sign has no visual resemblance to its meaning (e.g., WRONG, COOL)."
+  },
+  {
+    "input": "Are most ASL signs iconic?",
+    "output": "No, while some are iconic, most are arbitrary symbols."
+  },
+  {
+    "input": "What is 'Symmetry Condition'?",
+    "output": "If both hands move in a sign, they usually have the same handshape and movement (e.g., FAMILY, PLAY)."
+  },
+  {
+    "input": "What is 'Dominance Condition'?",
+    "output": "If each hand has a different handshape, the dominant hand moves while the non-dominant hand is stationary."
+  },
+  {
+    "input": "What is 'loan sign'?",
+    "output": "A sign borrowed from another language."
+  },
+  {
+    "input": "What is 'fingerspelled loan sign'?",
+    "output": "A word borrowed from English that is fingerspelled so frequently it becomes a sign (e.g., #JOB)."
+  },
+  {
+    "input": "What is the 'homophenous' problem?",
+    "output": "Words that sound different but look the same on the lips (e.g., 'mat', 'pat', 'bat')."
+  },
+  {
+    "input": "What is 'Deafhood'?",
+    "output": "A term coined by Dr. Paddy Ladd describing the personal journey of Deaf people to discover and affirm their identity."
+  },
+  {
+    "input": "Who is Paddy Ladd?",
+    "output": "A Deaf scholar and author of 'Understanding Deaf Culture: In Search of Deafhood'."
+  },
+  {
+    "input": "What is 'dysconscious audism'?",
+    "output": "When Deaf people internalize negative views about their own deafness and accept hearing norms as superior."
+  },
+  {
+    "input": "What is 'phonocentrism'?",
+    "output": "The belief that spoken language is superior to sign language."
+  },
+  {
+    "input": "What is 'linguicism'?",
+    "output": "Discrimination based on language use."
+  },
+  {
+    "input": "What is the 'Gallaudet Revolution'?",
+    "output": "Another name for the DPN movement."
+  },
+  {
+    "input": "What is 'Unity for Gallaudet'?",
+    "output": "A 2006 protest at Gallaudet University against the appointment of Jane Fernandes as president."
+  },
+  {
+    "input": "Who is 'Dummy' Hoy?",
+    "output": "William 'Dummy' Hoy was a famous Deaf Major League Baseball player who is credited with influencing the use of hand signals by umpires."
+  },
+  {
+    "input": "Why is the nickname 'Dummy' considered offensive today?",
+    "output": "It implies stupidity, though historically it was used to mean 'mute'."
+  },
+  {
+    "input": "What is 'Silent Network'?",
+    "output": "A cable network that provided programming for the Deaf community."
+  },
+  {
+    "input": "What is 'DPN'?",
+    "output": "Deaf President Now."
+  },
+  {
+    "input": "Who was Elisabeth Zinser?",
+    "output": "The hearing president elected by Gallaudet's board in 1988, sparking the DPN protests."
+  },
+  {
+    "input": "What were the 4 demands of DPN?",
+    "output": "1. Zinser resign. 2. Spilman (Board Chair) resign. 3. 51% Deaf majority on the Board. 4. No reprisals against protesters."
+  },
+  {
+    "input": "Were all 4 demands of DPN met?",
+    "output": "Yes, all four demands were eventually met."
+  },
+  {
+    "input": "What is the sign for 'School'?",
+    "output": "Clapping hands horizontally."
+  },
+  {
+    "input": "What is the sign for 'College'?",
+    "output": "Sliding the flat dominant hand up from the non-dominant palm in a circling motion."
+  },
+  {
+    "input": "What is the sign for 'Work'?",
+    "output": "Tapping one fist onto the wrist of the other fist."
+  },
+  {
+    "input": "What is the sign for 'Help'?",
+    "output": "A flat hand lifting a 'thumbs up' hand."
+  },
+  {
+    "input": "What is a 'compound sign'?",
+    "output": "Two signs joined together to create a new meaning (e.g., HOMEWORK = HOME + WORK)."
+  },
+  {
+    "input": "How does the rhythm of a compound sign change?",
+    "output": "The individual signs are shortened and the movement is smoothed out."
+  },
+  {
+    "input": "What is 'assimilation' in ASL?",
+    "output": "When a handshape or movement of one sign blends into the next."
+  },
+  {
+    "input": "What is 'fluidity'?",
+    "output": "The smoothness of signing."
+  },
+  {
+    "input": "What is the 'citation form' of a sign?",
+    "output": "The standard, dictionary version of a sign produced in isolation."
+  },
+  {
+    "input": "What is 'Baby Sign Language'?",
+    "output": "Using simple signs (often borrowed from ASL) to communicate with pre-verbal infants."
+  },
+  {
+    "input": "Does teaching a baby signs delay speech?",
+    "output": "Research shows it does not delay speech and may enhance communication skills."
+  },
+  {
+    "input": "What is the difference between 'Deaf' and 'Hard of Hearing'?",
+    "output": "Deaf usually implies a severe to profound hearing loss and cultural identity; Hard of Hearing implies some residual hearing and may or may not identify with the culture."
+  },
+  {
+    "input": "What is 'Late-Deafened'?",
+    "output": "People who lose their hearing later in life, after acquiring spoken language."
+  },
+  {
+    "input": "What is 'Presbycusis'?",
+    "output": "Age-related hearing loss."
+  },
+  {
+    "input": "What is 'Tinnitus'?",
+    "output": "Ringing or buzzing in the ears."
+  },
+  {
+    "input": "Do all Deaf people want to be cured?",
+    "output": "No, many Deaf people are proud of their identity and do not view themselves as needing a cure."
+  },
+  {
+    "input": "What is the 'bionic ear'?",
+    "output": "A colloquial term for a cochlear implant."
+  },
+  {
+    "input": "How does a cochlear implant work?",
+    "output": "It bypasses the damaged part of the ear and directly stimulates the auditory nerve."
+  },
+  {
+    "input": "Is a cochlear implant the same as a hearing aid?",
+    "output": "No, a hearing aid amplifies sound; an implant stimulates the nerve directly."
+  },
+  {
+    "input": "Why are cochlear implants controversial in the Deaf community?",
+    "output": "They are often seen as an attempt to eradicate Deaf culture and fix something that isn't considered broken."
+  },
+  {
+    "input": "What is 'Sign language deprivation'?",
+    "output": "Denying access to sign language for a Deaf child."
+  },
+  {
+    "input": "What is 'Home Sign'?",
+    "output": "A gestural communication system developed within a family with a deaf child who lacks access to formal sign language."
+  },
+  {
+    "input": "Is Home Sign a real language?",
+    "output": "No, it lacks a consistent grammar and vocabulary shared by a community."
+  },
+  {
+    "input": "What happened in Nicaragua with Deaf children in the 1980s?",
+    "output": "Deaf children brought together in a school created their own language (Nicaraguan Sign Language) from home signs."
+  },
+  {
+    "input": "What does the Nicaraguan Sign Language story teach us?",
+    "output": "It demonstrates the innate human drive to create language."
+  },
+  {
+    "input": "What is 'glossing'?",
+    "output": "Writing ASL using English words to represent signs and grammar markers."
+  },
+  {
+    "input": "How is a fingerspelled word glossed?",
+    "output": "With hyphens between letters (e.g., J-O-H-N)."
+  },
+  {
+    "input": "How is a lexicalized sign glossed?",
+    "output": "With a hash symbol (e.g., #CAR)."
+  },
+  {
+    "input": "How are non-manual markers glossed?",
+    "output": "With a line above the glossed signs (e.g., _______q_______)."
+  },
+  {
+    "input": "What does the gloss 'IX' mean?",
+    "output": "Index (pointing)."
+  },
+  {
+    "input": "What does the gloss 'POSS' mean?",
+    "output": "Possessive."
+  },
+  {
+    "input": "What is a 'classifier predicate'?",
+    "output": "A verb phrase formed by a classifier (e.g., CAR-DRIVE-UP-HILL)."
+  },
+  {
+    "input": "What is 'spatial mapping'?",
+    "output": "Mentally mapping a real or imaginary scene into the signing space."
+  },
+  {
+    "input": "What is 'referential shift'?",
+    "output": "Shifting your body to represent a character in a story."
+  },
+  {
+    "input": "What is 'eye gaze' in ASL grammar?",
+    "output": "Looking at a specific location to establish or reference a subject or object."
+  },
+  {
+    "input": "Why do signers look at the face, not the hands?",
+    "output": "Peripheral vision catches the hand movements, while the face provides grammatical and emotional information."
+  },
+  {
+    "input": "What is 'peripheral vision' importance in ASL?",
+    "output": "It allows signers to see the whole picture (hands and face) without moving their eyes back and forth."
+  },
+  {
+    "input": "What is the sign for 'Mother'?",
+    "output": "Thumb of an open '5' hand tapping the chin."
+  },
+  {
+    "input": "What is the sign for 'Father'?",
+    "output": "Thumb of an open '5' hand tapping the forehead."
+  },
+  {
+    "input": "Why are male signs often near the forehead and female signs near the chin?",
+    "output": "This gender distinction is based on old hat etiquette (men tipping hats, women tying bonnets)."
+  },
+  {
+    "input": "What is the sign for 'Boy'?",
+    "output": "Grabbing an imaginary cap visor at the forehead."
+  },
+  {
+    "input": "What is the sign for 'Girl'?",
+    "output": "Tracing the jawline with the thumb (bonnet string)."
+  },
+  {
+    "input": "What is 'Video Phone' (VP)?",
+    "output": "A device used by Deaf people to make video calls directly to other Deaf people."
+  },
+  {
+    "input": "What is 'Direct Video Calling'?",
+    "output": "Calling another signer directly without an interpreter."
+  },
+  {
+    "input": "What is 'GA' in TTY etiquette?",
+    "output": "GA stands for 'Go Ahead', meaning it's the other person's turn to type."
+  },
+  {
+    "input": "What is 'SK' in TTY etiquette?",
+    "output": "SK stands for 'Stop Keying', meaning the conversation is ending."
+  },
+  {
+    "input": "What is 'SKSK' in TTY etiquette?",
+    "output": "It means 'Hanging up now'."
+  },
+  {
+    "input": "What is 'Voice Carry Over' (VCO)?",
+    "output": "A service allowing a hard of hearing person to speak for themselves but read the other person's response."
+  },
+  {
+    "input": "What is 'Hearing Carry Over' (HCO)?",
+    "output": "A service allowing a person who can hear but not speak to type their response."
+  },
+  {
+    "input": "What is the '711' service?",
+    "output": "The nationwide telephone number to reach a relay service."
+  },
+  {
+    "input": "What is 'Captioned Telephone'?",
+    "output": "A phone that displays captions of what the other person is saying."
+  },
+  {
+    "input": "What is 'Deaf Blindness'?",
+    "output": "A dual sensory loss of both hearing and vision."
+  },
+  {
+    "input": "What causes Deaf Blindness?",
+    "output": "Causes include Usher Syndrome, Rubella, and aging."
+  },
+  {
+    "input": "What is 'Usher Syndrome'?",
+    "output": "A genetic condition causing deafness and gradual vision loss (Retinitis Pigmentosa)."
+  },
+  {
+    "input": "What is 'tunnel vision'?",
+    "output": "Loss of peripheral vision."
+  },
+  {
+    "input": "How do you sign to someone with tunnel vision?",
+    "output": "You sign in a smaller space, directly in front of their face."
+  },
+  {
+    "input": "What is 'close vision' interpreting?",
+    "output": "Interpreting at a close range for someone with limited vision."
+  },
+  {
+    "input": "What is the 'World Federation of the Deaf' (WFD)?",
+    "output": "An international organization representing Deaf people worldwide."
+  },
+  {
+    "input": "Where is the WFD headquarters?",
+    "output": "Helsinki, Finland."
+  },
+  {
+    "input": "What is 'WASLI'?",
+    "output": "World Association of Sign Language Interpreters."
+  },
+  {
+    "input": "What is the sign for 'Change'?",
+    "output": "Two fists twisting at the wrists."
+  },
+  {
+    "input": "What is the sign for 'Same'?",
+    "output": "The 'Y' handshape moving back and forth between two things."
+  },
+  {
+    "input": "What is the sign for 'Different'?",
+    "output": "Two index fingers crossed, then pulling apart."
+  },
+  {
+    "input": "What is 'Contrastive Structure' used for?",
+    "output": "To compare two things by placing them on opposite sides of the signing space."
+  },
+  {
+    "input": "What is 'Ranking' in ASL?",
+    "output": "Listing siblings or items on the fingers of the non-dominant hand."
+  },
+  {
+    "input": "Which finger represents the oldest sibling in ranking?",
+    "output": "The thumb."
+  },
+  {
+    "input": "Which finger represents the youngest of 3 siblings?",
+    "output": "The middle finger."
+  },
+  {
+    "input": "What is 'Pronominalization'?",
+    "output": "Using pronouns (pointing) to refer to people or things."
+  },
+  {
+    "input": "What is the 'Agent Marker'?",
+    "output": "The sign added to a verb to make it a person (e.g., TEACH + AGENT = TEACHER)."
+  },
+  {
+    "input": "What does the Agent Marker look like?",
+    "output": "Both flat hands moving down the sides of the body."
+  },
+  {
+    "input": "What is the sign for 'Student'?",
+    "output": "LEARN + AGENT MARKER."
+  },
+  {
+    "input": "What is the sign for 'Learn'?",
+    "output": "Picking up information from the flat palm and putting it in the forehead."
+  },
+  {
+    "input": "What is the sign for 'Teach'?",
+    "output": "Two flat 'O' hands moving forward from the head."
+  },
+  {
+    "input": "What is 'Chuck Baird' known for?",
+    "output": "He was a famous Deaf artist and a founder of the De'VIA movement."
+  },
+  {
+    "input": "What is 'Clayton Valli' known for?",
+    "output": "He was a pioneer in ASL poetry and linguistics."
+  },
+  {
+    "input": "What is 'ASL Poetry'?",
+    "output": "Literature created in ASL, using handshape rhymes, rhythm, and movement."
+  },
+  {
+    "input": "Can ASL poetry be perfectly translated to English?",
+    "output": "No, much of the visual imagery and rhythm is lost in translation."
+  },
+  {
+    "input": "What is a 'Handshape Rhyme'?",
+    "output": "Using the same handshape repeatedly in a poem."
+  },
+  {
+    "input": "What is an 'ABC Story'?",
+    "output": "A story told using the handshapes of the alphabet in order from A to Z."
+  },
+  {
+    "input": "What is a 'Number Story'?",
+    "output": "A story told using number handshapes in a sequence (e.g., 1-10)."
+  },
+  {
+    "input": "What is 'Percussion Signing'?",
+    "output": "Signing to a specific beat or rhythm, often like a drum beat."
+  },
+  {
+    "input": "What is the sign for 'Music'?",
+    "output": "One hand swinging back and forth over the other arm like conducting."
+  },
+  {
+    "input": "Do Deaf people enjoy music?",
+    "output": "Yes, many Deaf people enjoy music through vibrations, visual displays, or residual hearing."
+  },
+  {
+    "input": "What is 'Dip-Hop'?",
+    "output": "Hip-hop music created by Deaf artists."
+  },
+  {
+    "input": "Who is Sean Forbes?",
+    "output": "A Deaf hip-hop artist and co-founder of DPAN."
+  },
+  {
+    "input": "What is 'DPAN'?",
+    "output": "Deaf Professional Arts Network."
+  },
+  {
+    "input": "What is the sign for 'Movie'?",
+    "output": "One hand waving behind the other (projector)."
+  },
+  {
+    "input": "What is 'Sign writing'?",
+    "output": "A system for writing sign languages using symbols for handshapes and movements."
+  },
+  {
+    "input": "Who developed SignWriting?",
+    "output": "Valerie Sutton."
+  },
+  {
+    "input": "Is there a standard written form of ASL?",
+    "output": "No, there is no widely accepted written form; glossing or video is used."
+  },
+  {
+    "input": "What is 'Preservation of the Sign Language'?",
+    "output": "A famous film by George Veditz in 1913."
+  },
+  {
+    "input": "What did George Veditz say about sign language?",
+    "output": "\"Sign language is the noblest gift God has given to deaf people.\""
+  },
+  {
+    "input": "Why did Veditz make films?",
+    "output": "To preserve sign language because he feared oralism would destroy it."
+  },
+  {
+    "input": "What is the 'National Fraternal Society of the Deaf'?",
+    "output": "An insurance organization founded by Deaf men because they couldn't get insurance elsewhere."
+  },
+  {
+    "input": "What is 'Junior NAD'?",
+    "output": "A youth organization for Deaf students focusing on leadership and advocacy."
+  },
+  {
+    "input": "What is 'Camp Mark Seven'?",
+    "output": "A well-known camp for Deaf youth and CODAs."
+  },
+  {
+    "input": "What is the sign for 'Camp'?",
+    "output": "Index and pinky fingers (tent shape) touching."
+  },
+  {
+    "input": "What is 'Deaf Way'?",
+    "output": "A major international conference and festival celebrating Deaf culture held in 1989 and 2002."
+  },
+  {
+    "input": "What is 'Deaf World'?",
+    "output": "A concept referring to the social network and culture of Deaf people globally."
+  },
+  {
+    "input": "What is 'Gestuno'?",
+    "output": "An older term for International Sign."
+  },
+  {
+    "input": "What is the sign for 'Internet'?",
+    "output": "Middle fingers touching and twisting."
+  },
+  {
+    "input": "What is the sign for 'Email'?",
+    "output": "Pass the index finger through the 'C' handshape."
+  },
+  {
+    "input": "What is 'Cyberbullying' in the Deaf community?",
+    "output": "Harassment through video or text, which can spread quickly due to the tight-knit community."
+  },
+  {
+    "input": "What is 'The Grapevine'?",
+    "output": "The gossip or news network in the Deaf community."
+  },
+  {
+    "input": "Why is the Deaf community often called a 'close-knit' community?",
+    "output": "Because it is small, and members rely on each other for information and social connection."
+  },
+  {
+    "input": "What is 'Crab Theory'?",
+    "output": "A metaphor describing how members of a minority group might pull down those who achieve success."
+  },
+  {
+    "input": "What is 'Deaf Elite'?",
+    "output": "A group of Deaf people perceived to have higher status, often from multi-generational Deaf families."
+  },
+  {
+    "input": "What is a 'Grassroots Deaf' person?",
+    "output": "Usually refers to everyday Deaf people, often from working-class backgrounds, who are the core of the community."
+  },
+  {
+    "input": "What is 'High ASL'?",
+    "output": "Formal ASL used in academic or professional settings."
+  },
+  {
+    "input": "What is 'Low ASL'?",
+    "output": "Informal or casual ASL used at home or with friends."
+  },
+  {
+    "input": "What is 'Register' in language?",
+    "output": "The level of formality (frozen, formal, consultative, casual, intimate)."
+  },
+  {
+    "input": "When would you use 'Formal' register in ASL?",
+    "output": "During a lecture, speech, or sermon."
+  },
+  {
+    "input": "When would you use 'Casual' register in ASL?",
+    "output": "Chatting with friends or family."
+  },
+  {
+    "input": "What is 'Turn-taking' in ASL?",
+    "output": "The rules for who signs when; regulated by eye contact, pauses, and holding hands up."
+  },
+  {
+    "input": "How do you interrupt a signer politely?",
+    "output": "Wave a hand slightly, wait for eye contact, and sign 'excuse me'."
+  },
+  {
+    "input": "What is 'Constructed Action'?",
+    "output": "Using body movements and facial expressions to enact an event (showing, not just telling)."
+  },
+  {
+    "input": "What is 'Metathesis'?",
+    "output": "When a sign can be produced in different directions without changing meaning (e.g., DEAF, RESTAURANT)."
+  },
+  {
+    "input": "What is a 'Loan Translation' or 'Calque'?",
+    "output": "Borrowing a phrase from English and signing it word-for-word (e.g., POWER-FULL)."
+  },
+  {
+    "input": "What is the sign for 'Birthday'?",
+    "output": "Middle finger touching chin then chest (or vice versa)."
+  },
+  {
+    "input": "What is the sign for 'Christmas'?",
+    "output": "The 'C' hand moving in an arc."
+  },
+  {
+    "input": "What is the sign for 'Halloween'?",
+    "output": "Hands covering eyes like a mask."
+  },
+  {
+    "input": "What is the sign for 'Thanksgiving'?",
+    "output": "The 'G' or 'Q' hand moving from chin to chest."
+  },
+  {
+    "input": "What is the sign for 'Hanukkah'?",
+    "output": "4 fingers showing the candles of the menorah."
+  },
+  {
+    "input": "What is the sign for 'Easter'?",
+    "output": "'E' hands shaking or making the shape of an egg."
+  },
+  {
+    "input": "What is the sign for 'New Year'?",
+    "output": "One fist scooping into the other palm."
+  },
+  {
+    "input": "What is the sign for 'Wedding'?",
+    "output": "Hands clasping together."
+  },
+  {
+    "input": "What is the sign for 'Divorce'?",
+    "output": "The 'D' hands pulling apart."
+  },
+  {
+    "input": "What is the sign for 'Sweetheart'?",
+    "output": "Fists with thumbs up touching at the knuckles."
+  },
+  {
+    "input": "What is the sign for 'Friend'?",
+    "output": "Index fingers hooking together."
+  },
+  {
+    "input": "What is the sign for 'Best Friend'?",
+    "output": "'R' handshape fingers crossed tightly."
+  },
+  {
+    "input": "What is the sign for 'Enemy'?",
+    "output": "Opposite of friend; hands pulling apart aggressively."
+  },
+  {
+    "input": "What is the sign for 'Peace'?",
+    "output": "Hands clasping then smoothing out."
+  },
+  {
+    "input": "What is the sign for 'War'?",
+    "output": "Hands moving back and forth like fighting."
+  },
+  {
+    "input": "What is the sign for 'Government'?",
+    "output": "Index finger circling and touching the temple."
+  },
+  {
+    "input": "What is the sign for 'Law'?",
+    "output": "The 'L' hand landing on the palm."
+  },
+  {
+    "input": "What is the sign for 'Police'?",
+    "output": "'C' handshape tapping the chest (badge)."
+  },
+  {
+    "input": "What is the sign for 'Doctor'?",
+    "output": "'D' or 'M' hand tapping the wrist (pulse)."
+  },
+  {
+    "input": "What is the sign for 'Nurse'?",
+    "output": "'N' hand tapping the wrist."
+  },
+  {
+    "input": "What is the sign for 'Fireman'?",
+    "output": "B hand touching the forehead (helmet)."
+  },
+  {
+    "input": "What is the sign for 'Teacher'?",
+    "output": "TEACH + AGENT."
+  },
+  {
+    "input": "What is the sign for 'Interpreter'?",
+    "output": "Hands twisting (translating)."
+  },
+  {
+    "input": "What is the sign for 'Science'?",
+    "output": "Thumbs down, alternating circles (pouring chemicals)."
+  },
+  {
+    "input": "What is the sign for 'Math'?",
+    "output": "'M' hands crossing."
+  },
+  {
+    "input": "What is the sign for 'English'?",
+    "output": "One hand grasping the other wrist."
+  },
+  {
+    "input": "What is the sign for 'History'?",
+    "output": "'H' hand moving down."
+  },
+  {
+    "input": "What is the sign for 'Art'?",
+    "output": "Pinky drawing on palm."
+  },
+  {
+    "input": "What is the sign for 'Music'?",
+    "output": "Waving hand over arm."
+  },
+  {
+    "input": "What is the sign for 'Sport'?",
+    "output": "A hands competing."
+  },
+  {
+    "input": "What is the sign for 'Basketball'?",
+    "output": "Hands throwing a ball."
+  },
+  {
+    "input": "What is the sign for 'Baseball'?",
+    "output": "Holding a bat."
+  },
+  {
+    "input": "What is the sign for 'Football'?",
+    "output": "Fingers interlaced (huddle or line)."
+  },
+  {
+    "input": "What is the sign for 'Soccer'?",
+    "output": "One hand kicking the other."
+  },
+  {
+    "input": "What is the sign for 'Swimming'?",
+    "output": "Arms doing the breaststroke."
+  },
+  {
+    "input": "What is the sign for 'Running'?",
+    "output": "L hands hooked and moving forward."
+  },
+  {
+    "input": "What is the sign for 'Walking'?",
+    "output": "Hands moving like feet."
+  },
+  {
+    "input": "What is the sign for 'Dancing'?",
+    "output": "Two fingers 'dancing' on the palm."
+  },
+  {
+    "input": "What is the sign for 'Reading'?",
+    "output": "Eyes scanning the palm."
+  },
+  {
+    "input": "What is the sign for 'Writing'?",
+    "output": "Mimicking writing on palm."
+  },
+  {
+    "input": "What is the sign for 'Eating'?",
+    "output": "Hand putting food in mouth."
+  },
+  {
+    "input": "What is the sign for 'Drinking'?",
+    "output": "Mimicking drinking from a cup."
+  },
+  {
+    "input": "What is the sign for 'Sleeping'?",
+    "output": "Hand closing over face."
+  },
+  {
+    "input": "What is the sign for 'Waking up'?",
+    "output": "Eyes (fingers) popping open."
+  },
+  {
+    "input": "What is the sign for 'Tired'?",
+    "output": "Hands dropping at chest."
+  },
+  {
+    "input": "What is the sign for 'Sick'?",
+    "output": "Middle finger touching forehead and stomach."
+  },
+  {
+    "input": "What is the sign for 'Pain'?",
+    "output": "Two fingers jabbing."
+  },
+  {
+    "input": "What is the sign for 'Happy'?",
+    "output": "Flat hand brushing up chest."
+  },
+  {
+    "input": "What is the sign for 'Sad'?",
+    "output": "Hands dragging down face."
+  },
+  {
+    "input": "What is the sign for 'Angry'?",
+    "output": "Claw hand grabbing at face."
+  },
+  {
+    "input": "What is the sign for 'Scared'?",
+    "output": "Hands shaking across chest."
+  },
+  {
+    "input": "What is the sign for 'Excited'?",
+    "output": "Middle fingers touching chest and moving alternately."
+  },
+  {
+    "input": "What is the sign for 'Bored'?",
+    "output": "Finger twisting at nose."
+  },
+  {
+    "input": "What is the sign for 'Interested'?",
+    "output": "Hand pulling from nose and chest."
+  },
+  {
+    "input": "What is the sign for 'Love'?",
+    "output": "Arms crossed over chest."
+  },
+  {
+    "input": "What is the sign for 'Hate'?",
+    "output": "Flicking middle fingers."
+  },
+  {
+    "input": "What is the sign for 'Like'?",
+    "output": "Thumb and middle finger pulling from chest."
+  },
+  {
+    "input": "What is the sign for 'Dislike'?",
+    "output": "LIKE sign thrown away."
+  },
+  {
+    "input": "What is the sign for 'Want'?",
+    "output": "Hands grabbing towards self."
+  },
+  {
+    "input": "What is the sign for 'Don't Want'?",
+    "output": "Hands pushing away."
+  },
+  {
+    "input": "What is the sign for 'Have'?",
+    "output": "Hands touching chest."
+  },
+  {
+    "input": "What is the sign for 'Don't Have'?",
+    "output": "No sign (or NONE)."
+  },
+  {
+    "input": "What is the sign for 'Need'?",
+    "output": "'X' hand tapping down."
+  },
+  {
+    "input": "What is the sign for 'Must'?",
+    "output": "'X' hand pushing down firmly."
+  },
+  {
+    "input": "What is the sign for 'Can'?",
+    "output": "Fists nodding down."
+  },
+  {
+    "input": "What is the sign for 'Can't'?",
+    "output": "One finger striking the other."
+  },
+  {
+    "input": "What is the sign for 'Will' (future)?",
+    "output": "Flat hand moving forward from cheek."
+  },
+  {
+    "input": "What is the sign for 'Finish'?",
+    "output": "Hands flicking out."
+  },
+  {
+    "input": "What does 'FINISH' mean in grammar?",
+    "output": "It indicates an action is completed (past tense)."
+  },
+  {
+    "input": "What is the sign for 'Stop'?",
+    "output": "Side of hand chopping into palm."
+  },
+  {
+    "input": "What is the sign for 'Go'?",
+    "output": "Index fingers pointing and moving."
+  },
+  {
+    "input": "What is the sign for 'Come'?",
+    "output": "Index finger beckoning."
+  },
+  {
+    "input": "What is the sign for 'Sit'?",
+    "output": "Two fingers hooking over two fingers."
+  },
+  {
+    "input": "What is the sign for 'Stand'?",
+    "output": "Two fingers standing on palm."
+  },
+  {
+    "input": "What is the sign for 'Jump'?",
+    "output": "Two fingers jumping on palm."
+  },
+  {
+    "input": "What is the sign for 'Run'?",
+    "output": "L hands hooked."
+  },
+  {
+    "input": "What is the sign for 'Play'?",
+    "output": "Y hands shaking."
+  },
+  {
+    "input": "What is the sign for 'House'?",
+    "output": "Hands tracing a roof and walls."
+  },
+  {
+    "input": "What is the sign for 'Home'?",
+    "output": "Touching chin and cheek."
+  },
+  {
+    "input": "What is the sign for 'Room'?",
+    "output": "Box shape."
+  },
+  {
+    "input": "What is the sign for 'Door'?",
+    "output": "Hands opening like a door."
+  },
+  {
+    "input": "What is the sign for 'Window'?",
+    "output": "Hands sliding up and down."
+  },
+  {
+    "input": "What is the sign for 'Light'?",
+    "output": "Middle finger flicking chin or hand opening."
+  },
+  {
+    "input": "What is the sign for 'Table'?",
+    "output": "Arms crossing."
+  },
+  {
+    "input": "What is the sign for 'Chair'?",
+    "output": "Two fingers tapping two fingers."
+  },
+  {
+    "input": "What is the sign for 'Bed'?",
+    "output": "Hand on cheek."
+  },
+  {
+    "input": "What is the sign for 'Food'?",
+    "output": "Hand to mouth."
+  },
+  {
+    "input": "What is the sign for 'Water'?",
+    "output": "W hand tapping chin."
+  },
+  {
+    "input": "What is the sign for 'Milk'?",
+    "output": "Squeezing hand (milking cow)."
+  },
+  {
+    "input": "What is the sign for 'Coffee'?",
+    "output": "Fists grinding."
+  },
+  {
+    "input": "What is the sign for 'Tea'?",
+    "output": "Stirring in cup."
+  },
+  {
+    "input": "What is the sign for 'Soda'?",
+    "output": "Middle finger popping into palm."
+  },
+  {
+    "input": "What is the sign for 'Apple'?",
+    "output": "Knuckle twisting in cheek."
+  },
+  {
+    "input": "What is the sign for 'Orange'?",
+    "output": "Squeezing fist at chin."
+  },
+  {
+    "input": "What is the sign for 'Banana'?",
+    "output": "Peeling a finger."
+  },
+  {
+    "input": "What is the sign for 'Cat'?",
+    "output": "Pulling whiskers."
+  },
+  {
+    "input": "What is the sign for 'Dog'?",
+    "output": "Patting thigh and snapping (or just snapping)."
+  },
+  {
+    "input": "What is the sign for 'Bird'?",
+    "output": "Beak at mouth."
+  },
+  {
+    "input": "What is the sign for 'Fish'?",
+    "output": "Hand swimming."
+  },
+  {
+    "input": "What is the sign for 'Horse'?",
+    "output": "H handshape on head (ears)."
+  },
+  {
+    "input": "What is the sign for 'Cow'?",
+    "output": "Y handshape on head (horns)."
+  },
+  {
+    "input": "What is the sign for 'Pig'?",
+    "output": "Hand flapping under chin."
+  },
+  {
+    "input": "What is the sign for 'Car'?",
+    "output": "Steering wheel."
+  },
+  {
+    "input": "What is the sign for 'Bus'?",
+    "output": "#BUS (fingerspelled)."
+  },
+  {
+    "input": "What is the sign for 'Train'?",
+    "output": "Fingers rubbing."
+  },
+  {
+    "input": "What is the sign for 'Airplane'?",
+    "output": "ILY hand flying."
+  },
+  {
+    "input": "What is the sign for 'Boat'?",
+    "output": "Hands cupped (hull)."
+  },
+  {
+    "input": "What is the sign for 'Motorcycle'?",
+    "output": "Revving handles."
+  },
+  {
+    "input": "What is the sign for 'Bicycle'?",
+    "output": "Pedaling hands."
+  },
+  {
+    "input": "What is the sign for 'Red'?",
+    "output": "Finger sliding down lip."
+  },
+  {
+    "input": "What is the sign for 'Blue'?",
+    "output": "B twisting."
+  },
+  {
+    "input": "What is the sign for 'Green'?",
+    "output": "G twisting."
+  },
+  {
+    "input": "What is the sign for 'Yellow'?",
+    "output": "Y twisting."
+  },
+  {
+    "input": "What is the sign for 'Purple'?",
+    "output": "P twisting."
+  },
+  {
+    "input": "What is the sign for 'Black'?",
+    "output": "Index finger wiping forehead."
+  },
+  {
+    "input": "What is the sign for 'White'?",
+    "output": "Pulling from chest."
+  },
+  {
+    "input": "What is the sign for 'Brown'?",
+    "output": "B sliding down face."
+  },
+  {
+    "input": "What is the sign for 'Pink'?",
+    "output": "P tapping chin."
+  },
+  {
+    "input": "What is the sign for 'Orange' (color)?",
+    "output": "Squeezing fist at chin."
+  },
+  {
+    "input": "What is the sign for 'Gray'?",
+    "output": "Fingers passing through each other."
+  },
+  {
+    "input": "What is the sign for 'Monday'?",
+    "output": "M circling."
+  },
+  {
+    "input": "What is the sign for 'Tuesday'?",
+    "output": "T circling."
+  },
+  {
+    "input": "What is the sign for 'Wednesday'?",
+    "output": "W circling."
+  },
+  {
+    "input": "What is the sign for 'Thursday'?",
+    "output": "H circling."
+  },
+  {
+    "input": "What is the sign for 'Friday'?",
+    "output": "F circling."
+  },
+  {
+    "input": "What is the sign for 'Saturday'?",
+    "output": "S circling."
+  },
+  {
+    "input": "What is the sign for 'Sunday'?",
+    "output": "Hands pressing down (worship)."
+  },
+  {
+    "input": "What is the sign for 'Month'?",
+    "output": "One finger sliding down the other."
+  },
+  {
+    "input": "What is the sign for 'Year'?",
+    "output": "Fists circling each other."
+  },
+  {
+    "input": "What is the sign for 'Week'?",
+    "output": "Finger sliding across palm."
+  },
+  {
+    "input": "What is the sign for 'Day'?",
+    "output": "Arm lowering (sun setting)."
+  },
+  {
+    "input": "What is the sign for 'Night'?",
+    "output": "Hand covering wrist (horizon)."
+  },
+  {
+    "input": "What is the sign for 'Morning'?",
+    "output": "Arm rising (sun rising)."
+  },
+  {
+    "input": "What is the sign for 'Afternoon'?",
+    "output": "Arm at angle."
+  },
+  {
+    "input": "What is the sign for 'Noon'?",
+    "output": "Arm straight up."
+  },
+  {
+    "input": "What is the sign for 'Clock'?",
+    "output": "Pointing to wrist."
+  },
+  {
+    "input": "What is the sign for 'Time'?",
+    "output": "Tapping wrist."
+  },
+  {
+    "input": "What is the sign for 'Hour'?",
+    "output": "Hand circling face of clock."
+  },
+  {
+    "input": "What is the sign for 'Minute'?",
+    "output": "Index finger ticking."
+  },
+  {
+    "input": "What is the sign for 'Second'?",
+    "output": "Quick tick."
+  },
+  {
+    "input": "What is the sign for 'Dollar'?",
+    "output": "Hand sliding off palm."
+  },
+  {
+    "input": "What is the sign for 'Cent'?",
+    "output": "Finger touching forehead."
+  },
+  {
+    "input": "What is the sign for 'Cost'?",
+    "output": "X dragging down palm."
+  },
+  {
+    "input": "What is the sign for 'Buy'?",
+    "output": "Hand giving money."
+  },
+  {
+    "input": "What is the sign for 'Sell'?",
+    "output": "Hands waving out."
+  },
+  {
+    "input": "What is the sign for 'Store'?",
+    "output": "Puppet hands shaking."
+  },
+  {
+    "input": "What is the sign for 'Clothes'?",
+    "output": "Thumbs dusting shoulders."
+  },
+  {
+    "input": "What is the sign for 'Shirt'?",
+    "output": "Pulling shirt."
+  },
+  {
+    "input": "What is the sign for 'Pants'?",
+    "output": "Hands brushing legs."
+  },
+  {
+    "input": "What is the sign for 'Shoes'?",
+    "output": "Fists tapping."
+  },
+  {
+    "input": "What is the sign for 'Coat'?",
+    "output": "Putting on coat."
+  },
+  {
+    "input": "What is the sign for 'Hat'?",
+    "output": "Patting head."
+  },
+  {
+    "input": "What is the sign for 'Glasses'?",
+    "output": "Pinching eyes."
+  },
+  {
+    "input": "What is the sign for 'Rain'?",
+    "output": "Fingers falling."
+  },
+  {
+    "input": "What is the sign for 'Snow'?",
+    "output": "Fingers fluttering."
+  },
+  {
+    "input": "What is the sign for 'Wind'?",
+    "output": "Hands swaying."
+  },
+  {
+    "input": "What is the sign for 'Sun'?",
+    "output": "Circle at head."
+  },
+  {
+    "input": "What is the sign for 'Hot'?",
+    "output": "Throwing from mouth."
+  },
+  {
+    "input": "What is the sign for 'Cold'?",
+    "output": "Shivering."
+  },
+  {
+    "input": "What is the sign for 'Weather'?",
+    "output": "W hands waving."
+  },
+  {
+    "input": "What is the sign for 'Temperature'?",
+    "output": "Finger on gauge."
+  },
+  {
+    "input": "What is the sign for 'North'?",
+    "output": "N moving up."
+  },
+  {
+    "input": "What is the sign for 'South'?",
+    "output": "S moving down."
+  },
+  {
+    "input": "What is the sign for 'East'?",
+    "output": "E moving right."
+  },
+  {
+    "input": "What is the sign for 'West'?",
+    "output": "W moving left."
+  },
+  {
+    "input": "What is the sign for 'Where'?",
+    "output": "Finger wagging."
+  },
+  {
+    "input": "What is the sign for 'When'?",
+    "output": "Finger circling finger."
+  },
+  {
+    "input": "What is the sign for 'Who'?",
+    "output": "Thumb on chin, finger wiggling."
+  },
+  {
+    "input": "What is the sign for 'What'?",
+    "output": "Hands shaking (palms up)."
+  },
+  {
+    "input": "What is the sign for 'Why'?",
+    "output": "Pulling from forehead to Y."
+  },
+  {
+    "input": "What is the sign for 'How'?",
+    "output": "Hands twisting open."
+  },
+  {
+    "input": "What is the sign for 'Which'?",
+    "output": "A hands alternating."
+  },
+  {
+    "input": "What is 'NAD'?",
+    "output": "National Association of the Deaf."
+  },
+  {
+    "input": "What is 'Section 504'?",
+    "output": "The law (Rehabilitation Act of 1973) requiring access for people with disabilities."
+  },
+  {
+    "input": "What is 'PL 94-142'?",
+    "output": "Education for All Handicapped Children Act (now IDEA)."
+  },
+  {
+    "input": "What is 'IDEA'?",
+    "output": "Individuals with Disabilities Education Act."
+  },
+  {
+    "input": "What is 'LRE'?",
+    "output": "Least Restrictive Environment."
+  },
+  {
+    "input": "Why is LRE controversial for Deaf students?",
+    "output": "Many believe the mainstream classroom (LRE) is actually the 'Most Restrictive' due to isolation."
+  },
+  {
+    "input": "What is 'IEP'?",
+    "output": "Individualized Education Program."
+  },
+  {
+    "input": "What is 'NBDA'?",
+    "output": "National Black Deaf Advocates."
+  },
+  {
+    "input": "What is 'DWU'?",
+    "output": "Deaf Women United."
+  },
+  {
+    "input": "What is 'Rainbow Alliance of the Deaf'?",
+    "output": "An organization for LGBTQ+ Deaf people."
+  },
+  {
+    "input": "What is 'Deaf Seniors of America'?",
+    "output": "An organization for older Deaf citizens."
+  },
+  {
+    "input": "What is 'AADB'?",
+    "output": "American Association of the Deaf-Blind."
+  },
+  {
+    "input": "What is 'WFD'?",
+    "output": "World Federation of the Deaf."
+  },
+  {
+    "input": "What is 'Deaflympics'?",
+    "output": "Olympics for the Deaf."
+  },
+  {
+    "input": "What is 'ICSD'?",
+    "output": "International Committee of Sports for the Deaf."
+  },
+  {
+    "input": "What is 'AAAD'?",
+    "output": "American Athletic Association of the Deaf (now USADSF)."
+  },
+  {
+    "input": "What is 'USADSF'?",
+    "output": "USA Deaf Sports Federation."
+  },
+  {
+    "input": "What is 'NTID'?",
+    "output": "National Technical Institute for the Deaf."
+  },
+  {
+    "input": "Where is NTID located?",
+    "output": "Rochester, New York (RIT campus)."
+  },
+  {
+    "input": "What is 'CSD'?",
+    "output": "Communication Service for the Deaf (or a school for the deaf)."
+  },
+  {
+    "input": "What is 'Cal State Northridge' (CSUN) known for?",
+    "output": "It has a large program for Deaf students and the National Center on Deafness."
+  },
+  {
+    "input": "What is 'Ohlone College' known for?",
+    "output": "It has a large Deaf studies and interpreter preparation program in California."
+  },
+  {
+    "input": "What is 'Southwest Collegiate Institute for the Deaf' (SWCID)?",
+    "output": "A community college for Deaf students in Texas."
+  },
+  {
+    "input": "Who is 'Douglas Tilden'?",
+    "output": "A famous Deaf sculptor from California."
+  },
+  {
+    "input": "Who is 'Granville Redmond'?",
+    "output": "A famous Deaf painter and friend of Charlie Chaplin."
+  },
+  {
+    "input": "Who is 'Juliette Gordon Low'?",
+    "output": "The founder of the Girl Scouts, who was deaf."
+  },
+  {
+    "input": "Who is 'Beethoven' in relation to deafness?",
+    "output": "A famous composer who became deaf later in life."
+  },
+  {
+    "input": "Who is 'Goya'?",
+    "output": "A famous Spanish painter who became deaf."
+  },
+  {
+    "input": "Who is 'Edison' in relation to deafness?",
+    "output": "Thomas Edison was hard of hearing/deaf."
+  },
+  {
+    "input": "What is 'Children of a Lesser God'?",
+    "output": "A play and movie about a Deaf woman and a hearing speech teacher."
+  },
+  {
+    "input": "What is 'Switched at Birth'?",
+    "output": "A TV show featuring many Deaf actors and ASL."
+  },
+  {
+    "input": "What is 'Spring Awakening' (Deaf West)?",
+    "output": "A Broadway musical performed simultaneously in ASL and English."
+  },
+  {
+    "input": "What is 'CODA' (movie)?",
+    "output": "An Oscar-winning movie about a Child of Deaf Adults."
+  },
+  {
+    "input": "Who is 'Troy Kotsur'?",
+    "output": "The first Deaf man to win an acting Oscar (for CODA)."
+  },
+  {
+    "input": "What is the 'Sign Language Interpreter' role?",
+    "output": "To facilitate communication between Deaf and hearing people."
+  },
+  {
+    "input": "What is 'EIPA'?",
+    "output": "Educational Interpreter Performance Assessment."
+  },
+  {
+    "input": "What is 'NIC'?",
+    "output": "National Interpreter Certification."
+  },
+  {
+    "input": "What is 'Code of Professional Conduct'?",
+    "output": "The ethical rules interpreters must follow (confidentiality, impartiality)."
+  },
+  {
+    "input": "Can an interpreter be a friend?",
+    "output": "Yes, but they must maintain professional boundaries while working."
+  },
+  {
+    "input": "Should you look at the interpreter or the Deaf person?",
+    "output": "Look at the Deaf person."
+  },
+  {
+    "input": "How do you address a Deaf person through an interpreter?",
+    "output": "Speak directly to them ('How are you?'), not 'Ask him how he is'."
+  },
+  {
+    "input": "What is 'lag time' or 'processing time'?",
+    "output": "The delay between the speaker speaking and the interpreter signing."
+  },
+  {
+    "input": "What is 'transliteration'?",
+    "output": "Signing in English word order (like SEE or CASE) rather than ASL."
+  },
+  {
+    "input": "What is 'translation'?",
+    "output": "Converting meaning from one language (English) to another (ASL)."
+  },
+  {
+    "input": "What is 'sight translation'?",
+    "output": "Reading a written text and signing it."
+  },
+  {
+    "input": "What is 'team interpreting'?",
+    "output": "Two interpreters working together to prevent fatigue and ensure accuracy."
+  },
+  {
+    "input": "How often do interpreters switch?",
+    "output": "Usually every 20 minutes."
+  },
+  {
+    "input": "What is 'RSI'?",
+    "output": "Remote Simultaneous Interpreting."
+  },
+  {
+    "input": "What is 'terp'?",
+    "output": "Slang for interpreter."
+  },
+  {
+    "input": "What is 'baby cry' signal?",
+    "output": "A light that flashes when a baby cries."
+  },
+  {
+    "input": "What is a 'doorbell flasher'?",
+    "output": "A light that flashes when the doorbell rings."
+  },
+  {
+    "input": "What is a 'shake-awake' alarm?",
+    "output": "A vibrating alarm clock."
+  },
+  {
+    "input": "What is 'closed captioning' glasses?",
+    "output": "Glasses used in movie theaters to see captions."
+  },
+  {
+    "input": "What is 'Rear Window Captioning'?",
+    "output": "A device in theaters that reflects captions from the back of the room."
+  },
+  {
+    "input": "What is 'text-to-911'?",
+    "output": "The ability to send text messages to emergency services."
+  },
+  {
+    "input": "What is 'Next Generation 911'?",
+    "output": "Upgraded emergency systems improving access for Deaf people."
+  },
+  {
+    "input": "What is 'high context' culture?",
+    "output": "A culture (like Deaf culture) that relies heavily on shared background and non-verbal cues."
+  },
+  {
+    "input": "What is 'collectivist' culture?",
+    "output": "A culture that values the group over the individual (Deaf culture is often collectivist)."
+  },
+  {
+    "input": "What is 'individualist' culture?",
+    "output": "A culture that values independence (American hearing culture is individualist)."
+  },
+  {
+    "input": "Why is 'information sharing' valued in Deaf culture?",
+    "output": "Because access to information has historically been limited, so sharing is caring."
+  },
+  {
+    "input": "Why are 'long goodbyes' common?",
+    "output": "Because opportunities to meet face-to-face were rare and precious."
+  },
+  {
+    "input": "What is 'Deaf Standard Time'?",
+    "output": "Running late due to socializing."
+  },
+  {
+    "input": "What is 'straight talk'?",
+    "output": "Deaf people tend to be blunt and direct (e.g., 'You gained weight')."
+  },
+  {
+    "input": "Is bluntness considered rude in Deaf culture?",
+    "output": "No, it is seen as honest and clear communication."
+  },
+  {
+    "input": "What is 'sandwiching' (not feedback)?",
+    "output": "Putting a sign before and after a clause for emphasis (e.g., WOMAN SMART WOMAN)."
+  },
+  {
+    "input": "What is 'bookending'?",
+    "output": "Starting and ending a sentence with the same sign (e.g., ME GO STORE ME)."
+  },
+  {
+    "input": "What is 'rhetorical question' in ASL?",
+    "output": "Asking a question and immediately answering it to draw attention to new information."
+  },
+  {
+    "input": "What NMM is used for rhetorical questions?",
+    "output": "Raised eyebrows."
+  },
+  {
+    "input": "What is 'conditional sentence'?",
+    "output": "If/then statement."
+  },
+  {
+    "input": "What NMM is used for the 'If' part of a conditional?",
+    "output": "Raised eyebrows."
+  },
+  {
+    "input": "What is 'topicalization'?",
+    "output": "Moving the object to the front of the sentence."
+  },
+  {
+    "input": "What is 'OSV'?",
+    "output": "Object-Subject-Verb (ASL word order)."
+  },
+  {
+    "input": "What is 'SVO'?",
+    "output": "Subject-Verb-Object (English word order)."
+  },
+  {
+    "input": "Does ASL use SVO?",
+    "output": "Yes, sometimes, but OSV is more distinctive."
+  },
+  {
+    "input": "What is 'time-topic-comment'?",
+    "output": "The standard order: Time first, then Topic, then Comment."
+  },
+  {
+    "input": "Why is time first in ASL?",
+    "output": "To establish the tense context immediately."
+  },
+  {
+    "input": "What is 'negation' placement?",
+    "output": "Negation usually comes at the end of the sentence or before the verb."
+  },
+  {
+    "input": "What is 'modal' placement?",
+    "output": "Modals (can, should, must) usually come at the end."
+  },
+  {
+    "input": "What is 'adjective' placement?",
+    "output": "Adjectives can come before or after the noun."
+  },
+  {
+    "input": "What is 'auxiliary verb' in ASL?",
+    "output": "ASL does not use auxiliary verbs like 'is', 'am', 'are'."
+  },
+  {
+    "input": "What is 'articles' in ASL?",
+    "output": "ASL does not use articles like 'a', 'an', 'the'."
+  },
+  {
+    "input": "How do you specify 'the' in ASL?",
+    "output": "By pointing (indexing)."
+  },
+  {
+    "input": "What is 'affix' in ASL?",
+    "output": "ASL does not use affixes (prefixes/suffixes); it modifies the sign itself."
+  },
+  {
+    "input": "What is 'derivational morphology'?",
+    "output": "Creating new words (e.g., Noun/Verb pairs)."
+  },
+  {
+    "input": "What is 'inflectional morphology'?",
+    "output": "Modifying a word for grammar (e.g., aspect, directionality)."
+  },
+  {
+    "input": "What is 'spatial referencing'?",
+    "output": "Setting up people/places in space and pointing to them later."
+  },
+  {
+    "input": "What is 'agreement verb'?",
+    "output": "Another term for directional verb."
+  },
+  {
+    "input": "What is 'locative verb'?",
+    "output": "A verb indicating location."
+  },
+  {
+    "input": "What is 'depicting verb'?",
+    "output": "A modern term for classifier predicates."
+  },
+  {
+    "input": "What is 'constructed dialogue'?",
+    "output": "Re-enacting a conversation (role shift)."
+  },
+  {
+    "input": "What is 'surrogacy'?",
+    "output": "Taking on the role of another person."
+  },
+  {
+    "input": "What is 'personification'?",
+    "output": "Acting as an object or animal."
+  },
+  {
+    "input": "What is 'blending'?",
+    "output": "Combining a classifier with a role shift."
+  },
+  {
+    "input": "What is 'mouth gesture'?",
+    "output": "Mouth movement not related to spoken words (e.g., 'th', 'mm')."
+  },
+  {
+    "input": "What is 'mouthing'?",
+    "output": "Silently shaping English words while signing."
+  },
+  {
+    "input": "Is mouthing required in ASL?",
+    "output": "It is debated; some mouthing is common, but too much looks like English."
+  },
+  {
+    "input": "What is 'fingerspelled loan'?",
+    "output": "Lexicalized fingerspelling."
+  },
+  {
+    "input": "What is 'flagging'?",
+    "output": "Fingerspelling a word then signing a generic sign to define it."
+  },
+  {
+    "input": "What is 'expansion'?",
+    "output": "Adding detail to clarify a concept."
+  },
+  {
+    "input": "What is 'compression'?",
+    "output": "Reducing signs for speed."
+  },
+  {
+    "input": "What is 'faceting'?",
+    "output": "Using multiple signs to describe one concept (e.g., HAPPY + EXCITED)."
+  },
+  {
+    "input": "What is 'iteration'?",
+    "output": "Repeating a sign."
+  },
+  {
+    "input": "What is '3D language'?",
+    "output": "ASL uses 3D space, unlike linear spoken languages."
+  },
+  {
+    "input": "What is '4D language'?",
+    "output": "Including time as the 4th dimension in ASL."
+  },
+  {
+    "input": "What is 'visual vernacular'?",
+    "output": "A theatrical form of physical expression and storytelling unique to Deaf culture."
+  },
+  {
+    "input": "Who is 'Bernard Bragg'?",
+    "output": "A founder of the National Theatre of the Deaf."
+  },
+  {
+    "input": "Who is 'Linda Bove'?",
+    "output": "The Deaf librarian on Sesame Street."
+  },
+  {
+    "input": "Who is 'CJ Jones'?",
+    "output": "A Deaf actor and comedian (Baby Driver)."
+  },
+  {
+    "input": "Who is 'Millicent Simmonds'?",
+    "output": "A young Deaf actress (A Quiet Place)."
+  },
+  {
+    "input": "Who is 'Lauren Ridloff'?",
+    "output": "A Deaf actress (Eternals, Walking Dead)."
+  },
+  {
+    "input": "Who is 'Haber'?",
+    "output": "Possibly refers to 'Andrew Foster', first Black Deaf graduate of Gallaudet."
+  },
+  {
+    "input": "Who was Andrew Foster?",
+    "output": "He established 31 schools for the Deaf in Africa."
+  },
+  {
+    "input": "What is the 'Gallaudet 11'?",
+    "output": "Deaf men from Gallaudet who helped NASA research motion sickness."
+  },
+  {
+    "input": "What is 'Deaf Bing'?",
+    "output": "A humorous term for things Deaf people do (Deaf tendencies)."
+  },
+  {
+    "input": "Example of 'Deaf Bing'?",
+    "output": "Stomping on the floor to get attention."
+  },
+  {
+    "input": "What is 'The Hammer'?",
+    "output": "A movie about Deaf wrestler Matt Hamill."
+  },
+  {
+    "input": "What is 'Sound of Metal'?",
+    "output": "A movie about a drummer losing his hearing."
+  },
+  {
+    "input": "What is 'Feel the Music'?",
+    "output": "Holding a balloon or speaker to feel vibrations."
+  },
+  {
+    "input": "What is 'Sign Singing'?",
+    "output": "Translating lyrics into sign language (controversial if not done by Deaf)."
+  },
+  {
+    "input": "Why is 'Sign Singing' controversial?",
+    "output": "Hearing people often do it for clout without knowing the language properly."
+  },
+  {
+    "input": "What is 'cultural appropriation' in ASL?",
+    "output": "Hearing people profiting from ASL without involving the Deaf community."
+  },
+  {
+    "input": "What is 'Sim-Com'?",
+    "output": "Simultaneous Communication."
+  },
+  {
+    "input": "Why is 'Sim-Com' bad?",
+    "output": "One language (usually ASL) suffers grammatically."
+  },
+  {
+    "input": "What is 'PSE'?",
+    "output": "Pidgin Signed English."
+  },
+  {
+    "input": "What is 'MCE'?",
+    "output": "Manually Coded English."
+  },
+  {
+    "input": "What is 'SEE1'?",
+    "output": "Seeing Essential English."
+  },
+  {
+    "input": "What is 'SEE2'?",
+    "output": "Signing Exact English."
+  },
+  {
+    "input": "What is 'LOVE'?",
+    "output": "Linguistics of Visual English."
+  },
+  {
+    "input": "What is 'CASE'?",
+    "output": "Conceptually Accurate Signed English."
+  },
+  {
+    "input": "What is 'ASL structure'?",
+    "output": "Time-Topic-Comment."
+  },
+  {
+    "input": "What is 'English structure'?",
+    "output": "Subject-Verb-Object."
+  },
+  {
+    "input": "What is 'translanguaging'?",
+    "output": "Using all linguistic resources (ASL, English, gesture) to communicate."
+  },
+  {
+    "input": "What is 'bilingualism'?",
+    "output": "Fluency in two languages."
+  },
+  {
+    "input": "What is 'semilingualism'?",
+    "output": "Not fully fluent in any language (outdated/controversial term)."
+  },
+  {
+    "input": "What is 'native signer'?",
+    "output": "Someone who learned ASL from birth."
+  },
+  {
+    "input": "What is 'near-native'?",
+    "output": "Someone who learned ASL very young or is very fluent."
+  },
+  {
+    "input": "What is 'L1'?",
+    "output": "First language."
+  },
+  {
+    "input": "What is 'L2'?",
+    "output": "Second language."
+  },
+  {
+    "input": "What is 'M1'?",
+    "output": "Modality 1 (e.g., visual)."
+  },
+  {
+    "input": "What is 'M2'?",
+    "output": "Modality 2 (e.g., auditory)."
+  },
+  {
+    "input": "What is 'cross-modal'?",
+    "output": "Between spoken and signed languages."
+  },
+  {
+    "input": "What is 'unimodal'?",
+    "output": "Within the same mode (e.g., ASL to BSL)."
+  },
+  {
+    "input": "What is 'tertiary' interpreter?",
+    "output": "Used in medical/legal settings for extra clarity."
+  },
+  {
+    "input": "What is 'legal interpreting'?",
+    "output": "Specialized interpreting for court/police."
+  },
+  {
+    "input": "What is 'medical interpreting'?",
+    "output": "Specialized interpreting for healthcare."
+  },
+  {
+    "input": "What is 'educational interpreting'?",
+    "output": "Interpreting in K-12 or higher ed."
+  },
+  {
+    "input": "What is 'theatrical interpreting'?",
+    "output": "Interpreting plays or concerts."
+  },
+  {
+    "input": "What is 'platform interpreting'?",
+    "output": "Interpreting for a large audience."
+  },
+  {
+    "input": "What is 'vRS' vs 'vRI'?",
+    "output": "Phone calls vs In-person remote."
+  },
+  {
+    "input": "What is 'FCC'?",
+    "output": "Federal Communications Commission (regulates VRS)."
+  },
+  {
+    "input": "What is 'ADA Title II'?",
+    "output": "State and local government access."
+  },
+  {
+    "input": "What is 'ADA Title III'?",
+    "output": "Public accommodations (businesses)."
+  },
+  {
+    "input": "What is 'undue burden'?",
+    "output": "An exception to ADA if providing access is too expensive."
+  },
+  {
+    "input": "What is 'reasonable accommodation'?",
+    "output": "A modification that allows access."
+  },
+  {
+    "input": "What is 'effective communication'?",
+    "output": "The standard required by the ADA."
+  },
+  {
+    "input": "What is 'auxiliary aids and services'?",
+    "output": "Tools for access (interpreters, captions)."
+  },
+  {
+    "input": "What is 'qualified interpreter'?",
+    "output": "Someone who can interpret effectively, accurately, and impartially."
+  },
+  {
+    "input": "Is a family member a qualified interpreter?",
+    "output": "Generally no, due to lack of impartiality and skill."
+  },
+  {
+    "input": "Is a child a qualified interpreter?",
+    "output": "No, using children is inappropriate and risky."
+  },
+  {
+    "input": "What is 'ad hoc' interpreter?",
+    "output": "An untrained person pulled in to interpret."
+  },
+  {
+    "input": "What is 'pre-conferencing'?",
+    "output": "Meeting with the interpreter before the assignment."
+  },
+  {
+    "input": "What is 'debriefing'?",
+    "output": "Discussing how the assignment went afterwards."
+  },
+  {
+    "input": "What is 'prep material'?",
+    "output": "Documents given to the interpreter to study."
+  },
+  {
+    "input": "What is 'team'?",
+    "output": "The other interpreter."
+  },
+  {
+    "input": "What is 'feeding'?",
+    "output": "Giving a missed word to the working interpreter."
+  },
+  {
+    "input": "What is 'chunking'?",
+    "output": "Processing information in segments."
+  },
+  {
+    "input": "What is 'cloze' skills?",
+    "output": "Filling in the gaps of missing information."
+  },
+  {
+    "input": "What is 'decoding'?",
+    "output": "Understanding the source message."
+  },
+  {
+    "input": "What is 'encoding'?",
+    "output": "Producing the target message."
+  },
+  {
+    "input": "What is 'source language'?",
+    "output": "The language being translated from."
+  },
+  {
+    "input": "What is 'target language'?",
+    "output": "The language being translated to."
+  },
+  {
+    "input": "What is 'A-language'?",
+    "output": "Native/most fluent language."
+  },
+  {
+    "input": "What is 'B-language'?",
+    "output": "Second fluent language."
+  },
+  {
+    "input": "What is 'C-language'?",
+    "output": "Passive language (understand but don't speak)."
+  },
+  {
+    "input": "What is 'dynamic equivalence'?",
+    "output": "Translating the meaning and impact, not just words."
+  },
+  {
+    "input": "What is 'register' variation?",
+    "output": "Changing style based on the setting."
+  },
+  {
+    "input": "What is 'prosody'?",
+    "output": "Rhythm and intonation (visual in ASL)."
+  },
+  {
+    "input": "What is 'affect'?",
+    "output": "Emotion shown in the message."
+  },
+  {
+    "input": "What is 'content'?",
+    "output": "The facts/information."
+  },
+  {
+    "input": "What is 'context'?",
+    "output": "The situation surrounding the message."
+  },
+  {
+    "input": "What is 'cultural mediation'?",
+    "output": "Explaining cultural nuances."
+  },
+  {
+    "input": "What is 'linguistic expansion'?",
+    "output": "Adding words to make grammatical sense."
+  },
+  {
+    "input": "What is 'linguistic reduction'?",
+    "output": "Removing redundant words."
+  },
+  {
+    "input": "What is 'voice'?",
+    "output": "Spoken English (or the interpreter voicing)."
+  },
+  {
+    "input": "What is 'sign-to-voice'?",
+    "output": "Interpreting from ASL to spoken English."
+  },
+  {
+    "input": "What is 'voice-to-sign'?",
+    "output": "Interpreting from spoken English to ASL."
+  },
+  {
+    "input": "What is 'receptive skills'?",
+    "output": "Understanding ASL."
+  },
+  {
+    "input": "What is 'expressive skills'?",
+    "output": "Producing ASL."
+  },
+  {
+    "input": "What is 'finger-spelling reception'?",
+    "output": "Reading fingerspelling."
+  },
+  {
+    "input": "What is 'idiom'?",
+    "output": "A phrase with a non-literal meaning."
+  },
+  {
+    "input": "How do you sign 'It's raining cats and dogs'?",
+    "output": "Sign RAIN + HARD/HEAVY."
+  },
+  {
+    "input": "How do you sign 'Piece of cake'?",
+    "output": "Sign EASY."
+  },
+  {
+    "input": "How do you sign 'Break a leg'?",
+    "output": "Sign GOOD LUCK or thumbs up."
+  },
+  {
+    "input": "What is the sign for 'Train gone sorry'?",
+    "output": "It means you missed the information and I'm not repeating it."
+  },
+  {
+    "input": "What is the sign for 'Vomit' (slang)?",
+    "output": "It means something is really ugly or bad."
+  },
+  {
+    "input": "What is the sign for 'Pah'?",
+    "output": "It means 'Finally!' or 'At last!'."
+  },
+  {
+    "input": "What is the sign for 'True-Biz'?",
+    "output": "It means 'Seriously', 'For real', or 'I'm not kidding'."
+  },
+  {
+    "input": "What is the sign for 'Mind-Frozen'?",
+    "output": "It means 'My mind went blank'."
+  },
+  {
+    "input": "What is the sign for 'Think-Touch'?",
+    "output": "It means 'Obsessed with'."
+  },
+  {
+    "input": "What is the sign for 'Kiss-Fist'?",
+    "output": "It means 'I really love it' or 'crave it'."
+  },
+  {
+    "input": "What is the sign for 'Cow-It'?",
+    "output": "It means 'I'm not crazy about it' or 'It takes forever'."
+  },
+  {
+    "input": "What is the sign for 'Fish-Swallow'?",
+    "output": "It means 'Gullible'."
+  },
+  {
+    "input": "What is the sign for 'Train-Go'?",
+    "output": "Missed the boat/opportunity."
+  },
+  {
+    "input": "What is the sign for 'Do-Do'?",
+    "output": "It means 'What are you doing?' or 'What should I do?'."
+  },
+  {
+    "input": "What is the sign for 'For-For'?",
+    "output": "It means 'What is that for?' or 'Why?'."
+  },
+  {
+    "input": "What is the sign for 'Wrong' (slang)?",
+    "output": "It means 'Whoops' or 'My mistake'."
+  },
+  {
+    "input": "What is the sign for 'Sick' (slang)?",
+    "output": "It can mean 'Cool' or 'Awesome'."
+  },
+  {
+    "input": "What is the sign for 'Strict'?",
+    "output": "Bent V hand on nose."
+  },
+  {
+    "input": "What is the sign for 'Lousy'?",
+    "output": "3 handshape on nose thrown down."
+  },
+  {
+    "input": "What is the sign for 'Mooch'?",
+    "output": "Claw hand pinching throat."
+  },
+  {
+    "input": "What is the sign for 'Broke' (no money)?",
+    "output": "Hand chopping neck."
+  },
+  {
+    "input": "What is the sign for 'Bachelor'?",
+    "output": "B on chin sides."
+  },
+  {
+    "input": "What is the sign for 'Europe'?",
+    "output": "E circling forehead."
+  },
+  {
+    "input": "What is the sign for 'Africa'?",
+    "output": "A circling face."
+  },
+  {
+    "input": "What is the sign for 'Asia'?",
+    "output": "A circling."
+  },
+  {
+    "input": "What is the sign for 'Australia'?",
+    "output": "B flipping on head (kangaroo)."
+  },
+  {
+    "input": "What is the sign for 'England'?",
+    "output": "Hand clasping chin."
+  },
+  {
+    "input": "What is the sign for 'France'?",
+    "output": "F flicking."
+  },
+  {
+    "input": "What is the sign for 'Spain'?",
+    "output": "Hooking from shoulder."
+  },
+  {
+    "input": "What is the sign for 'Italy'?",
+    "output": "I crossing forehead."
+  },
+  {
+    "input": "What is the sign for 'Germany'?",
+    "output": "Finger on forehead (helmet)."
+  },
+  {
+    "input": "What is the sign for 'China'?",
+    "output": "Pointing to buttons on shirt."
+  },
+  {
+    "input": "What is the sign for 'Japan'?",
+    "output": "Eye shape."
+  },
+  {
+    "input": "What is the sign for 'India'?",
+    "output": "Thumb on forehead (bindi)."
+  },
+  {
+    "input": "What is the sign for 'Mexico'?",
+    "output": "V or M flicking on forehead."
+  },
+  {
+    "input": "What is the sign for 'Canada'?",
+    "output": "Grabbing lapel."
+  },
+  {
+    "input": "What is the sign for 'California'?",
+    "output": "ILY hand twisting at ear (gold)."
+  },
+  {
+    "input": "What is the sign for 'New York'?",
+    "output": "Y sliding on palm."
+  },
+  {
+    "input": "What is the sign for 'Texas'?",
+    "output": "X moving in 7 shape."
+  },
+  {
+    "input": "What is the sign for 'Washington'?",
+    "output": "W circling shoulder."
+  },
+  {
+    "input": "What is the sign for 'Chicago'?",
+    "output": "C moving in 7 shape."
+  },
+  {
+    "input": "What is the sign for 'Atlanta'?",
+    "output": "A tapping chest."
+  },
+  {
+    "input": "What is the sign for 'Philadelphia'?",
+    "output": "P moving in 7 shape."
+  },
+  {
+    "input": "What is the sign for 'Boston'?",
+    "output": "B bouncing."
+  },
+  {
+    "input": "What is the sign for 'Library'?",
+    "output": "L circling."
+  },
+  {
+    "input": "What is the sign for 'Cafeteria'?",
+    "output": "C brushing chin."
+  },
+  {
+    "input": "What is the sign for 'Office'?",
+    "output": "O hands making walls."
+  },
+  {
+    "input": "What is the sign for 'Principal'?",
+    "output": "P circling hand."
+  },
+  {
+    "input": "What is the sign for 'President'?",
+    "output": "Hands grabbing imaginary hat brim."
+  },
+  {
+    "input": "What is the sign for 'Vice President'?",
+    "output": "VP."
+  },
+  {
+    "input": "What is the sign for 'Secretary'?",
+    "output": "Ear to hand (pencil)."
+  },
+  {
+    "input": "What is the sign for 'Treasurer'?",
+    "output": "Money + Keeper."
+  },
+  {
+    "input": "What is the sign for 'Committee'?",
+    "output": "C circling."
+  },
+  {
+    "input": "What is the sign for 'Meeting'?",
+    "output": "Hands closing."
+  },
+  {
+    "input": "What is the sign for 'Appointment'?",
+    "output": "Hand grabbing wrist."
+  },
+  {
+    "input": "What is the sign for 'Schedule'?",
+    "output": "Grid on palm."
+  },
+  {
+    "input": "What is the sign for 'Calendar'?",
+    "output": "Pages flipping."
+  },
+  {
+    "input": "What is the sign for 'Vacation'?",
+    "output": "Thumbs in suspenders."
+  },
+  {
+    "input": "What is the sign for 'Retire'?",
+    "output": "R hands in suspenders."
+  },
+  {
+    "input": "What is the sign for 'Boss'?",
+    "output": "Claw on shoulder."
+  },
+  {
+    "input": "What is the sign for 'Manage'?",
+    "output": "X hands controlling reins."
+  },
+  {
+    "input": "What is the sign for 'Supervise'?",
+    "output": "K hands looking."
+  },
+  {
+    "input": "What is the sign for 'Volunteer'?",
+    "output": "F pulling shirt."
+  },
+  {
+    "input": "What is the sign for 'Apply'?",
+    "output": "Pulling shirt."
+  },
+  {
+    "input": "What is the sign for 'Interview'?",
+    "output": "I hands exchanging."
+  },
+  {
+    "input": "What is the sign for 'Hire'?",
+    "output": "Hand inviting in."
+  },
+  {
+    "input": "What is the sign for 'Fire' (job)?",
+    "output": "Hand chopping off."
+  },
+  {
+    "input": "What is the sign for 'Quit'?",
+    "output": "H popping out of hand."
+  },
+  {
+    "input": "What is the sign for 'Resume'?",
+    "output": "R hands framing."
+  },
+  {
+    "input": "What is the sign for 'Skill'?",
+    "output": "Hand grabbing hand."
+  },
+  {
+    "input": "What is the sign for 'Experience'?",
+    "output": "Pulling cheek."
+  },
+  {
+    "input": "What is the sign for 'License'?",
+    "output": "L hands framing."
+  },
+  {
+    "input": "What is the sign for 'Degree'?",
+    "output": "F hands framing."
+  },
+  {
+    "input": "What is the sign for 'Graduation'?",
+    "output": "G circling."
+  },
+  {
+    "input": "What is the sign for 'Major'?",
+    "output": "Sliding hand over hand."
+  },
+  {
+    "input": "What is the sign for 'Minor'?",
+    "output": "Sliding hand under hand."
+  },
+  {
+    "input": "What is the sign for 'Freshman'?",
+    "output": "Ring finger tapping."
+  },
+  {
+    "input": "What is the sign for 'Sophomore'?",
+    "output": "Middle finger tapping."
+  },
+  {
+    "input": "What is the sign for 'Junior'?",
+    "output": "Index finger tapping."
+  },
+  {
+    "input": "What is the sign for 'Senior'?",
+    "output": "Thumb tapping."
+  },
+  {
+    "input": "What is the sign for 'Test'?",
+    "output": "Hands opening or X moving down."
+  },
+  {
+    "input": "What is the sign for 'Grade'?",
+    "output": "G on palm."
+  },
+  {
+    "input": "What is the sign for 'Pass'?",
+    "output": "Fist passing fist."
+  },
+  {
+    "input": "What is the sign for 'Fail'?",
+    "output": "K sliding off palm."
+  },
+  {
+    "input": "What is the sign for 'Homework'?",
+    "output": "HOME + WORK."
+  },
+  {
+    "input": "What is the sign for 'Class'?",
+    "output": "C hands circling."
+  },
+  {
+    "input": "What is the sign for 'Group'?",
+    "output": "G hands circling."
+  },
+  {
+    "input": "What is the sign for 'Team'?",
+    "output": "T hands circling."
+  },
+  {
+    "input": "What is the sign for 'Family'?",
+    "output": "F hands circling."
+  },
+  {
+    "input": "What is the sign for 'Society'?",
+    "output": "S hands circling."
+  },
+  {
+    "input": "What is the sign for 'Association'?",
+    "output": "A hands circling."
+  },
+  {
+    "input": "What is the sign for 'Workshop'?",
+    "output": "W hands moving forward."
+  },
+  {
+    "input": "What is the sign for 'Seminar'?",
+    "output": "S hands moving forward."
+  },
+  {
+    "input": "What is the sign for 'Lecture'?",
+    "output": "Hand speaking to crowd."
+  },
+  {
+    "input": "What is the sign for 'Presentation'?",
+    "output": "Hands showing."
+  },
+  {
+    "input": "What is the sign for 'Explain'?",
+    "output": "F hands pulling back and forth."
+  },
+  {
+    "input": "What is the sign for 'Discuss'?",
+    "output": "Index finger tapping palm."
+  },
+  {
+    "input": "What is the sign for 'Chat'?",
+    "output": "Hands shaking."
+  },
+  {
+    "input": "What is the sign for 'Tell'?",
+    "output": "Finger from chin."
+  },
+  {
+    "input": "What is the sign for 'Ask'?",
+    "output": "Hands praying."
+  },
+  {
+    "input": "What is the sign for 'Answer'?",
+    "output": "Finger on lips to finger out."
+  },
+  {
+    "input": "What is the sign for 'Question'?",
+    "output": "Drawing a question mark."
+  },
+  {
+    "input": "What is the sign for 'Problem'?",
+    "output": "Bent V knuckles twisting."
+  },
+  {
+    "input": "What is the sign for 'Idea'?",
+    "output": "I from forehead."
+  },
+  {
+    "input": "What is the sign for 'Thought'?",
+    "output": "Finger circling forehead."
+  },
+  {
+    "input": "What is the sign for 'Remember'?",
+    "output": "Thumb to forehead then thumb."
+  },
+  {
+    "input": "What is the sign for 'Forget'?",
+    "output": "Wiping forehead."
+  },
+  {
+    "input": "What is the sign for 'Know'?",
+    "output": "Tapping forehead."
+  },
+  {
+    "input": "What is the sign for 'Don't Know'?",
+    "output": "Waving hand at forehead."
+  },
+  {
+    "input": "What is the sign for 'Understand'?",
+    "output": "Lightbulb (flick) at forehead."
+  },
+  {
+    "input": "What is the sign for 'Misunderstand'?",
+    "output": "V hand flipping on forehead."
+  },
+  {
+    "input": "What is the sign for 'Believe'?",
+    "output": "Mind + clasp."
+  },
+  {
+    "input": "What is the sign for 'Doubt'?",
+    "output": "V fingers bending eyes."
+  },
+  {
+    "input": "What is the sign for 'Suspicious'?",
+    "output": "Scratching head."
+  },
+  {
+    "input": "What is the sign for 'Dream'?",
+    "output": "Finger curling from head."
+  },
+  {
+    "input": "What is the sign for 'Imagine'?",
+    "output": "I from head."
+  },
+  {
+    "input": "What is the sign for 'Hope'?",
+    "output": "Fingers crossed."
+  },
+  {
+    "input": "What is the sign for 'Wish'?",
+    "output": "C sliding down chest."
+  },
+  {
+    "input": "What is the sign for 'Goal'?",
+    "output": "Finger to finger (bullseye)."
+  },
+  {
+    "input": "What is the sign for 'Plan'?",
+    "output": "Hands sweeping."
+  },
+  {
+    "input": "What is the sign for 'Prepare'?",
+    "output": "Hands chopping."
+  },
+  {
+    "input": "What is the sign for 'Ready'?",
+    "output": "R hands shaking."
+  },
+  {
+    "input": "What is the sign for 'Start'?",
+    "output": "Key turning."
+  },
+  {
+    "input": "What is the sign for 'Create'?",
+    "output": "4 hand circling."
+  },
+  {
+    "input": "What is the sign for 'Make'?",
+    "output": "Fists twisting."
+  },
+  {
+    "input": "What is the sign for 'Use'?",
+    "output": "U circling."
+  },
+  {
+    "input": "What is the sign for 'Try'?",
+    "output": "T hands pushing."
+  },
+  {
+    "input": "What is the sign for 'Succeed'?",
+    "output": "Fingers popping up."
+  },
+  {
+    "input": "What is the sign for 'Responsible'?",
+    "output": "Hands on shoulder."
+  },
+  {
+    "input": "What is the sign for 'Duty'?",
+    "output": "D tapping wrist."
+  },
+  {
+    "input": "What is the sign for 'Promise'?",
+    "output": "Finger to mouth then palm."
+  },
+  {
+    "input": "What is the sign for 'Secret'?",
+    "output": "Thumb on lips."
+  },
+  {
+    "input": "What is the sign for 'Hide'?",
+    "output": "Hand under hand."
+  },
+  {
+    "input": "What is the sign for 'Find'?",
+    "output": "F picking up."
+  },
+  {
+    "input": "What is the sign for 'Search'?",
+    "output": "C circling face."
+  },
+  {
+    "input": "What is the sign for 'Lose'?",
+    "output": "Dropping from hand."
+  },
+  {
+    "input": "What is the sign for 'Keep'?",
+    "output": "Ks crossing."
+  },
+  {
+    "input": "What is the sign for 'Borrow'?",
+    "output": "Ks crossing (inward)."
+  },
+  {
+    "input": "What is the sign for 'Lend'?",
+    "output": "Ks crossing (outward)."
+  },
+  {
+    "input": "What is the sign for 'Pay'?",
+    "output": "Finger flicking off palm."
+  },
+  {
+    "input": "What is the sign for 'Owe'?",
+    "output": "Finger tapping palm."
+  },
+  {
+    "input": "What is the sign for 'Debt'?",
+    "output": "Tapping palm."
+  },
+  {
+    "input": "What is the sign for 'Rich'?",
+    "output": "Money pile high."
+  },
+  {
+    "input": "What is the sign for 'Poor'?",
+    "output": "Elbow pulling."
+  },
+  {
+    "input": "What is the sign for 'Generous'?",
+    "output": "Hands rolling out."
+  },
+  {
+    "input": "What is the sign for 'Stingy'?",
+    "output": "Claw scratching."
+  },
+  {
+    "input": "What is the sign for 'Selfish'?",
+    "output": "V hooks pulling."
+  },
+  {
+    "input": "What is the sign for 'Mean'?",
+    "output": "Claws passing."
+  },
+  {
+    "input": "What is the sign for 'Nice'?",
+    "output": "Hand sliding on palm."
+  },
+  {
+    "input": "What is the sign for 'Polite'?",
+    "output": "Thumb tapping chest."
+  },
+  {
+    "input": "What is the sign for 'Rude'?",
+    "output": "Middle finger sliding on palm."
+  },
+  {
+    "input": "What is the sign for 'Sweet'?",
+    "output": "Fingers on chin."
+  },
+  {
+    "input": "What is the sign for 'Cute'?",
+    "output": "Fingers on chin."
+  },
+  {
+    "input": "What is the sign for 'Beautiful'?",
+    "output": "Hand circling face."
+  },
+  {
+    "input": "What is the sign for 'Ugly'?",
+    "output": "Finger across nose."
+  },
+  {
+    "input": "What is the sign for 'Clean'?",
+    "output": "Wiping palm."
+  },
+  {
+    "input": "What is the sign for 'Dirty'?",
+    "output": "Wiggling fingers under chin."
+  },
+  {
+    "input": "What is the sign for 'Wet'?",
+    "output": "W hands closing."
+  },
+  {
+    "input": "What is the sign for 'Dry'?",
+    "output": "Finger on chin (dry lips)."
+  },
+  {
+    "input": "What is the sign for 'Soft'?",
+    "output": "Hands feeling cotton."
+  },
+  {
+    "input": "What is the sign for 'Hard'?",
+    "output": "Bent V striking."
+  },
+  {
+    "input": "What is the sign for 'Easy'?",
+    "output": "Finger brushing hand."
+  },
+  {
+    "input": "What is the sign for 'Difficult'?",
+    "output": "Bent Vs striking."
+  }
+]
