@@ -3,6 +3,7 @@ import axios from 'axios'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import './App.css'
+import PodcastView from './components/PodcastView'
 
 // Word-by-word fade effect with markdown support after completion
 function StreamingText({ text, speed = 40 }) {
@@ -238,6 +239,9 @@ function SettingsModal({ isOpen, onClose, settings, onUpdateSettings }) {
 }
 
 function App() {
+  // View mode: 'chat' or 'podcast'
+  const [viewMode, setViewMode] = useState('chat')
+  
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -402,6 +406,25 @@ function App() {
 
   const clearChat = () => setMessages([])
 
+  // Render podcast view if in podcast mode
+  if (viewMode === 'podcast') {
+    return (
+      <>
+        <SettingsModal 
+          isOpen={showSettings}
+          onClose={() => setShowSettings(false)}
+          settings={settings}
+          onUpdateSettings={setSettings}
+        />
+        <PodcastView 
+          onBack={() => setViewMode('chat')} 
+          settings={settings}
+          onOpenSettings={() => setShowSettings(true)}
+        />
+      </>
+    )
+  }
+
   return (
     <div className="app-wrapper">
       {/* Hidden audio element for TTS playback */}
@@ -499,6 +522,16 @@ function App() {
 
       {/* Main Chat Area */}
       <main className="main-content">
+        {/* Podcast Mode Notification Banner */}
+        <div className="podcast-notification" onClick={() => setViewMode('podcast')}>
+          <span className="podcast-notification-icon">🎙️</span>
+          <span className="podcast-notification-text">
+            <strong>Try Podcast Mode!</strong> — Listen to Rick & Morty discuss sign language
+          </span>
+          <span className="podcast-notification-badge">NEW</span>
+          <span className="podcast-notification-arrow">→</span>
+        </div>
+
         <div className="messages-container">
           {messages.length === 0 && (
             <div className="welcome-screen">

@@ -1,12 +1,20 @@
 import os
 import base64
 import io
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 from typing import Optional, List
 from pathlib import Path
+
+# Import podcast module
+try:
+    from podcast import PodcastManager, PodcastConfig, AgentPersonality
+    PODCAST_AVAILABLE = True
+except ImportError:
+    PODCAST_AVAILABLE = False
+    print("Warning: Podcast module not available.")
 
 # Try to import API clients
 try:
@@ -28,6 +36,14 @@ except ImportError:
 # For Google TTS via API key (simpler setup)
 import requests
 GOOGLE_TTS_API_KEY = os.getenv("GOOGLE_TTS_API_KEY")
+
+# TopMediai TTS
+try:
+    from services.tts_topmediai import generate_topmediai_tts, TopMediaiTTS
+    TOPMEDIAI_AVAILABLE = True
+except ImportError:
+    TOPMEDIAI_AVAILABLE = False
+    print("Warning: TopMediai TTS service not available.")
 
 # Import local inference logic (optional)
 try:
@@ -84,12 +100,16 @@ class ChatResponse(BaseModel):
 
 class TTSRequest(BaseModel):
     text: str
-    provider: str = "google"  # "google", "elevenlabs", "browser"
+    provider: str = "google"  # "google", "elevenlabs", "topmediai", "browser"
     voice_id: Optional[str] = None
     # Google TTS options
     language_code: str = "en-US"
     # ElevenLabs options
     model_id: str = "eleven_monolingual_v1"
+    # TopMediai options
+    fallback_to_google: bool = True
+    google_fallback_voice: Optional[str] = None
+    speed: float = 1.0  # Speech speed multiplier (0.5-2.0)
 
 class TTSVoice(BaseModel):
     id: str
@@ -114,6 +134,10 @@ async def startup_event():
     print(f"OpenAI configured: {openai_client is not None}")
     print(f"ElevenLabs configured: {elevenlabs_client is not None}")
     print(f"Google TTS configured: {google_tts_client is not None or GOOGLE_TTS_API_KEY is not None}")
+    print(f"TopMediai TTS available: {TOPMEDIAI_AVAILABLE}")
+    if TOPMEDIAI_AVAILABLE:
+        topmediai_key = os.getenv("TOPMEDIAI_API_KEY")
+        print(f"TopMediai API key: {'Set' if topmediai_key else 'Not set (will try without auth)'}")
 
 # ============== Chat Endpoints ==============
 
@@ -195,8 +219,11 @@ async def text_to_speech(request: TTSRequest):
                     language_code=request.language_code,
                     name=request.voice_id or f"{request.language_code}-Wavenet-D"
                 )
+                # Clamp speed to Google's valid range (0.25-4.0)
+                google_speed = max(0.25, min(4.0, request.speed or 1.0))
                 audio_config = texttospeech.AudioConfig(
-                    audio_encoding=texttospeech.AudioEncoding.MP3
+                    audio_encoding=texttospeech.AudioEncoding.MP3,
+                    speaking_rate=google_speed
                 )
                 response = google_tts_client.synthesize_speech(
                     input=synthesis_input,
@@ -235,6 +262,119 @@ async def text_to_speech(request: TTSRequest):
             )
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"ElevenLabs Error: {str(e)}")
+    
+    elif request.provider == "topmediai":
+        print(f"🎙️ TopMediai TTS request: text_length={len(request.text)}, voice_id={request.voice_id}")
+        
+        if not TOPMEDIAI_AVAILABLE:
+            print("⚠️ TopMediai service not available, falling back to Google immediately")
+            # Fallback to Google immediately
+            if google_tts_client:
+                try:
+                    synthesis_input = texttospeech.SynthesisInput(text=request.text)
+                    voice = texttospeech.VoiceSelectionParams(
+                        language_code=request.language_code,
+                        name=request.google_fallback_voice or "en-US-Wavenet-D"
+                    )
+                    audio_config = texttospeech.AudioConfig(
+                        audio_encoding=texttospeech.AudioEncoding.MP3
+                    )
+                    response = google_tts_client.synthesize_speech(
+                        input=synthesis_input,
+                        voice=voice,
+                        audio_config=audio_config
+                    )
+                    return StreamingResponse(
+                        io.BytesIO(response.audio_content),
+                        media_type="audio/mpeg",
+                        headers={"Content-Disposition": "inline; filename=speech.mp3"}
+                    )
+                except Exception as e:
+                    raise HTTPException(status_code=500, detail=f"Google TTS Fallback Error: {str(e)}")
+            raise HTTPException(status_code=503, detail="TopMediai TTS service not available and Google fallback failed.")
+        
+        try:
+            # Use TopMediai with Google fallback
+            print(f"🔄 Attempting TopMediai TTS generation...")
+            # Clamp speed to valid range (0.5-2.0)
+            speed = max(0.5, min(2.0, request.speed or 1.0))
+            audio_bytes = generate_topmediai_tts(
+                text=request.text,
+                voice_id=request.voice_id or "67ada016-5d4b-11ee-a861-00163e2ac61b",
+                fallback_to_google=request.fallback_to_google,
+                google_voice_id=request.google_fallback_voice,
+                speed=speed,
+            )
+            
+            if not audio_bytes:
+                print("⚠️ TopMediai returned no audio, using Google fallback")
+                # Explicit fallback to Google
+                if request.fallback_to_google and google_tts_client:
+                    print(f"🔄 Using Google Cloud TTS fallback (voice: {request.google_fallback_voice or 'en-US-Wavenet-D'})")
+                    synthesis_input = texttospeech.SynthesisInput(text=request.text)
+                    voice = texttospeech.VoiceSelectionParams(
+                        language_code=request.language_code or "en-US",
+                        name=request.google_fallback_voice or "en-US-Wavenet-D"
+                    )
+                    # Clamp speed to Google's valid range (0.25-4.0)
+                    google_speed = max(0.25, min(4.0, request.speed or 1.0))
+                    audio_config = texttospeech.AudioConfig(
+                        audio_encoding=texttospeech.AudioEncoding.MP3,
+                        speaking_rate=google_speed
+                    )
+                    response = google_tts_client.synthesize_speech(
+                        input=synthesis_input,
+                        voice=voice,
+                        audio_config=audio_config
+                    )
+                    print(f"✅ Google TTS fallback success: {len(response.audio_content)} bytes")
+                    return StreamingResponse(
+                        io.BytesIO(response.audio_content),
+                        media_type="audio/mpeg",
+                        headers={"Content-Disposition": "inline; filename=speech.mp3"}
+                    )
+                raise HTTPException(
+                    status_code=500,
+                    detail="TopMediai TTS failed and Google fallback unavailable."
+                )
+            
+            print(f"✅ TopMediai TTS success: {len(audio_bytes)} bytes")
+            return StreamingResponse(
+                io.BytesIO(audio_bytes),
+                media_type="audio/mpeg",
+                headers={"Content-Disposition": "inline; filename=speech.mp3"}
+            )
+        except HTTPException:
+            raise
+        except Exception as e:
+            print(f"TopMediai TTS Error: {e}")
+            import traceback
+            traceback.print_exc()
+            # Try Google fallback on error
+            if request.fallback_to_google and google_tts_client:
+                try:
+                    print("Attempting Google fallback after error...")
+                    synthesis_input = texttospeech.SynthesisInput(text=request.text)
+                    voice = texttospeech.VoiceSelectionParams(
+                        language_code=request.language_code,
+                        name=request.google_fallback_voice or "en-US-Wavenet-D"
+                    )
+                    audio_config = texttospeech.AudioConfig(
+                        audio_encoding=texttospeech.AudioEncoding.MP3
+                    )
+                    response = google_tts_client.synthesize_speech(
+                        input=synthesis_input,
+                        voice=voice,
+                        audio_config=audio_config
+                    )
+                    return StreamingResponse(
+                        io.BytesIO(response.audio_content),
+                        media_type="audio/mpeg",
+                        headers={"Content-Disposition": "inline; filename=speech.mp3"}
+                    )
+                except Exception as fallback_error:
+                    raise HTTPException(status_code=500, detail=f"TopMediai and Google fallback both failed: {str(e)}")
+            raise HTTPException(status_code=500, detail=f"TopMediai TTS Error: {str(e)}")
     
     else:
         raise HTTPException(status_code=400, detail=f"Unknown TTS provider: {request.provider}")
@@ -304,5 +444,55 @@ async def get_settings():
             "browser": True,  # Always available
             "google": google_tts_client is not None or GOOGLE_TTS_API_KEY is not None,
             "elevenlabs": elevenlabs_client is not None
+        },
+        "podcast": {
+            "available": PODCAST_AVAILABLE
         }
+    }
+
+# ============== Podcast WebSocket ==============
+
+# Store active podcast sessions
+podcast_sessions = {}
+
+@app.websocket("/ws/podcast")
+async def podcast_websocket(websocket: WebSocket):
+    """
+    WebSocket endpoint for the agentic podcast.
+    
+    Handles real-time communication between frontend and podcast agents.
+    """
+    if not PODCAST_AVAILABLE:
+        await websocket.close(code=1003, reason="Podcast module not available")
+        return
+    
+    # Create a new podcast manager for this session
+    manager = PodcastManager(
+        config=PodcastConfig(
+            personality=AgentPersonality.PROFESSIONAL,  # Default to professional mode (Dave, Taylor, Pat)
+            tts_provider="elevenlabs" if elevenlabs_client else "browser",
+        )
+    )
+    
+    try:
+        await manager.run_session(websocket)
+    except WebSocketDisconnect:
+        print("Podcast WebSocket disconnected")
+    except Exception as e:
+        print(f"Podcast error: {e}")
+
+@app.get("/podcast/agents")
+async def get_podcast_agents(personality: str = "professional"):
+    """Get information about podcast agents."""
+    if not PODCAST_AVAILABLE:
+        raise HTTPException(status_code=503, detail="Podcast module not available")
+    
+    from podcast.agents import RickAgent, MortyAgent, SummerAgent, AgentPersonality
+    
+    p = AgentPersonality(personality)
+    return {
+        "rick": RickAgent(p).to_dict(),
+        "morty": MortyAgent(p).to_dict(),
+        "summer": SummerAgent(p).to_dict(),
+        "personality": personality,
     }
