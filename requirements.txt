@@ -1,0 +1,23 @@
+# Backend API Dependencies
+# Install with: pip install -r requirements.txt
+
+# Web Framework
+fastapi>=0.100.0
+uvicorn>=0.20.0
+python-multipart>=0.0.6
+
+# API Clients
+openai>=1.0.0
+elevenlabs>=1.0.0
+google-cloud-texttospeech>=2.14.0
+
+# Utilities
+pydantic>=2.0.0
+requests>=2.28.0
+
+# For local model inference (optional - only if using local Qwen3)
+# Uncomment these if you want to run local models:
+# torch>=2.1.0
+# transformers>=4.45.0
+# peft>=0.13.0
+# accelerate>=0.25.0

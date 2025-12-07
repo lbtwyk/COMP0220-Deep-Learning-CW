@@ -1,0 +1,44 @@
+# API Keys and Credentials (NEVER COMMIT THESE!)
+openai_api_key
+google-tts-credentials.json
+*.json.key
+*credentials*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Model outputs
+qwen3_finetuned/
+*.pt
+*.pth
+*.bin
+*.safetensors
+
+# Logs
+*.log
+runs/
+tensorboard/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (frontend)
+node_modules/
+
