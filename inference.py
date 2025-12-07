@@ -105,6 +105,40 @@ def load_finetuned_model(
     return model, tokenizer, device
 
 
+def load_base_model(
+    base_model: str,
+    device: str = "auto",
+):
+    """
+    Load a base (non-finetuned) model for comparison runs.
+    """
+    if device == "auto":
+        if torch.cuda.is_available():
+            device = "cuda"
+        elif torch.backends.mps.is_available():
+            device = "mps"
+        else:
+            device = "cpu"
+    
+    tokenizer = AutoTokenizer.from_pretrained(base_model)
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
+    
+    model = AutoModelForCausalLM.from_pretrained(
+        base_model,
+        torch_dtype=torch.float16 if device != "cpu" else torch.float32,
+        device_map=device if device != "mps" else None,
+        trust_remote_code=True,
+    )
+    
+    # Ensure model is on the intended device
+    if device == "mps":
+        model = model.to("mps")
+    
+    model.eval()
+    return model, tokenizer, device
+
+
 def generate_response(
     model,
     tokenizer,
@@ -220,6 +254,66 @@ def cosine_similarity(a: torch.Tensor, b: torch.Tensor) -> float:
     return float((a * b).sum().item())
 
 
+def judge_response_with_model(
+    model,
+    tokenizer,
+    device: str,
+    question: str,
+    reference: str,
+    prediction: str,
+) -> int:
+    """
+    Use the finetuned model itself as a strict judge.
+    Scores: 0 = incorrect/harmful, 1 = partially correct, 2 = correct.
+    The model is instructed to output ONLY a single digit 0/1/2.
+    """
+    system_prompt = (
+        "You are a strict grader for Deaf culture and ASL QA. "
+        "Given a question, the correct answer, and a model answer, "
+        "output ONLY one digit: 0, 1, or 2.\n"
+        "Rubric:\n"
+        "2 = fully correct and culturally appropriate; no key errors.\n"
+        "1 = main idea is present but missing/incorrect details or minor issues.\n"
+        "0 = incorrect, contradictory, or culturally inappropriate."
+    )
+    user_prompt = (
+        f"Question: {question}\n"
+        f"Reference answer: {reference}\n"
+        f"Model answer: {prediction}\n"
+        "Score (0/1/2) only:"
+    )
+    
+    messages = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_prompt},
+    ]
+    
+    inputs = tokenizer.apply_chat_template(
+        messages,
+        add_generation_prompt=True,
+        return_tensors="pt",
+    )
+    if device == "cuda":
+        inputs = inputs.cuda()
+    elif device == "mps":
+        inputs = inputs.to("mps")
+    
+    with torch.no_grad():
+        out = model.generate(
+            inputs,
+            max_new_tokens=4,
+            temperature=0.0,
+            do_sample=False,
+        )
+    decoded = tokenizer.decode(out[0][inputs.shape[-1]:], skip_special_tokens=True).strip()
+    
+    # Extract first valid digit 0/1/2
+    for ch in decoded:
+        if ch in {"0", "1", "2"}:
+            return int(ch)
+    return 0
+
+
 def interactive_chat(model, tokenizer, device: str):
     """Run interactive chat session."""
     print("\n" + "=" * 60)
@@ -313,8 +407,14 @@ def evaluate_model_on_dataset(
     max_new_tokens: int = 256,
     temperature: float = 0.0,
     embedding_model_name: str = "intfloat/e5-small-v2",
+    use_model_judge: bool = True,
+    seed: int = 42,
+    model_label: str = None,
 ):
     """Run evaluation on a JSON dataset and report simple metrics."""
+    if seed is not None:
+        random.seed(seed)
+    
     examples = load_qa_dataset(dataset_path)
     if not examples:
         print(f"No usable examples found in {dataset_path}")
@@ -335,6 +435,8 @@ def evaluate_model_on_dataset(
     total_em = 0.0
     total_f1 = 0.0
     total_sem = 0.0
+    total_judge = 0.0
+    judge_count = 0
     
     for idx, ex in enumerate(examples, start=1):
         user_prompt = ex["user_prompt"]
@@ -359,6 +461,19 @@ def evaluate_model_on_dataset(
             sem = cosine_similarity(embs[0], embs[1])
             total_sem += sem
         
+        judge_score = None
+        if use_model_judge:
+            judge_score = judge_response_with_model(
+                model=model,
+                tokenizer=tokenizer,
+                device=device,
+                question=user_prompt,
+                reference=gold,
+                prediction=prediction,
+            )
+            total_judge += judge_score
+            judge_count += 1
+        
         total_em += em
         total_f1 += f1
         
@@ -372,17 +487,23 @@ def evaluate_model_on_dataset(
             print(f"Exact match: {em:.3f} | F1: {f1:.3f} | Semantic cosine: {sem:.3f}")
         else:
             print(f"Exact match: {em:.3f} | F1: {f1:.3f}")
+        if judge_score is not None:
+            print(f"Model-judge score (0/1/2): {judge_score}")
     
     n = len(examples)
     print("\n" + "=" * 80)
     print("Evaluation summary")
     print("=" * 80)
+    if model_label:
+        print(f"Model: {model_label}")
     print(f"Dataset: {dataset_path}")
     print(f"Examples evaluated: {n}")
     print(f"Average exact match: {total_em / n:.3f}")
     print(f"Average F1: {total_f1 / n:.3f}")
     if use_semantic:
         print(f"Average semantic cosine: {total_sem / n:.3f}")
+    if use_model_judge and judge_count > 0:
+        print(f"Average model-judge score: {total_judge / judge_count:.3f}")
 
 
 def main():
@@ -447,6 +568,22 @@ def main():
         default="intfloat/e5-small-v2",
         help="Embedding model for semantic similarity scoring",
     )
+    parser.add_argument(
+        "--no_model_judge",
+        action="store_true",
+        help="Disable using the finetuned model itself as a 0/1/2 judge",
+    )
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=42,
+        help="Random seed for sampling eval examples",
+    )
+    parser.add_argument(
+        "--compare_base",
+        action="store_true",
+        help="Also evaluate the base model (args.base_model) on the same dataset/sample",
+    )
     
     args = parser.parse_args()
     
@@ -465,6 +602,13 @@ def main():
         interactive_chat(model, tokenizer, device)
     elif args.dataset_path or default_eval_dir.exists():
         dataset_path = args.dataset_path or str(default_eval_dir)
+        use_model_judge = not args.no_model_judge
+        
+        # Default base model fallback when comparing
+        base_model_name = args.base_model or "Qwen/Qwen3-4B-Instruct-2507"
+        if args.compare_base and not args.base_model:
+            print(f"[Info] --compare_base set; using default base model: {base_model_name}")
+        
         evaluate_model_on_dataset(
             model,
             tokenizer,
@@ -474,7 +618,26 @@ def main():
             max_new_tokens=args.max_new_tokens,
             temperature=args.temperature,
             embedding_model_name=args.embedding_model,
+            use_model_judge=use_model_judge,
+            seed=args.seed,
+            model_label="finetuned",
         )
+        
+        if args.compare_base:
+            base_model, base_tok, base_dev = load_base_model(base_model_name, args.device)
+            evaluate_model_on_dataset(
+                base_model,
+                base_tok,
+                base_dev,
+                dataset_path=dataset_path,
+                num_samples=args.num_samples,
+                max_new_tokens=args.max_new_tokens,
+                temperature=args.temperature,
+                embedding_model_name=args.embedding_model,
+                use_model_judge=use_model_judge,
+                seed=args.seed,
+                model_label="base",
+            )
     elif args.prompt:
         response = generate_response(
             model, tokenizer, device,
