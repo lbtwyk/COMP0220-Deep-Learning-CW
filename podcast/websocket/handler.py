@@ -25,6 +25,7 @@ class MessageType(Enum):
     SKIP = "skip"             # Skip to next subtopic
     END = "end"               # End podcast
     SET_PERSONALITY = "set_personality"  # Switch personality mode
+    SET_MODEL = "set_model"    # Switch between local/API model
     
     # Server → Client
     SPEECH = "speech"          # Agent speaking
@@ -173,12 +174,14 @@ class PodcastWebSocketHandler:
         agent: str,
         text: str,
         audio_url: Optional[str] = None,
+        model_source: str = "cloud"
     ):
         """Send a speech message from an agent."""
         await self.send_message(websocket, MessageType.SPEECH, {
             "agent": agent,
             "text": text,
             "audio_url": audio_url,
+            "model": model_source,
         })
     
     async def send_state_update(self, websocket: WebSocket, state: str, topic: str = ""):

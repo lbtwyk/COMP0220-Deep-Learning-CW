@@ -7,7 +7,7 @@ Contains the three agents:
 - Summer: The coordinator/producer (or "Sam" in professional mode)
 """
 
-from .base import BaseAgent, AgentPersonality
+from .base import BaseAgent, AgentPersonality, set_local_model, get_local_model, is_local_model_available
 from .rick import RickAgent
 from .morty import MortyAgent
 from .summer import SummerAgent
@@ -18,5 +18,8 @@ __all__ = [
     "RickAgent",
     "MortyAgent",
     "SummerAgent",
+    "set_local_model",
+    "get_local_model", 
+    "is_local_model_available",
 ]
 

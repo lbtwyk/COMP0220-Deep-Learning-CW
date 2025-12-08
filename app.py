@@ -11,9 +11,12 @@ from pathlib import Path
 # Import podcast module
 try:
     from podcast import PodcastManager, PodcastConfig, AgentPersonality
+    from podcast.agents import set_local_model, is_local_model_available
     PODCAST_AVAILABLE = True
 except ImportError:
     PODCAST_AVAILABLE = False
+    set_local_model = None
+    is_local_model_available = None
     print("Warning: Podcast module not available.")
 
 # Try to import API clients
@@ -128,6 +131,25 @@ async def startup_event():
     global model, tokenizer, device
     if LOCAL_INFERENCE_AVAILABLE:
         print("Local inference modules available.")
+        # Pre-load local model for both chat and podcast
+        if model is None:
+            print("Pre-loading local model for chat and podcast...")
+            finetuned_path = Path("./qwen3_finetuned/final")
+            base_model = "Qwen/Qwen3-4B-Instruct-2507"
+            try:
+                model_path = str(finetuned_path) if finetuned_path.exists() else base_model
+                model, tokenizer, device = load_finetuned_model(
+                    model_path=model_path,
+                    base_model=base_model,
+                    device="auto"
+                )
+                print(f"Local model loaded on {device}")
+                # Share with podcast agents
+                if PODCAST_AVAILABLE and set_local_model:
+                    set_local_model(model, tokenizer, device)
+                    print("Local model shared with podcast agents")
+            except Exception as e:
+                print(f"Failed to pre-load local model: {e}")
     else:
         print("Local inference not available.")
     
@@ -138,7 +160,6 @@ async def startup_event():
     if TOPMEDIAI_AVAILABLE:
         topmediai_key = os.getenv("TOPMEDIAI_API_KEY")
         print(f"TopMediai API key: {'Set' if topmediai_key else 'Not set (will try without auth)'}")
-
 # ============== Chat Endpoints ==============
 
 @app.post("/chat", response_model=ChatResponse)

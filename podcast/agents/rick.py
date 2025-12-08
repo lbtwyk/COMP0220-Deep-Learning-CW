@@ -68,12 +68,14 @@ class RickAgent(BaseAgent):
         personality: AgentPersonality = AgentPersonality.PROFESSIONAL,
         model: str = "gpt-4o-mini",
         temperature: float = 0.85,
+        use_local_model: bool = False,
     ):
         super().__init__(
             config=RICK_CONFIG,
             personality=personality,
             model=model,
             temperature=temperature,
+            use_local_model=use_local_model,
         )
     
     def _generate_fallback_response(self, topic: str) -> str:

@@ -20,6 +20,7 @@ class PodcastConfig:
     personality: AgentPersonality = AgentPersonality.PROFESSIONAL
     tts_provider: str = "browser"  # Use browser TTS by default
     turn_delay_ms: int = 1500
+    use_local_model: bool = False  # Use local Qwen3 model instead of OpenAI API
 
 
 class PodcastManager:
@@ -28,10 +29,10 @@ class PodcastManager:
     def __init__(self, config: Optional[PodcastConfig] = None):
         self.config = config or PodcastConfig()
         
-        # Initialize agents
-        self.rick = RickAgent(personality=self.config.personality)
-        self.morty = MortyAgent(personality=self.config.personality)
-        self.summer = SummerAgent(personality=self.config.personality)
+        # Initialize agents with local model setting
+        self.rick = RickAgent(personality=self.config.personality, use_local_model=self.config.use_local_model)
+        self.morty = MortyAgent(personality=self.config.personality, use_local_model=self.config.use_local_model)
+        self.summer = SummerAgent(personality=self.config.personality, use_local_model=self.config.use_local_model)
         
         # Initialize services
         self.state_machine = PodcastStateMachine()
@@ -53,6 +54,14 @@ class PodcastManager:
         self.ws_handler.register_handler(MessageType.SKIP, self._handle_skip)
         self.ws_handler.register_handler(MessageType.END, self._handle_end)
         self.ws_handler.register_handler(MessageType.SET_PERSONALITY, self._handle_set_personality)
+        self.ws_handler.register_handler(MessageType.SET_MODEL, self._handle_set_model)
+    
+    def set_use_local_model(self, use_local: bool):
+        """Switch model source for all agents."""
+        self.config.use_local_model = use_local
+        self.rick.set_use_local_model(use_local)
+        self.morty.set_use_local_model(use_local)
+        self.summer.set_use_local_model(use_local)
     
     def set_personality(self, personality: AgentPersonality):
         """Switch personality mode for all agents."""
@@ -109,25 +118,32 @@ class PodcastManager:
         
         print(f"📤 Sending speech from {agent} ({len(text)} chars)")
         self.memory.add_turn(agent, text)
+        
+        # Determine model source
+        model_source = "local" if self.config.use_local_model else "cloud"
+        
         try:
-            await self.ws_handler.send_speech(self._current_ws, agent, text, None)
-            print(f"✅ Speech sent successfully from {agent}")
+            await self.ws_handler.send_speech(
+                self._current_ws, 
+                agent, 
+                text, 
+                None,
+                model_source=model_source
+            )
+            print(f"✅ Speech sent successfully from {agent} ({model_source})")
         except Exception as e:
             print(f"❌ Error sending speech from {agent}: {e}")
             import traceback
             traceback.print_exc()
     
     async def _run_conversation_loop(self):
-        """Main conversation loop."""
+        """Main conversation loop - runs until max turns or podcast ends."""
         print("Conversation loop started")
-        turn_count = 0
-        max_turns = 20  # Safety limit
         
-        while self._running and self.state_machine.should_continue() and turn_count < max_turns:
+        while self._running and self.state_machine.should_continue():
             state = self.state_machine.state
-            turn_count += 1
             
-            print(f"Loop iteration {turn_count}, state: {state.name}")
+            print(f"Loop iteration, state: {state.name}, turn: {self.state_machine.context.turn_count}")
             
             if state == PodcastState.PAUSED:
                 await asyncio.sleep(1)
@@ -136,11 +152,12 @@ class PodcastManager:
             if state == PodcastState.USER_INTERRUPT:
                 print("Handling interrupt...")
                 await self._handle_interrupt_turn()
+
                 await asyncio.sleep(2)  # Wait after interrupt
                 continue
             
             if state == PodcastState.NEW_TOPIC:
-                print("New topic requested")
+                print("New topic requested, waiting for input...")
                 await asyncio.sleep(1)
                 continue
             
@@ -153,14 +170,17 @@ class PodcastManager:
                 # Unknown state, wait a bit
                 await asyncio.sleep(1)
         
-        print(f"Conversation loop ended. Turn count: {turn_count}, Running: {self._running}")
+        print(f"Conversation loop ended. Running: {self._running}")
     
     async def _handle_discussion_turn(self):
         """Handle one turn of discussion."""
         try:
             topic = self.state_machine.context.current_topic
             if not topic:
-                print("No topic set, skipping turn")
+                print("No topic set, transitioning to NEW_TOPIC")
+                self.state_machine.state = PodcastState.NEW_TOPIC
+                # Optionally request topic from frontend
+                # await self.ws_handler.request_topic(self._current_ws)
                 return
             
             # Get next speaker BEFORE generating
@@ -181,6 +201,12 @@ class PodcastManager:
                         self.memory.get_context(), 
                         topic
                     )
+                    
+                    # Check for interrupt during generation
+                    if self.state_machine.state == PodcastState.USER_INTERRUPT:
+                        print("⛔ Interrupt received during Morty's generation, discarding response")
+                        return
+
                     print(f"✅ Morty response generated: {response[:50]}...")
                     await self._send_speech("morty", response)
                     print(f"✅ Morty speech sent to frontend")
@@ -189,6 +215,12 @@ class PodcastManager:
                         self.memory.get_context(), 
                         topic
                     )
+                    
+                    # Check for interrupt during generation
+                    if self.state_machine.state == PodcastState.USER_INTERRUPT:
+                        print("⛔ Interrupt received during Rick's generation, discarding response")
+                        return
+
                     print(f"✅ Rick response generated: {response[:50]}...")
                     await self._send_speech("rick", response)
                     print(f"✅ Rick speech sent to frontend")
@@ -217,6 +249,11 @@ class PodcastManager:
             
             print(f"Handling interrupt: {user_input}")
             
+            # If no topic is set, use the interrupt as the topic
+            if not self.state_machine.context.current_topic:
+                print(f"No topic set, using interrupt as topic: {user_input}")
+                self.state_machine.set_topic(user_input)
+            
             announcement = self.summer.announce_user_interrupt(user_input, "text")
             await self._send_speech("summer", announcement)
             await asyncio.sleep(1)
@@ -232,6 +269,7 @@ class PodcastManager:
             
             # Resume and set last speaker
             self.state_machine.context.last_speaker = "rick"
+            self.state_machine.context.turn_count = 0  # Reset topic turn count on interrupt
             self.state_machine.resume_discussion()
             
         except Exception as e:
@@ -282,9 +320,15 @@ class PodcastManager:
         await self.ws_handler.send_state_update(websocket, "discussing", topic)
     
     async def _handle_interrupt(self, websocket: WebSocket, data: Dict[str, Any]):
+        """Handle user interrupt - restart loop if needed."""
         message = data.get("message", "")
         if message:
             self.state_machine.handle_user_interrupt(message, "text")
+            
+            # Restart loop if it has stopped
+            if self._task is None or self._task.done():
+                print("Restarting conversation loop for interrupt...")
+                self._task = asyncio.create_task(self._run_conversation_loop())
     
     async def _handle_pause(self, websocket: WebSocket, data: Dict[str, Any]):
         self.state_machine.pause()
@@ -330,3 +374,24 @@ class PodcastManager:
             
             await self._send_speech("summer", transition_msg)
             await asyncio.sleep(1)  # Brief pause after transition
+    
+    async def _handle_set_model(self, websocket: WebSocket, data: Dict[str, Any]):
+        """Handle model source switch during active podcast."""
+        use_local = data.get("use_local", False)
+        old_use_local = self.config.use_local_model
+        
+        # Only switch if different
+        if use_local == old_use_local:
+            return
+        
+        model_name = "Local (Qwen3-4B)" if use_local else "Cloud (OpenAI)"
+        print(f"Switching model to: {model_name}")
+        
+        # Update all agents
+        self.set_use_local_model(use_local)
+        
+        # Notify frontend of model change
+        await self.ws_handler.send_message(websocket, MessageType.STATE, {
+            "state": "model_changed",
+            "use_local": use_local,
+        })

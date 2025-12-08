@@ -136,7 +136,9 @@ class PodcastStateMachine:
         self.context.pending_user_input = None
         self.context.pending_sign_input = None
         self.state = PodcastState.DISCUSSING
-        return self.next_turn()
+        # DO NOT call next_turn() here - it will be called by _handle_discussion_turn
+        # Calling it here causes double-increment of turn_count
+        return self.state
     
     def pause(self):
         """Pause the podcast."""

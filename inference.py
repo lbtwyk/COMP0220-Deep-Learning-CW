@@ -11,11 +11,29 @@ from pathlib import Path
 import os
 
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import (
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    BitsAndBytesConfig,
+    StoppingCriteria,
+    StoppingCriteriaList
+)
 from peft import PeftModel
+from typing import Optional, List, Union
 from collections import Counter
 import json
 import random
+
+
+class StopWordCriteria(StoppingCriteria):
+    def __init__(self, stop_token_ids_list):
+        self.stop_token_ids_list = stop_token_ids_list
+
+    def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor, **kwargs) -> bool:
+        for stop_ids in self.stop_token_ids_list:
+            if len(input_ids[0]) >= len(stop_ids) and input_ids[0][-len(stop_ids):].tolist() == stop_ids:
+                return True
+        return False
 
 
 def load_finetuned_model(
@@ -72,11 +90,27 @@ def load_finetuned_model(
         print(f"Loading base model: {base_model}")
         
         # Load base model
+        # Original without quantization:
+        # model = AutoModelForCausalLM.from_pretrained(
+        #     base_model,
+        #     torch_dtype=torch.float16 if device != "cpu" else torch.float32,
+        #     device_map=device if device != "mps" else None,
+        #     trust_remote_code=True,
+        # )
+        
+        # With 4-bit quantization for low VRAM GPUs:
+        quantization_config = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_compute_dtype=torch.float16,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_use_double_quant=True,
+        )
         model = AutoModelForCausalLM.from_pretrained(
             base_model,
             torch_dtype=torch.float16 if device != "cpu" else torch.float32,
             device_map=device if device != "mps" else None,
             trust_remote_code=True,
+            quantization_config=quantization_config,
         )
         
         if device == "mps":
@@ -114,6 +148,7 @@ def generate_response(
     temperature: float = 0.7,
     top_p: float = 0.9,
     do_sample: bool = True,
+    stop_strings: Optional[List[str]] = None,
 ) -> str:
     """Generate a response from the model."""
     
@@ -135,6 +170,15 @@ def generate_response(
     elif device == "cuda":
         inputs = inputs.to("cuda")
     
+    # Setup stopping criteria
+    stopping_criteria = None
+    if stop_strings:
+        try:
+            stop_token_ids_list = [tokenizer.encode(s, add_special_tokens=False) for s in stop_strings]
+            stopping_criteria = StoppingCriteriaList([StopWordCriteria(stop_token_ids_list)])
+        except Exception as e:
+            print(f"Warning: Failed to setup stopping criteria: {e}")
+    
     # Generate
     with torch.no_grad():
         outputs = model.generate(
@@ -145,6 +189,7 @@ def generate_response(
             top_p=top_p,
             pad_token_id=tokenizer.pad_token_id,
             eos_token_id=tokenizer.eos_token_id,
+            stopping_criteria=stopping_criteria,
         )
     
     # Decode response (only the generated part)

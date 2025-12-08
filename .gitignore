@@ -1,8 +1,15 @@
 # API Keys and Credentials (NEVER COMMIT THESE!)
 openai_api_key
+elevenlabs_api_key
+google_tts_api_key
+topmediai_api_key
+*.key
+*.pem
 google-tts-credentials.json
 *.json.key
 *credentials*.json
+.env
+.env.local
 
 # Python
 __pycache__/
@@ -17,12 +24,19 @@ venv/
 dist/
 build/
 
-# Model outputs
+# Model outputs and checkpoints
 qwen3_finetuned/
 *.pt
 *.pth
 *.bin
 *.safetensors
+# Hugging Face model cache and shards
+*.h5
+*.ckpt
+models/
+checkpoints/
+pytorch_model.bin.*
+model.safetensors.*
 
 # Logs
 *.log
