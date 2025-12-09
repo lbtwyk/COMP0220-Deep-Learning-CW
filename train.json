@@ -1,0 +1,442 @@
+[
+    {
+        "context": " ASL stands for American Sign Language, which is a natural language primarily used by Deaf communities in the United States and Anglophone Canada.",
+        "question": "What is ASL?",
+        "answer": " ASL stands for American Sign Language, which is a natural language primarily used by Deaf communities in the United States and Anglophone Canada."
+    },
+    {
+        "context": " ASL originated in the early 19th century in the American School for the Deaf (ASD) in Hartford, Connecticut.",
+        "question": " Where did ASL originate?",
+        "answer": " ASL originated in the early 19th century in the American School for the Deaf (ASD) in Hartford, Connecticut."
+    },
+    {
+        "context": " ASL is a complete and organized visual language that is expressed by employing both manual (hand) and nonmanual (facial expressions, torso movements, etc.) features.",
+        "question": " How is ASL expressed?",
+        "answer": " ASL is a complete and organized visual language that is expressed by employing both manual (hand) and nonmanual (facial expressions, torso movements, etc.) features."
+    },
+    {
+        "context": " Reliable estimates for American ASL users range from 250,000 to 500,000 persons.",
+        "question": " How many ASL users are estimated to be in the United States?",
+        "answer": " Reliable estimates for American ASL users range from 250,000 to 500,000 persons."
+    },
+    {
+        "context": " ASL emerged from a situation of language contact, incorporating elements from Old French Sign Language, various village sign languages, and home sign systems.",
+        "question": " What languages influenced the development of ASL?",
+        "answer": " ASL emerged from a situation of language contact, incorporating elements from Old French Sign Language, various village sign languages, and home sign systems."
+    },
+    {
+        "context": " No, ASL is not mutually intelligible with either BSL or Auslan.",
+        "question": " Is ASL mutually intelligible with British Sign Language (BSL) or Auslan?",
+        "answer": " No, ASL is not mutually intelligible with either BSL or Auslan."
+    },
+    {
+        "context": " ASL has its own grammar and syntax, including features such as verbal agreement, aspectual marking, and a productive system of forming agglutinative classifiers.",
+        "question": " What linguistic characteristics distinguish ASL from spoken languages?",
+        "answer": " ASL has its own grammar and syntax, including features such as verbal agreement, aspectual marking, and a productive system of forming agglutinative classifiers."
+    },
+    {
+        "context": " The American School for the Deaf was founded by Thomas Gallaudet in 1817.",
+        "question": " Who founded the American School for the Deaf (ASD)?",
+        "answer": " The American School for the Deaf was founded by Thomas Gallaudet in 1817."
+    },
+    {
+        "context": " Laurent Clerc, the first teacher at ASD, taught using French Sign Language (LSF), which had a significant influence on the early development of ASL.",
+        "question": " What role did Laurent Clerc play in the development of ASL?",
+        "answer": " Laurent Clerc, the first teacher at ASD, taught using French Sign Language (LSF), which had a significant influence on the early development of ASL."
+    },
+    {
+        "context": " ASL spread to other schools for the deaf and Deaf community organizations, facilitated by the rise of Deaf community organizations and national conventions.",
+        "question": " How did ASL spread beyond the American School for the Deaf?",
+        "answer": " ASL spread to other schools for the deaf and Deaf community organizations, facilitated by the rise of Deaf community organizations and national conventions."
+    },
+    {
+        "context": " The Milan Congress effectively banned the use of sign languages in schools in the United States and Europe, promoting oralism as the dominant method of deaf education.",
+        "question": " What impact did the Milan Congress have on the use of sign languages?",
+        "answer": " The Milan Congress effectively banned the use of sign languages in schools in the United States and Europe, promoting oralism as the dominant method of deaf education."
+    },
+    {
+        "context": " William Stokoe, a linguist who arrived at Gallaudet University in 1955, played a key role in advocating for the recognition of ASL as a legitimate language.",
+        "question": " Who advocated for the recognition of ASL as a legitimate language?",
+        "answer": " William Stokoe, a linguist who arrived at Gallaudet University in 1955, played a key role in advocating for the recognition of ASL as a legitimate language."
+    },
+    {
+        "context": " ASL became accepted for foreign language course credit as a result of advocacy efforts and changes in educational policies.",
+        "question": " How did ASL become accepted by many colleges for foreign language course credit?",
+        "answer": " ASL became accepted for foreign language course credit as a result of advocacy efforts and changes in educational policies."
+    },
+    {
+        "context": " ASL users communicate using facial expressions, hand movements, and a distinct sentence structure, reflecting their unique culture and language.",
+        "question": " What distinguishes ASL users' communication style?",
+        "answer": " ASL users communicate using facial expressions, hand movements, and a distinct sentence structure, reflecting their unique culture and language."
+    },
+    {
+        "context": " MVSL was used by residents of Martha's Vineyard, Massachusetts, and played a significant role in the early development of ASL due to its prevalence in the community.",
+        "question": " What is the significance of Martha's Vineyard Sign Language (MVSL) in the history of ASL?",
+        "answer": " MVSL was used by residents of Martha's Vineyard, Massachusetts, and played a significant role in the early development of ASL due to its prevalence in the community."
+    },
+    {
+        "context": " The Civil Rights Movement of the 1960s contributed to changing attitudes toward ASL, advocating for its use in deaf education and recognizing its legitimacy as a language.",
+        "question": " How did the Civil Rights Movement influence attitudes toward ASL?",
+        "answer": " The Civil Rights Movement of the 1960s contributed to changing attitudes toward ASL, advocating for its use in deaf education and recognizing its legitimacy as a language."
+    },
+    {
+        "context": " ASL is considered a lingua franca because it is widely learned as a second language and serves as a common means of communication among diverse Deaf communities.",
+        "question": " Why is ASL considered a lingua franca in some communities?",
+        "answer": " ASL is considered a lingua franca because it is widely learned as a second language and serves as a common means of communication among diverse Deaf communities."
+    },
+    {
+        "context": " The recessive nature of genetic deafness led to the development of sign languages in various communities, including Martha's Vineyard, where MVSL emerged.",
+        "question": " How did the recessive nature of genetic deafness contribute to the development of sign languages?",
+        "answer": " The recessive nature of genetic deafness led to the development of sign languages in various communities, including Martha's Vineyard, where MVSL emerged."
+    },
+    {
+        "context": " Manualism refers to the use of sign language in deaf education, advocating for the use of sign languages like ASL as a means of communication and instruction.",
+        "question": " What is \"manualism\" in the context of deaf education?",
+        "answer": " Manualism refers to the use of sign language in deaf education, advocating for the use of sign languages like ASL as a means of communication and instruction."
+    },
+    {
+        "context": " Organizations such as the National Association of the Deaf and the National Fraternal Society of the Deaf played roles in promoting the use of ASL and organizing Deaf community events.",
+        "question": " Who are some organizations that contributed to the spread of ASL?",
+        "answer": " Organizations such as the National Association of the Deaf and the National Fraternal Society of the Deaf played roles in promoting the use of ASL and organizing Deaf community events."
+    },
+    {
+        "context": " ASL grammar is unrelated to English grammar, featuring its own grammatical structures, including subject-verb-object order and non-manual markers.",
+        "question": " How did ASL grammar differ from English grammar?",
+        "answer": " ASL grammar is unrelated to English grammar, featuring its own grammatical structures, including subject-verb-object order and non-manual markers."
+    },
+    {
+        "context": " ASL is growing in popularity due to increased recognition of its importance as a language, changes in educational policies, and a growing interest in Deaf culture and community.",
+        "question": " Why is ASL growing in popularity in many states?",
+        "answer": " ASL is growing in popularity due to increased recognition of its importance as a language, changes in educational policies, and a growing interest in Deaf culture and community."
+    },
+    {
+        "context": " ASL is not a form of pantomime; while iconicity plays a role in ASL, it is a complete and organized visual language with its own grammar and syntax.",
+        "question": " What distinguishes ASL from pantomime?",
+        "answer": " ASL is not a form of pantomime; while iconicity plays a role in ASL, it is a complete and organized visual language with its own grammar and syntax."
+    },
+    {
+        "context": " Iconicity plays a larger role in ASL than in spoken languages, allowing signs to convey meaning through visual resemblance to their referents.",
+        "question": " What is the role of iconicity in ASL signs?",
+        "answer": " Iconicity plays a larger role in ASL than in spoken languages, allowing signs to convey meaning through visual resemblance to their referents."
+    },
+    {
+        "context": " Before the emergence of ASL, various communities in the United States used sign languages, including Martha's Vineyard Sign Language and home sign systems.",
+        "question": " What were some early forms of sign language used in the United States?",
+        "answer": " Before the emergence of ASL, various communities in the United States used sign languages, including Martha's Vineyard Sign Language and home sign systems."
+    },
+    {
+        "context": " The Triangle of village sign languages, including Martha's Vineyard Sign Language, played a significant role in the development of ASL, influencing its vocabulary and grammar.",
+        "question": " How did the Triangle of Village Sign languages contribute to the development of ASL?",
+        "answer": " The Triangle of village sign languages, including Martha's Vineyard Sign Language, played a significant role in the development of ASL, influencing its vocabulary and grammar."
+    },
+    {
+        "context": " British Sign Language (BSL) is a sign language used in the United Kingdom and is the first or preferred language among the deaf community in the UK.",
+        "question": " What is British Sign Language (BSL)?",
+        "answer": " British Sign Language (BSL) is a sign language used in the United Kingdom and is the first or preferred language among the deaf community in the UK."
+    },
+    {
+        "context": " The term \"British Sign Language\" was likely first used in an academic publication by Aaron Cicourel.",
+        "question": " Who first mentioned the term \"British Sign Language\" in an academic publication?",
+        "answer": " The term \"British Sign Language\" was likely first used in an academic publication by Aaron Cicourel."
+    },
+    {
+        "context": " According to the 2011 Scottish Census, the British Deaf Association estimates there are 151,000 BSL users in the UK, of whom 87,000 are Deaf.",
+        "question": " How many BSL users are estimated in the UK according to the 2011 Scottish Census?",
+        "answer": " According to the 2011 Scottish Census, the British Deaf Association estimates there are 151,000 BSL users in the UK, of whom 87,000 are Deaf."
+    },
+    {
+        "context": " In the 2011 England and Wales Census, 15,000 people reported using BSL as their main language.",
+        "question": " How many people in England and Wales reported using BSL as their main language in the 2011 Census?",
+        "answer": " In the 2011 England and Wales Census, 15,000 people reported using BSL as their main language."
+    },
+    {
+        "context": " People who are not deaf may also use BSL, including hearing relatives of deaf people, sign language interpreters, or those who have contact with the British Deaf community.",
+        "question": " Who may also use BSL besides the deaf community?",
+        "answer": " People who are not deaf may also use BSL, including hearing relatives of deaf people, sign language interpreters, or those who have contact with the British Deaf community."
+    },
+    {
+        "context": " BSL is a creation of the British Deaf community and has historical roots dating back to the 15th century.",
+        "question": " What are the historical origins of BSL?",
+        "answer": " BSL is a creation of the British Deaf community and has historical roots dating back to the 15th century."
+    },
+    {
+        "context": " The earliest known document describing the use of signing in a legal context mentions John de Orleton, a deaf man assigning his property to a family member in 1324.",
+        "question": " What is the earliest known document describing the use of signing in a legal context?",
+        "answer": " The earliest known document describing the use of signing in a legal context mentions John de Orleton, a deaf man assigning his property to a family member in 1324."
+    },
+    {
+        "context": " Thomas Braidwood, a teacher from Edinburgh, founded 'Braidwood's Academy for the Deaf and Dumb' in 1760, believed to be the first school for deaf children in Britain.",
+        "question": " Who founded the first school for deaf children in Britain?",
+        "answer": " Thomas Braidwood, a teacher from Edinburgh, founded 'Braidwood's Academy for the Deaf and Dumb' in 1760, believed to be the first school for deaf children in Britain."
+    },
+    {
+        "context": " The primary teaching methods used at Braidwood's Academy were oral communication methods, focusing on speech.",
+        "question": " What teaching methods were primarily used at Braidwood's Academy?",
+        "answer": " The primary teaching methods used at Braidwood's Academy were oral communication methods, focusing on speech."
+    },
+    {
+        "context": " Joseph Watson opposed the use of signed versions of spoken language in deaf education and advocated for methods focused on written and spoken language.",
+        "question": " Who opposed the use of signed versions of spoken language in deaf education?",
+        "answer": " Joseph Watson opposed the use of signed versions of spoken language in deaf education and advocated for methods focused on written and spoken language."
+    },
+    {
+        "context": " The Braidwood school used an early form of sign language known as the combined system, which was the first codification of British Sign Language.",
+        "question": " What early form of sign language did the Braidwood school use?",
+        "answer": " The Braidwood school used an early form of sign language known as the combined system, which was the first codification of British Sign Language."
+    },
+    {
+        "context": " Abb\u00e9 Sicard and Laurent Clerc visited the Braidwood school in 1815.",
+        "question": " Who visited the Braidwood school in 1815?",
+        "answer": " Abb\u00e9 Sicard and Laurent Clerc visited the Braidwood school in 1815."
+    },
+    {
+        "context": " Laurent Clerc found fellow sign language users at the Braidwood school, which delighted him.",
+        "question": " What did Laurent Clerc find at the Braidwood school that delighted him?",
+        "answer": " Laurent Clerc found fellow sign language users at the Braidwood school, which delighted him."
+    },
+    {
+        "context": " Thomas Hopkins Gallaudet learned the educational methods of the French Royal Institution for the Deaf, a combination of Old French Sign Language and signs developed by Abb\u00e9 de l'\u00c9p\u00e9e.",
+        "question": " What educational methods did Thomas Hopkins Gallaudet learn in Paris?",
+        "answer": " Thomas Hopkins Gallaudet learned the educational methods of the French Royal Institution for the Deaf, a combination of Old French Sign Language and signs developed by Abb\u00e9 de l'\u00c9p\u00e9e."
+    },
+    {
+        "context": " American Sign Language (ASL) has a 60% similarity to modern French Sign Language.",
+        "question": " What is the similarity between American Sign Language (ASL) and modern French Sign Language?",
+        "answer": " American Sign Language (ASL) has a 60% similarity to modern French Sign Language."
+    },
+    {
+        "context": " The American School for the Deaf was established in 1817 by Thomas Hopkins Gallaudet.",
+        "question": " When was the American School for the Deaf established?",
+        "answer": " The American School for the Deaf was established in 1817 by Thomas Hopkins Gallaudet."
+    },
+    {
+        "context": " The American School for the Deaf focused on manual communication and American Sign Language (ASL), in contrast to the oral methods used in the UK.",
+        "question": " What was the focus of the American School for the Deaf in contrast to schools in the UK?",
+        "answer": " The American School for the Deaf focused on manual communication and American Sign Language (ASL), in contrast to the oral methods used in the UK."
+    },
+    {
+        "context": " John Bulwer authored four late-Renaissance texts related to deafness, sign language, and the human body.",
+        "question": " Who authored four late-Renaissance texts related to deafness, sign language, and the human body?",
+        "answer": " John Bulwer authored four late-Renaissance texts related to deafness, sign language, and the human body."
+    },
+    {
+        "context": " George Dalgarno recognized that sign language was unrelated to spoken English.",
+        "question": " What did George Dalgarno recognize about sign language in 1661?",
+        "answer": " George Dalgarno recognized that sign language was unrelated to spoken English."
+    },
+    {
+        "context": " Andr\u00e9-Daniel Laffon de Ladebat provided a vivid description of Laurent Clerc's meeting with deaf children, expressing Clerc's delight at finding fellow sign language users.",
+        "question": " What vivid description did Andr\u00e9-Daniel Laffon de Ladebat provide of Laurent Clerc's meeting with deaf children?",
+        "answer": " Andr\u00e9-Daniel Laffon de Ladebat provided a vivid description of Laurent Clerc's meeting with deaf children, expressing Clerc's delight at finding fellow sign language users."
+    },
+    {
+        "context": " Saradhi AI was developed by a team passionate about making sign language accessible to everyone, known as Team Tekken.",
+        "question": " Who developed Saradhi AI?",
+        "answer": " Saradhi AI was developed by a team passionate about making sign language accessible to everyone, known as Team Tekken."
+    },
+    {
+        "context": " The real-time sign language translation feature in Saradhi AI converts sign language gestures captured by the device's camera into understandable text, facilitating communication.",
+        "question": " What is the purpose of the real-time sign language translation feature in Saradhi AI?",
+        "answer": " The real-time sign language translation feature in Saradhi AI converts sign language gestures captured by the device's camera into understandable text, facilitating communication."
+    },
+    {
+        "context": " The sign language translation through video upload feature in Saradhi AI allows users to upload pre-recorded videos of sign language gestures for translation, enhancing accessibility and learning.",
+        "question": " How does the sign language translation through video upload feature work in Saradhi AI?",
+        "answer": " The sign language translation through video upload feature in Saradhi AI allows users to upload pre-recorded videos of sign language gestures for translation, enhancing accessibility and learning."
+    },
+    {
+        "context": " The chatbot in Saradhi AI provides assistance and clears doubts about sign language, offering intelligent responses to user queries.",
+        "question": " What does the chatbot in Saradhi AI provide assistance with?",
+        "answer": " The chatbot in Saradhi AI provides assistance and clears doubts about sign language, offering intelligent responses to user queries."
+    },
+    {
+        "context": " Saradhi AI utilizes models from Intel OpenVino for sign language recognition.",
+        "question": " What technologies are used in Saradhi AI for sign language recognition?",
+        "answer": " Saradhi AI utilizes models from Intel OpenVino for sign language recognition."
+    },
+    {
+        "question": " What is the similarity between American Sign Language (ASL) and modern French Sign Language?",
+        "answer": " American Sign Language (ASL) has a 60% similarity to modern French Sign Language.",
+        "context": " American Sign Language (ASL) has a 60% similarity to modern French Sign Language."
+    },
+    {
+        "question": " What did George Dalgarno recognize about sign language in 1661?",
+        "answer": " George Dalgarno recognized that sign language was unrelated to spoken English.",
+        "context": " George Dalgarno recognized that sign language was unrelated to spoken English."
+    },
+    {
+        "question": " What technologies are used in Saradhi AI for sign language recognition?",
+        "answer": " Saradhi AI utilizes models from Intel OpenVino for sign language recognition.",
+        "context": " Saradhi AI utilizes models from Intel OpenVino for sign language recognition."
+    },
+    {
+        "context": " French Sign Language (LSF) is the sign language used by the deaf community in France and French-speaking parts of Switzerland.",
+        "question": " What is French Sign Language (LSF)?",
+        "answer": " French Sign Language (LSF) is the sign language used by the deaf community in France and French-speaking parts of Switzerland."
+    },
+    {
+        "context": " According to Ethnologue, French Sign Language has 100,000 native signers.",
+        "question": " How many native signers does French Sign Language have?",
+        "answer": " According to Ethnologue, French Sign Language has 100,000 native signers."
+    },
+    {
+        "context": " Dutch Sign Language (NGT), Flemish Sign Language (VGT), Belgian-French Sign Language (LSFB), Irish Sign Language (ISL), American Sign Language (ASL), Quebec Sign Language (LSQ), Brazilian Sign Language (LSB, LGB, or LSCB), and Russian Sign Language (RSL) are related to French Sign Language.",
+        "question": " What languages are related and partially ancestral to French Sign Language?",
+        "answer": " Dutch Sign Language (NGT), Flemish Sign Language (VGT), Belgian-French Sign Language (LSFB), Irish Sign Language (ISL), American Sign Language (ASL), Quebec Sign Language (LSQ), Brazilian Sign Language (LSB, LGB, or LSCB), and Russian Sign Language (RSL) are related to French Sign Language."
+    },
+    {
+        "context": " Charles Michel de l'\u00c9p\u00e9e (l'abb\u00e9 de l'\u00c9p\u00e9e) is often mistakenly attributed with the creation of French Sign Language.",
+        "question": " Who is often mistakenly attributed with the creation of French Sign Language?",
+        "answer": " Charles Michel de l'\u00c9p\u00e9e (l'abb\u00e9 de l'\u00c9p\u00e9e) is often mistakenly attributed with the creation of French Sign Language."
+    },
+    {
+        "context": " Charles Michel de l'\u00c9p\u00e9e discovered the language by accident when he encountered a pair of deaf twin sisters communicating among themselves and the deaf Parisian community.",
+        "question": " How did Charles Michel de l'\u00c9p\u00e9e come across the language that became French Sign Language?",
+        "answer": " Charles Michel de l'\u00c9p\u00e9e discovered the language by accident when he encountered a pair of deaf twin sisters communicating among themselves and the deaf Parisian community."
+    },
+    {
+        "context": " Charles Michel de l'\u00c9p\u00e9e developed a system called \"methodical signs\" to teach his students how to read and write.",
+        "question": " What system did Charles Michel de l'\u00c9p\u00e9e develop to teach his students?",
+        "answer": " Charles Michel de l'\u00c9p\u00e9e developed a system called \"methodical signs\" to teach his students how to read and write."
+    },
+    {
+        "context": " The system developed by Charles Michel de l'\u00c9p\u00e9e was over-complicated and unusable by his students, as it was a mixture of sign language words and invented grammatical terms.",
+        "question": " What were some of the shortcomings of the system developed by Charles Michel de l'\u00c9p\u00e9e?",
+        "answer": " The system developed by Charles Michel de l'\u00c9p\u00e9e was over-complicated and unusable by his students, as it was a mixture of sign language words and invented grammatical terms."
+    },
+    {
+        "context": " The presence of many deaf students under a single roof contributed to the growth of French Sign Language after Charles Michel de l'\u00c9p\u00e9e's time.",
+        "question": " What contributed to the growth of French Sign Language after Charles Michel de l'\u00c9p\u00e9e's time?",
+        "answer": " The presence of many deaf students under a single roof contributed to the growth of French Sign Language after Charles Michel de l'\u00c9p\u00e9e's time."
+    },
+    {
+        "context": " A schism developed between the manualist and oralist schools of thought in French Sign Language in the late 19th century.",
+        "question": " What event led to a schism in French Sign Language in the late 19th century?",
+        "answer": " A schism developed between the manualist and oralist schools of thought in French Sign Language in the late 19th century."
+    },
+    {
+        "context": " The congress decided that the oralist tradition would be preferred, leading to the treatment of sign language as a barrier to learning to talk and its subsequent ban from the classroom.",
+        "question": " What decision was made at the Milan International Congress of Teachers for the Deaf-Mute in 1880?",
+        "answer": " The congress decided that the oralist tradition would be preferred, leading to the treatment of sign language as a barrier to learning to talk and its subsequent ban from the classroom."
+    },
+    {
+        "context": " In the late 20th century, the French deaf community began to advocate for greater recognition of sign language and a bilingual education system, leading to the passage of laws in 1991 and 2005 authorizing and fully recognizing French Sign Language as a language in its own right, respectively.",
+        "question": " What legislative actions were taken in France regarding French Sign Language in the late 20th century?",
+        "answer": " In the late 20th century, the French deaf community began to advocate for greater recognition of sign language and a bilingual education system, leading to the passage of laws in 1991 and 2005 authorizing and fully recognizing French Sign Language as a language in its own right, respectively."
+    },
+    {
+        "context": " There are more than 300 different sign languages in use globally, each varying from nation to nation.",
+        "question": " How many different sign languages are in use around the world?",
+        "answer": " There are more than 300 different sign languages in use globally, each varying from nation to nation."
+    },
+    {
+        "context": " Sign language variations within a country can result from regional accents, just like in spoken language. Additionally, differences in facial expressions, gestures, and body language can also influence sign language communication.",
+        "question": " What factors contribute to the variations in sign language within a country?",
+        "answer": " Sign language variations within a country can result from regional accents, just like in spoken language. Additionally, differences in facial expressions, gestures, and body language can also influence sign language communication."
+    },
+    {
+        "context": " Many businesses and organizations struggle to communicate effectively with Deaf and Hard of Hearing communities due to the variations in sign language and the lack of understanding of these differences. Providing accessibility services such as sign language interpreters can help bridge this communication gap.",
+        "question": " What challenges do businesses and organizations face in communicating with Deaf and Hard of Hearing communities?",
+        "answer": " Many businesses and organizations struggle to communicate effectively with Deaf and Hard of Hearing communities due to the variations in sign language and the lack of understanding of these differences. Providing accessibility services such as sign language interpreters can help bridge this communication gap."
+    },
+    {
+        "context": " British Sign Language (BSL) is the most widely used sign language in the UK, with approximately 151,000 users, of whom 87,000 are Deaf. It has its own vocabulary, grammar, and syntax and is recognized as an official minority language by the UK government.",
+        "question": " What is British Sign Language (BSL)?",
+        "answer": " British Sign Language (BSL) is the most widely used sign language in the UK, with approximately 151,000 users, of whom 87,000 are Deaf. It has its own vocabulary, grammar, and syntax and is recognized as an official minority language by the UK government."
+    },
+    {
+        "context": " BSL is not dependent on spoken English and has its own linguistic features, including vocabulary, grammar, and syntax.",
+        "question": " How does BSL differ from spoken English?",
+        "answer": " BSL is not dependent on spoken English and has its own linguistic features, including vocabulary, grammar, and syntax."
+    },
+    {
+        "context": " In 2003, the UK government officially recognized BSL as an official minority language. Additionally, in 2005, BSL was fully recognized as a language in its own right by law.",
+        "question": " What legislative recognition has BSL received in the UK?",
+        "answer": " In 2003, the UK government officially recognized BSL as an official minority language. Additionally, in 2005, BSL was fully recognized as a language in its own right by law."
+    },
+    {
+        "context": " Different regions within the UK have their own unique dialects and colloquialisms in BSL, leading to variations in signs and communication styles.",
+        "question": " How does regional variation affect BSL within the UK?",
+        "answer": " Different regions within the UK have their own unique dialects and colloquialisms in BSL, leading to variations in signs and communication styles."
+    },
+    {
+        "context": " Hard-of-hearing people may use communication support such as lip readers, speech-to-text reporters, and palantypists.",
+        "question": " What forms of communication support do Hard of Hearing people use?",
+        "answer": " Hard-of-hearing people may use communication support such as lip readers, speech-to-text reporters, and palantypists."
+    },
+    {
+        "context": " No, there isn't a single universal sign language. However, there are internationally recognized signs. BSL is predominantly used by the UK's Deaf community.",
+        "question": " Is sign language universal?",
+        "answer": " No, there isn't a single universal sign language. However, there are internationally recognized signs. BSL is predominantly used by the UK's Deaf community."
+    },
+    {
+        "context": " Organizations can use experienced interpreters who understand the subtle differences between BSL dialects and other sign language systems to break down communication barriers effectively.",
+        "question": " What steps can organizations take to communicate better with Deaf audiences?",
+        "answer": " Organizations can use experienced interpreters who understand the subtle differences between BSL dialects and other sign language systems to break down communication barriers effectively."
+    },
+    {
+        "context": "eloped Indian Sign Language Dictionary in 2001 with 1600 words",
+        "question": " following are land marks of its history",
+        "answer": "eloped Indian Sign Language Dictionary in 2001 with 1600 words"
+    },
+    {
+        "context": "eloped Indian Sign Language for Banking terminology in \u2014- with \u2014 words",
+        "question": "eloped Indian Technical Sign Language Dictionary in \u2014\u2013 with \u2014- words",
+        "answer": "eloped Indian Sign Language for Banking terminology in \u2014- with \u2014 words"
+    },
+    {
+        "context": "ering Diploma in Indian Sign Language Interpretation since 2005",
+        "question": "eloped Indian Sign Language for Physics terminology in \u2014- with \u2014\u2013 words",
+        "answer": "ering Diploma in Indian Sign Language Interpretation since 2005"
+    },
+    {
+        "context": "nched a website on Indian Sign Language",
+        "question": "anizing awareness/sensitization programmes for teachers, parents, police officers, air force officers, bank officers and other professionals",
+        "answer": "nched a website on Indian Sign Language"
+    },
+    {
+        "context": "olved with CIIL for Corpus on Indian Sign Language",
+        "question": "nched a Video Relay Service for deaf community",
+        "answer": "olved with CIIL for Corpus on Indian Sign Language"
+    },
+    {
+        "context": " The Ramakrishna Mission collaborated with CBM International, Germany, to standardize Indian Sign Language.",
+        "question": " What was the collaborative project undertaken by the Ramakrishna Mission in January 1999?",
+        "answer": " The Ramakrishna Mission collaborated with CBM International, Germany, to standardize Indian Sign Language."
+    },
+    {
+        "context": " On November 24, 2001, the first 'Indian Sign Language Dictionary' was released, marking an important milestone for persons with hearing impairment in India.",
+        "question": " What significant event took place on November 24, 2001, for individuals with hearing impairment in India?",
+        "answer": " On November 24, 2001, the first 'Indian Sign Language Dictionary' was released, marking an important milestone for persons with hearing impairment in India."
+    },
+    {
+        "context": " The Indian Sign Language Dictionary documented over 2500 signs from 42 cities in 12 states.",
+        "question": " How many signs were documented in the Indian Sign Language Dictionary, and from how many cities and states were they collected?",
+        "answer": " The Indian Sign Language Dictionary documented over 2500 signs from 42 cities in 12 states."
+    },
+    {
+        "context": " An instructional video was necessary to complement the sign language dictionary as it is impossible to convey facial expressions, body movements, and positions effectively in a book form.",
+        "question": " Why was it necessary to create an instructional video alongside the sign language dictionary?",
+        "answer": " An instructional video was necessary to complement the sign language dictionary as it is impossible to convey facial expressions, body movements, and positions effectively in a book form."
+    },
+    {
+        "context": " The technical sign language dictionary was released to enable hearing-impaired students to pursue polytechnic education.",
+        "question": " What was the purpose of releasing the technical sign language dictionary by the Ramakrishna Mission?",
+        "answer": " The technical sign language dictionary was released to enable hearing-impaired students to pursue polytechnic education."
+    },
+    {
+        "context": " The Ramakrishna Mission collaborated with the All India Deaf Bank Employees Association to release a Sign Language Dictionary on Banking Terminologies.",
+        "question": " In collaboration with which association did the Ramakrishna Mission release a Sign Language Dictionary on Banking Terminologies?",
+        "answer": " The Ramakrishna Mission collaborated with the All India Deaf Bank Employees Association to release a Sign Language Dictionary on Banking Terminologies."
+    },
+    {
+        "context": " Signs have been developed for Physics subjects taught in schools by the Ramakrishna Mission.",
+        "question": " Besides the banking dictionary, what other subject areas have signs been developed for by the Ramakrishna Mission?",
+        "answer": " Signs have been developed for Physics subjects taught in schools by the Ramakrishna Mission."
+    },
+    {
+        "context": " Indian Sign Language (ISL) is possibly the predominant sign language variety in South Asia, used by at least several hundred thousand deaf signers (2003).",
+        "question": " What is Indian Sign Language?",
+        "answer": " Indian Sign Language (ISL) is possibly the predominant sign language variety in South Asia, used by at least several hundred thousand deaf signers (2003)."
+    }
+]
