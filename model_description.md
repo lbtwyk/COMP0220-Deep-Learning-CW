@@ -62,10 +62,10 @@ On the **knowledge_dataset** the finetuned model clearly outperforms the base Qw
 These results, illustrated in the figures below, show that two‑stage finetuning substantially improves factual accuracy and semantic alignment while slightly increasing the strict 0–2 judge score.
 
 Base model:
-![alt text](base_metrics.png)
+![alt text](figures/base_metrics.png)
 
 Finetuned model:
-![alt text](finetuned_metrics.png)
+![alt text](figures/finetuned_metrics.png)
 
 
 ---
@@ -121,6 +121,10 @@ In [inference_lstm.py](cci:7://file:///Users/lambertwang/Downloads/DL_CW/inferen
   - Avg prediction vs reference length; samples/sec generation speed.
 - **Qualitative analysis**:
   - Prints sample Q / reference / prediction with F1 scores.
+
+  LSTM baseline:
+![alt text](figures/lstm_metrics.png)
+The dummy LSTM model performs poorly on the knowledge dataset, as expected, with chaotic responses that contain random words and symbols.
 
 ---
 
