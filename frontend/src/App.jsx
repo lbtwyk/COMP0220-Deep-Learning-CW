@@ -9,7 +9,7 @@ import PodcastView from './components/PodcastView'
 function StreamingText({ text, speed = 40 }) {
   const [visibleCount, setVisibleCount] = useState(0)
   const [isComplete, setIsComplete] = useState(false)
-  
+
   const words = React.useMemo(() => {
     return text.split(/(\s+)/).filter(w => w.length > 0)
   }, [text])
@@ -77,15 +77,15 @@ function SettingsModal({ isOpen, onClose, settings, onUpdateSettings }) {
           <h2>Settings</h2>
           <button className="modal-close" onClick={onClose}>×</button>
         </div>
-        
+
         <div className="modal-tabs">
-          <button 
+          <button
             className={`tab ${activeTab === 'tts' ? 'active' : ''}`}
             onClick={() => setActiveTab('tts')}
           >
             🔊 Text-to-Speech
           </button>
-          <button 
+          <button
             className={`tab ${activeTab === 'api' ? 'active' : ''}`}
             onClick={() => setActiveTab('api')}
           >
@@ -98,9 +98,9 @@ function SettingsModal({ isOpen, onClose, settings, onUpdateSettings }) {
             <div className="settings-section">
               <label className="settings-label">TTS Provider</label>
               <div className="provider-options">
-                <button 
+                <button
                   className={`provider-btn ${localSettings.ttsProvider === 'browser' ? 'active' : ''}`}
-                  onClick={() => setLocalSettings({...localSettings, ttsProvider: 'browser'})}
+                  onClick={() => setLocalSettings({ ...localSettings, ttsProvider: 'browser' })}
                 >
                   <span className="provider-icon">🌐</span>
                   <div className="provider-info">
@@ -108,9 +108,9 @@ function SettingsModal({ isOpen, onClose, settings, onUpdateSettings }) {
                     <span className="provider-desc">Built-in voices (free)</span>
                   </div>
                 </button>
-                <button 
+                <button
                   className={`provider-btn ${localSettings.ttsProvider === 'google' ? 'active' : ''}`}
-                  onClick={() => setLocalSettings({...localSettings, ttsProvider: 'google'})}
+                  onClick={() => setLocalSettings({ ...localSettings, ttsProvider: 'google' })}
                 >
                   <span className="provider-icon">🎯</span>
                   <div className="provider-info">
@@ -118,9 +118,9 @@ function SettingsModal({ isOpen, onClose, settings, onUpdateSettings }) {
                     <span className="provider-desc">WaveNet voices (4M chars free/mo)</span>
                   </div>
                 </button>
-                <button 
+                <button
                   className={`provider-btn ${localSettings.ttsProvider === 'elevenlabs' ? 'active' : ''}`}
-                  onClick={() => setLocalSettings({...localSettings, ttsProvider: 'elevenlabs'})}
+                  onClick={() => setLocalSettings({ ...localSettings, ttsProvider: 'elevenlabs' })}
                 >
                   <span className="provider-icon">✨</span>
                   <div className="provider-info">
@@ -133,10 +133,10 @@ function SettingsModal({ isOpen, onClose, settings, onUpdateSettings }) {
               {localSettings.ttsProvider === 'elevenlabs' && (
                 <div className="voice-select-section">
                   <label className="settings-label">Voice</label>
-                  <select 
+                  <select
                     className="voice-select"
                     value={localSettings.elevenlabsVoice}
-                    onChange={(e) => setLocalSettings({...localSettings, elevenlabsVoice: e.target.value})}
+                    onChange={(e) => setLocalSettings({ ...localSettings, elevenlabsVoice: e.target.value })}
                   >
                     <optgroup label="🎭 Character Voices">
                       <option value="ErXwobaYiN019PkySvjV">🥒 Rick Sanchez (Raspy Genius)</option>
@@ -168,10 +168,10 @@ function SettingsModal({ isOpen, onClose, settings, onUpdateSettings }) {
               {localSettings.ttsProvider === 'google' && (
                 <div className="voice-select-section">
                   <label className="settings-label">Voice</label>
-                  <select 
+                  <select
                     className="voice-select"
                     value={localSettings.googleVoice}
-                    onChange={(e) => setLocalSettings({...localSettings, googleVoice: e.target.value})}
+                    onChange={(e) => setLocalSettings({ ...localSettings, googleVoice: e.target.value })}
                   >
                     <option value="en-US-Wavenet-D">US English - Male D (Wavenet)</option>
                     <option value="en-US-Wavenet-F">US English - Female F (Wavenet)</option>
@@ -191,36 +191,36 @@ function SettingsModal({ isOpen, onClose, settings, onUpdateSettings }) {
             <div className="settings-section">
               <div className="api-key-group">
                 <label className="settings-label">OpenAI API Key</label>
-                <input 
+                <input
                   type="password"
                   className="api-key-input"
                   placeholder="sk-..."
                   value={localSettings.openaiKey || ''}
-                  onChange={(e) => setLocalSettings({...localSettings, openaiKey: e.target.value})}
+                  onChange={(e) => setLocalSettings({ ...localSettings, openaiKey: e.target.value })}
                 />
                 <span className="api-hint">For chat with GPT models</span>
               </div>
 
               <div className="api-key-group">
                 <label className="settings-label">ElevenLabs API Key</label>
-                <input 
+                <input
                   type="password"
                   className="api-key-input"
                   placeholder="xi-..."
                   value={localSettings.elevenlabsKey || ''}
-                  onChange={(e) => setLocalSettings({...localSettings, elevenlabsKey: e.target.value})}
+                  onChange={(e) => setLocalSettings({ ...localSettings, elevenlabsKey: e.target.value })}
                 />
                 <span className="api-hint">For premium TTS voices</span>
               </div>
 
               <div className="api-key-group">
                 <label className="settings-label">Google Cloud Credentials</label>
-                <input 
+                <input
                   type="text"
                   className="api-key-input"
                   placeholder="Path to service account JSON or set GOOGLE_APPLICATION_CREDENTIALS"
                   value={localSettings.googleCredentials || ''}
-                  onChange={(e) => setLocalSettings({...localSettings, googleCredentials: e.target.value})}
+                  onChange={(e) => setLocalSettings({ ...localSettings, googleCredentials: e.target.value })}
                   disabled
                 />
                 <span className="api-hint">Set via environment variable on server</span>
@@ -241,12 +241,12 @@ function SettingsModal({ isOpen, onClose, settings, onUpdateSettings }) {
 function App() {
   // View mode: 'chat' or 'podcast'
   const [viewMode, setViewMode] = useState('chat')
-  
+
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [systemPrompt, setSystemPrompt] = useState("You are a friendly tutor who explains sign languages and Deaf culture clearly.")
-  const [useApi, setUseApi] = useState(true)
+  const [modelType, setModelType] = useState('api') // 'api', 'local', or 'lstm'
   const [isTyping, setIsTyping] = useState(false)
   const [ttsEnabled, setTtsEnabled] = useState(false)
   const [isSpeaking, setIsSpeaking] = useState(false)
@@ -279,7 +279,7 @@ function App() {
       utterance.rate = 1.0
       utterance.pitch = 1.0
       const voices = window.speechSynthesis.getVoices()
-      const preferredVoice = voices.find(v => 
+      const preferredVoice = voices.find(v =>
         v.name.includes('Samantha') || v.name.includes('Google') || v.lang.startsWith('en')
       )
       if (preferredVoice) utterance.voice = preferredVoice
@@ -296,7 +296,7 @@ function App() {
           provider: settings.ttsProvider,
           voice_id: settings.ttsProvider === 'elevenlabs' ? settings.elevenlabsVoice : settings.googleVoice
         }, { responseType: 'blob' })
-        
+
         const audioUrl = URL.createObjectURL(response.data)
         if (audioRef.current) {
           audioRef.current.src = audioUrl
@@ -309,6 +309,27 @@ function App() {
       } catch (error) {
         console.error('TTS Error:', error)
         setIsSpeaking(false)
+
+        // Fallback: browser TTS if available
+        if ('speechSynthesis' in window) {
+          try {
+            window.speechSynthesis.cancel()
+            const utterance = new SpeechSynthesisUtterance(text)
+            utterance.rate = 1.0
+            utterance.pitch = 1.0
+            const voices = window.speechSynthesis.getVoices()
+            const preferredVoice = voices.find(v =>
+              v.name.includes('Samantha') || v.name.includes('Google') || v.lang.startsWith('en')
+            )
+            if (preferredVoice) utterance.voice = preferredVoice
+            utterance.onstart = () => setIsSpeaking(true)
+            utterance.onend = () => setIsSpeaking(false)
+            utterance.onerror = () => setIsSpeaking(false)
+            window.speechSynthesis.speak(utterance)
+          } catch (fallbackError) {
+            console.error('Browser TTS fallback error:', fallbackError)
+          }
+        }
       }
     }
   }
@@ -353,14 +374,14 @@ function App() {
       const response = await axios.post('http://localhost:8000/chat', {
         message: userMessage.content,
         system_prompt: systemPrompt,
-        use_api: useApi
+        model_type: modelType // 'api', 'local', or 'lstm'
       })
 
       setMessages(prev => {
         const newMessages = [...prev]
         newMessages.pop()
-        newMessages.push({ 
-          role: 'assistant', 
+        newMessages.push({
+          role: 'assistant',
           content: response.data.response,
           source: response.data.source,
           isNew: true
@@ -368,16 +389,16 @@ function App() {
         return newMessages
       })
       setIsTyping(true)
-      
+
       // Start TTS immediately when response arrives (plays while text streams)
       if (ttsEnabled) {
         speak(response.data.response)
       }
-      
+
       const wordCount = response.data.response.split(/\s+/).length
       const streamDuration = wordCount * 40 + 800
       setTimeout(() => {
-        setMessages(prev => prev.map((msg, idx) => 
+        setMessages(prev => prev.map((msg, idx) =>
           idx === prev.length - 1 ? { ...msg, isNew: false } : msg
         ))
         setIsTyping(false)
@@ -410,14 +431,14 @@ function App() {
   if (viewMode === 'podcast') {
     return (
       <>
-        <SettingsModal 
+        <SettingsModal
           isOpen={showSettings}
           onClose={() => setShowSettings(false)}
           settings={settings}
           onUpdateSettings={setSettings}
         />
-        <PodcastView 
-          onBack={() => setViewMode('chat')} 
+        <PodcastView
+          onBack={() => setViewMode('chat')}
           settings={settings}
           onOpenSettings={() => setShowSettings(true)}
         />
@@ -429,9 +450,9 @@ function App() {
     <div className="app-wrapper">
       {/* Hidden audio element for TTS playback */}
       <audio ref={audioRef} />
-      
+
       {/* Settings Modal */}
-      <SettingsModal 
+      <SettingsModal
         isOpen={showSettings}
         onClose={() => setShowSettings(false)}
         settings={settings}
@@ -459,18 +480,25 @@ function App() {
           <div className="sidebar-section">
             <label className="section-label">Model</label>
             <div className="model-selector">
-              <button className={`model-option ${useApi ? 'active' : ''}`} onClick={() => setUseApi(true)}>
+              <button className={`model-option ${modelType === 'api' ? 'active' : ''}`} onClick={() => setModelType('api')}>
                 <span className="model-icon">✨</span>
                 <div className="model-info">
                   <span className="model-name">Cloud AI</span>
                   <span className="model-desc">GPT-3.5 Turbo</span>
                 </div>
               </button>
-              <button className={`model-option ${!useApi ? 'active' : ''}`} onClick={() => setUseApi(false)}>
+              <button className={`model-option ${modelType === 'local' ? 'active' : ''}`} onClick={() => setModelType('local')}>
                 <span className="model-icon">🖥️</span>
                 <div className="model-info">
                   <span className="model-name">Local</span>
                   <span className="model-desc">Qwen3-4B</span>
+                </div>
+              </button>
+              <button className={`model-option ${modelType === 'lstm' ? 'active' : ''}`} onClick={() => setModelType('lstm')}>
+                <span className="model-icon">🤪</span>
+                <div className="model-info">
+                  <span className="model-name">LSTM</span>
+                  <span className="model-desc">Dummy Model</span>
                 </div>
               </button>
             </div>
@@ -489,7 +517,7 @@ function App() {
 
           <div className="sidebar-section">
             <label className="section-label">Text-to-Speech</label>
-            <button 
+            <button
               className={`tts-toggle ${ttsEnabled ? 'active' : ''}`}
               onClick={() => {
                 if (ttsEnabled && isSpeaking) stopSpeaking()
@@ -507,8 +535,8 @@ function App() {
         <div className="sidebar-footer">
           <div className="footer-row">
             <div className="status-badge">
-              <span className={`status-dot ${useApi ? 'cloud' : 'local'}`}></span>
-              {useApi ? 'Cloud' : 'Local'}
+              <span className={`status-dot ${modelType === 'api' ? 'cloud' : modelType === 'lstm' ? 'lstm' : 'local'}`}></span>
+              {modelType === 'api' ? 'Cloud' : modelType === 'lstm' ? 'LSTM' : 'Local'}
             </div>
             <button className="settings-btn" onClick={() => setShowSettings(true)} title="Settings">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -541,7 +569,7 @@ function App() {
                 </div>
                 <h1>Welcome to SignTutor</h1>
                 <p>Your personal guide to sign languages and Deaf culture. Ask anything!</p>
-                
+
                 <div className="prompt-grid">
                   <button className="prompt-card" onClick={() => setInput("What's the difference between ASL and BSL?")}>
                     <span className="prompt-icon">🌍</span>
@@ -571,7 +599,7 @@ function App() {
                   {msg.role === 'user' ? (
                     <div className="avatar user-avatar">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                       </svg>
                     </div>
                   ) : (
@@ -585,7 +613,7 @@ function App() {
                     <span className="sender-name">{msg.role === 'user' ? 'You' : 'SignTutor'}</span>
                     {msg.source && <span className="source-tag">{msg.source}</span>}
                     {msg.role === 'assistant' && !msg.isLoading && !msg.isNew && (
-                      <button 
+                      <button
                         className={`speak-btn ${isSpeaking ? 'speaking' : ''}`}
                         onClick={() => isSpeaking ? stopSpeaking() : speak(msg.content)}
                         title={isSpeaking ? 'Stop' : 'Read aloud'}

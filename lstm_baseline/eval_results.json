@@ -1,0 +1,72 @@
+{
+  "num_samples": 100,
+  "exact_match": 0,
+  "exact_match_rate": 0.0,
+  "avg_token_f1": 0.3045225881891201,
+  "avg_pred_length": 18.56,
+  "avg_ref_length": 29.99,
+  "generation_time_sec": 1.9747719764709473,
+  "samples_per_sec": 50.638757887736915,
+  "samples": [
+    {
+      "question": "What does 'CODA' stand for in the Deaf community?",
+      "reference": "CODA stands for 'Child of Deaf Adult'. It refers to a hearing person who was raised by one or both Deaf parents and often navigates between the Deaf and hearing worlds.",
+      "prediction": "coda stands for deaf people communication. d language in hearing deaf. suffixes often share people deaf has an raised in by deaf, or <UNK> through or broken ',",
+      "token_f1": 0.4
+    },
+    {
+      "question": "Is American Sign Language universal?",
+      "reference": "No, American Sign Language (ASL) is not universal. Different countries have their own sign languages, such as British Sign Language (BSL) or French Sign Language (LSF), which are distinct from ASL.",
+      "prediction": "no ) is is no ) is asl sign language ( asl sign language ( <UNK> sign, sign table in asl ). sign language ( <UNK>, sign language., sign language ) ).",
+      "token_f1": 0.4186046511627907
+    },
+    {
+      "question": "What is the difference between 'Deaf' with a capital D and 'deaf' with a lowercase d?",
+      "reference": "Capital-D 'Deaf' refers to a cultural identity and community with shared values, language (ASL), and traditions. Lowercase-d 'deaf' usually refers to the medical or audiological condition of hearing loss.",
+      "prediction": "asl usually refers to sign ' in deaf people of deaf <UNK> deaf <UNK> - <UNK> to face.",
+      "token_f1": 0.375
+    },
+    {
+      "question": "Who was Thomas Hopkins Gallaudet?",
+      "reference": "Thomas Hopkins Gallaudet was an American educator who co-founded the first permanent school for the Deaf in North America. He traveled to Europe to learn methods for teaching Deaf students and brought French Sign Language back to the US.",
+      "prediction": "william stokoe was to the young deaf young gallaudet girl co america. teaching the deaf hopkins key north traveled to gallaudet. europe to sign. gallaudet <UNK> in a by europe at europe to europe to europe learn for the north brought north europe to learn a deaf europe to europe the traveled teaching learn the. deaf hopkins gallaudet to europe to europe sign methods of abbé proved in the team to europe. traveled to europe for a fully inspired french the deaf of co.",
+      "token_f1": 0.547945205479452
+    },
+    {
+      "question": "Who was Laurent Clerc?",
+      "reference": "Laurent Clerc was a French Deaf teacher and co-founder of the first school for the Deaf in America. He is often credited with bringing French Sign Language to the US, which heavily influenced modern ASL.",
+      "prediction": "william stokoe formed, the the deaf was passed, its us in britain europe to the structure.",
+      "token_f1": 0.3137254901960784
+    },
+    {
+      "question": "What are Non-Manual Markers (NMMs) in ASL?",
+      "reference": "Non-Manual Markers are grammatical features in ASL that do not involve the hands. They include facial expressions, head tilts, shoulder movements, and mouth morphemes, all of which change or clarify the meaning of signs.",
+      "prediction": "it is a signs to some <UNK> ( to represent the for <UNK>., and <UNK>, asl. their <UNK> facial expressions.",
+      "token_f1": 0.2857142857142857
+    },
+    {
+      "question": "How do you form a Yes/No question in ASL?",
+      "reference": "To ask a Yes/No question in ASL, you should raise your eyebrows, lean your head slightly forward, and hold the last sign until the person starts to answer.",
+      "prediction": "it ask can the middle palm slightly future, lower furrow forward.. ), lower ( <UNK>, hold your eyebrows, 10 eyebrows, or ' palm..",
+      "token_f1": 0.339622641509434
+    },
+    {
+      "question": "How do you form a WH-question (who, what, where, etc.) in ASL?",
+      "reference": "To ask a WH-question in ASL, you should furrow (lower) your eyebrows, lean your head slightly forward, and usually place the WH-sign at the end of the sentence.",
+      "prediction": "no furrow ( indicated l for ' <UNK> sign with the wh - no, lean your eyebrows, forward like forward ).",
+      "token_f1": 0.4814814814814815
+    },
+    {
+      "question": "What is a 'name sign'?",
+      "reference": "A name sign is a specific sign used to identify a person in the Deaf community, eliminating the need to fingerspell their name every time. Name signs are typically given by Deaf people, not invented by hearing learners.",
+      "prediction": "a stands of used to sign language communication sanctioned ( asl from its arts and english is a to english. talking member of asl fingerspell the deaf ). dominant hand of the deaf. ( e.",
+      "token_f1": 0.3103448275862069
+    },
+    {
+      "question": "What happened at the Milan Conference of 1880?",
+      "reference": "The Milan Conference was an international meeting of educators where a resolution was passed to ban sign language in schools for the Deaf in favor of oralism (speech and lipreading). This had a devastating, long-lasting impact on Deaf education and culture.",
+      "prediction": "hearing stokoe for the deaf by the educational in a to europe to prevent fostering on the school in a education sign language devastating in a and devastating education.",
+      "token_f1": 0.42622950819672134
+    }
+  ]
+}

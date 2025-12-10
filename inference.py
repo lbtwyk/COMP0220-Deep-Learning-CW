@@ -149,6 +149,7 @@ def generate_response(
     temperature: float = 0.7,
     top_p: float = 0.9,
     do_sample: bool = True,
+    stop_strings=None,
 ) -> str:
     """Generate a response from the model."""
     # If temperature <= 0, switch to greedy (no sampling) to avoid logits processor error
@@ -188,6 +189,17 @@ def generate_response(
     
     # Decode response (only the generated part)
     response = tokenizer.decode(outputs[0][inputs.shape[1]:], skip_special_tokens=True)
+    
+    # Optional stopping on custom strings (used by podcast local agents)
+    if stop_strings:
+        earliest = len(response)
+        for s in stop_strings:
+            if not s:
+                continue
+            idx = response.find(s)
+            if idx != -1 and idx < earliest:
+                earliest = idx
+        response = response[:earliest]
     
     return response.strip()
 
@@ -504,6 +516,16 @@ def evaluate_model_on_dataset(
         print(f"Average semantic cosine: {total_sem / n:.3f}")
     if use_model_judge and judge_count > 0:
         print(f"Average model-judge score: {total_judge / judge_count:.3f}")
+    
+    # Return metrics for comparison
+    return {
+        "model_label": model_label,
+        "num_examples": n,
+        "avg_exact_match": total_em / n,
+        "avg_f1": total_f1 / n,
+        "avg_semantic": total_sem / n if use_semantic else None,
+        "avg_judge": total_judge / judge_count if use_model_judge and judge_count > 0 else None,
+    }
 
 
 def main():
@@ -609,7 +631,7 @@ def main():
         if args.compare_base and not args.base_model:
             print(f"[Info] --compare_base set; using default base model: {base_model_name}")
         
-        evaluate_model_on_dataset(
+        ft_metrics = evaluate_model_on_dataset(
             model,
             tokenizer,
             device,
@@ -625,7 +647,7 @@ def main():
         
         if args.compare_base:
             base_model, base_tok, base_dev = load_base_model(base_model_name, args.device)
-            evaluate_model_on_dataset(
+            base_metrics = evaluate_model_on_dataset(
                 base_model,
                 base_tok,
                 base_dev,
@@ -638,6 +660,44 @@ def main():
                 seed=args.seed,
                 model_label="base",
             )
+            
+            # Print combined comparison summary
+            print("\n" + "=" * 80)
+            print("COMPARISON SUMMARY: Finetuned vs Base Model")
+            print("=" * 80)
+            print(f"Dataset: {dataset_path}")
+            print(f"Examples evaluated: {ft_metrics['num_examples']}")
+            print("-" * 80)
+            print(f"{'Metric':<25} {'Finetuned':>15} {'Base':>15} {'Diff':>15}")
+            print("-" * 80)
+            
+            # Exact match
+            ft_em = ft_metrics['avg_exact_match']
+            base_em = base_metrics['avg_exact_match']
+            diff_em = ft_em - base_em
+            print(f"{'Avg Exact Match':<25} {ft_em:>15.3f} {base_em:>15.3f} {diff_em:>+15.3f}")
+            
+            # F1
+            ft_f1 = ft_metrics['avg_f1']
+            base_f1 = base_metrics['avg_f1']
+            diff_f1 = ft_f1 - base_f1
+            print(f"{'Avg F1':<25} {ft_f1:>15.3f} {base_f1:>15.3f} {diff_f1:>+15.3f}")
+            
+            # Semantic similarity
+            if ft_metrics['avg_semantic'] is not None and base_metrics['avg_semantic'] is not None:
+                ft_sem = ft_metrics['avg_semantic']
+                base_sem = base_metrics['avg_semantic']
+                diff_sem = ft_sem - base_sem
+                print(f"{'Avg Semantic Cosine':<25} {ft_sem:>15.3f} {base_sem:>15.3f} {diff_sem:>+15.3f}")
+            
+            # Model judge score
+            if ft_metrics['avg_judge'] is not None and base_metrics['avg_judge'] is not None:
+                ft_judge = ft_metrics['avg_judge']
+                base_judge = base_metrics['avg_judge']
+                diff_judge = ft_judge - base_judge
+                print(f"{'Avg Model-Judge (0-2)':<25} {ft_judge:>15.3f} {base_judge:>15.3f} {diff_judge:>+15.3f}")
+            
+            print("=" * 80)
     elif args.prompt:
         response = generate_response(
             model, tokenizer, device,

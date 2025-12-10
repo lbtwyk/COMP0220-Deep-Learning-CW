@@ -20,7 +20,7 @@ export default function PodcastView({ onBack, settings, onOpenSettings }) {
   const [isSpeaking, setIsSpeaking] = useState(false)
   const [ttsEnabled, setTtsEnabled] = useState(true)
   const [isSwitchingPersonality, setIsSwitchingPersonality] = useState(false)
-  const [useLocalModel, setUseLocalModel] = useState(false)
+  const [modelType, setModelType] = useState('api') // 'api', 'local', or 'lstm'
 
   const audioRef = useRef(null)
   const wsRef = useRef(null)
@@ -307,6 +307,7 @@ export default function PodcastView({ onBack, settings, onOpenSettings }) {
         break
       case 'ended':
         console.log('🏁 Podcast ended')
+        stopSpeaking() // Stop any audio immediately
         setPodcastState('idle')
         break
       default:
@@ -333,7 +334,7 @@ export default function PodcastView({ onBack, settings, onOpenSettings }) {
       // Send current personality to backend on connect
       ws.send(JSON.stringify({ type: 'set_personality', personality: currentPersonality }))
       // Sync model preference
-      ws.send(JSON.stringify({ type: 'set_model', use_local: useLocalModel }))
+      ws.send(JSON.stringify({ type: 'set_model', model_type: modelType }))
     }
 
     ws.onmessage = (event) => {
@@ -352,7 +353,7 @@ export default function PodcastView({ onBack, settings, onOpenSettings }) {
 
     ws.onerror = () => setIsConnecting(false)
     wsRef.current = ws
-  }, [personality, useLocalModel])
+  }, [personality, modelType])
 
   const send = (type, data = {}) => {
     if (wsRef.current?.readyState === WebSocket.OPEN) {
@@ -496,12 +497,12 @@ export default function PodcastView({ onBack, settings, onOpenSettings }) {
             <label className="section-label">AI Model</label>
             <div className="model-selector">
               <button
-                className={`model-option ${!useLocalModel ? 'active' : ''}`}
+                className={`model-option ${modelType === 'api' ? 'active' : ''}`}
                 onClick={() => {
-                  if (useLocalModel) {
-                    setUseLocalModel(false)
+                  if (modelType !== 'api') {
+                    setModelType('api')
                     if (isConnected) {
-                      send('set_model', { use_local: false })
+                      send('set_model', { model_type: 'api' })
                     }
                   }
                 }}
@@ -513,12 +514,12 @@ export default function PodcastView({ onBack, settings, onOpenSettings }) {
                 </div>
               </button>
               <button
-                className={`model-option ${useLocalModel ? 'active' : ''}`}
+                className={`model-option ${modelType === 'local' ? 'active' : ''}`}
                 onClick={() => {
-                  if (!useLocalModel) {
-                    setUseLocalModel(true)
+                  if (modelType !== 'local') {
+                    setModelType('local')
                     if (isConnected) {
-                      send('set_model', { use_local: true })
+                      send('set_model', { model_type: 'local' })
                     }
                   }
                 }}
@@ -527,6 +528,23 @@ export default function PodcastView({ onBack, settings, onOpenSettings }) {
                 <div className="model-info">
                   <span className="model-name">Local</span>
                   <span className="model-desc">Qwen3-4B</span>
+                </div>
+              </button>
+              <button
+                className={`model-option ${modelType === 'lstm' ? 'active' : ''}`}
+                onClick={() => {
+                  if (modelType !== 'lstm') {
+                    setModelType('lstm')
+                    if (isConnected) {
+                      send('set_model', { model_type: 'lstm' })
+                    }
+                  }
+                }}
+              >
+                <span className="model-icon">🤪</span>
+                <div className="model-info">
+                  <span className="model-name">LSTM</span>
+                  <span className="model-desc">Dummy Model</span>
                 </div>
               </button>
             </div>
@@ -580,8 +598,18 @@ export default function PodcastView({ onBack, settings, onOpenSettings }) {
           <span className="podcast-banner-text">
             <strong>Podcast Mode</strong> — {personality === 'fun' ? 'Rick & Morty' : 'Dave & Taylor'} discussing sign language
           </span>
-          {isSpeaking && (
-            <button className="podcast-banner-stop" onClick={stopSpeaking}>
+          {(podcastState === 'discussing' || isSpeaking) && (
+            <button
+              className="podcast-banner-stop"
+              onClick={() => {
+                // Stop any current audio immediately
+                stopSpeaking()
+                // Tell backend to end the session so the loop stops
+                send('end')
+                // Reset state immediately
+                setPodcastState('idle')
+              }}
+            >
               ⏹️ Stop
             </button>
           )}
@@ -655,8 +683,8 @@ export default function PodcastView({ onBack, settings, onOpenSettings }) {
                     <div className="message-header">
                       <span className="sender-name">{info.name}</span>
                       {msg.model && (
-                        <span className="model-badge" title={`Generated by ${msg.model === 'local' ? 'Local Qwen3' : 'Cloud OpenAI'}`}>
-                          {msg.model === 'local' ? '🖥️ Local' : '☁️ Cloud'}
+                        <span className="model-badge" title={`Generated by ${msg.model === 'local' ? 'Local Qwen3' : msg.model === 'lstm' ? 'LSTM Model' : 'Cloud OpenAI'}`}>
+                          {msg.model === 'local' ? '🖥️ Local' : msg.model === 'lstm' ? '🤪 LSTM' : '☁️ Cloud'}
                         </span>
                       )}
                       {speakingAgent === msg.role && <span className="speaking-indicator">🔊</span>}

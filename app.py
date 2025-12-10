@@ -7,6 +7,7 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 from typing import Optional, List
 from pathlib import Path
+import torch
 
 # Import podcast module
 try:
@@ -56,6 +57,14 @@ except ImportError:
     LOCAL_INFERENCE_AVAILABLE = False
     print("Warning: Local inference dependencies not found. Only external API will work.")
 
+# Import LSTM inference (optional)
+try:
+    from inference_lstm import load_model as load_lstm_model, generate_response as generate_lstm_response
+    LSTM_AVAILABLE = True
+except ImportError:
+    LSTM_AVAILABLE = False
+    print("Warning: LSTM inference dependencies not found.")
+
 app = FastAPI(title="Qwen3 Tutor API")
 
 # Enable CORS for React frontend
@@ -75,6 +84,11 @@ openai_client = None
 elevenlabs_client = None
 google_tts_client = None
 
+# LSTM model globals
+lstm_model = None
+lstm_vocab = None
+lstm_config = None
+
 # Initialize clients
 if os.getenv("OPENAI_API_KEY"):
     openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -92,7 +106,7 @@ class ChatRequest(BaseModel):
     system_prompt: str = "You are a friendly tutor who explains sign languages and Deaf culture clearly."
     temperature: float = 0.7
     max_new_tokens: int = 512
-    use_api: bool = True
+    model_type: str = "api"  # 'api', 'local', or 'lstm'
     api_model: str = "gpt-3.5-turbo"
 
 class ChatResponse(BaseModel):
@@ -134,7 +148,7 @@ async def startup_event():
         # Pre-load local model for both chat and podcast
         if model is None:
             print("Pre-loading local model for chat and podcast...")
-            finetuned_path = Path("./qwen3_finetuned/final")
+            finetuned_path = Path("./qwen3_2stage_finetuned2/final")
             base_model = "Qwen/Qwen3-4B-Instruct-2507"
             try:
                 model_path = str(finetuned_path) if finetuned_path.exists() else base_model
@@ -160,13 +174,15 @@ async def startup_event():
     if TOPMEDIAI_AVAILABLE:
         topmediai_key = os.getenv("TOPMEDIAI_API_KEY")
         print(f"TopMediai API key: {'Set' if topmediai_key else 'Not set (will try without auth)'}")
+    print(f"LSTM model available: {LSTM_AVAILABLE}")
 # ============== Chat Endpoints ==============
 
 @app.post("/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
     global model, tokenizer, device, openai_client
+    global lstm_model, lstm_vocab, lstm_config
 
-    if request.use_api:
+    if request.model_type == "api":
         if not openai_client:
             if os.getenv("OPENAI_API_KEY"):
                 openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -193,37 +209,68 @@ async def chat(request: ChatRequest):
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"API Error: {str(e)}")
 
-    # Local model
-    if not LOCAL_INFERENCE_AVAILABLE:
-        raise HTTPException(status_code=503, detail="Local inference not available.")
-
-    if model is None:
-        print("Loading local model...")
-        finetuned_path = Path("./qwen3_finetuned/final")
-        base_model = "Qwen/Qwen3-4B-Instruct-2507"
+    elif request.model_type == "lstm":
+        # LSTM baseline model
+        if not LSTM_AVAILABLE:
+            raise HTTPException(status_code=503, detail="LSTM inference not available.")
+        
+        if lstm_model is None:
+            print("Loading LSTM model...")
+            checkpoint_path = Path("./lstm_baseline/checkpoint_best.pt")
+            if not checkpoint_path.exists():
+                raise HTTPException(status_code=503, detail="LSTM checkpoint not found at ./lstm_baseline/checkpoint_best.pt")
+            try:
+                lstm_model, lstm_vocab, lstm_config = load_lstm_model(
+                    checkpoint_path=checkpoint_path,
+                    device="cuda" if torch.cuda.is_available() else "cpu"
+                )
+            except Exception as e:
+                raise HTTPException(status_code=500, detail=f"Failed to load LSTM model: {str(e)}")
+        
         try:
-            model_path = str(finetuned_path) if finetuned_path.exists() else base_model
-            model, tokenizer, device = load_finetuned_model(
-                model_path=model_path,
-                base_model=base_model,
-                device="auto"
+            response_text = generate_lstm_response(
+                model=lstm_model,
+                vocab=lstm_vocab,
+                question=request.message,
+                config=lstm_config,
+                temperature=request.temperature
             )
+            return ChatResponse(response=response_text, source="lstm")
         except Exception as e:
-            raise HTTPException(status_code=500, detail=f"Failed to load model: {str(e)}")
+            raise HTTPException(status_code=500, detail=f"LSTM Error: {str(e)}")
 
-    try:
-        response_text = generate_response(
-            model=model,
-            tokenizer=tokenizer,
-            device=device,
-            user_prompt=request.message,
-            system_prompt=request.system_prompt,
-            max_new_tokens=request.max_new_tokens,
-            temperature=request.temperature
-        )
-        return ChatResponse(response=response_text, source="local")
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+    else:
+        # Local Qwen model (model_type == "local")
+        if not LOCAL_INFERENCE_AVAILABLE:
+            raise HTTPException(status_code=503, detail="Local inference not available.")
+
+        if model is None:
+            print("Loading local model...")
+            finetuned_path = Path("./qwen3_finetuned/final")
+            base_model = "Qwen/Qwen3-4B-Instruct-2507"
+            try:
+                model_path = str(finetuned_path) if finetuned_path.exists() else base_model
+                model, tokenizer, device = load_finetuned_model(
+                    model_path=model_path,
+                    base_model=base_model,
+                    device="auto"
+                )
+            except Exception as e:
+                raise HTTPException(status_code=500, detail=f"Failed to load model: {str(e)}")
+
+        try:
+            response_text = generate_response(
+                model=model,
+                tokenizer=tokenizer,
+                device=device,
+                user_prompt=request.message,
+                system_prompt=request.system_prompt,
+                max_new_tokens=request.max_new_tokens,
+                temperature=request.temperature
+            )
+            return ChatResponse(response=response_text, source="local")
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=str(e))
 
 # ============== TTS Endpoints ==============
 
@@ -459,7 +506,8 @@ async def get_settings():
     return {
         "chat": {
             "openai_available": openai_client is not None,
-            "local_available": LOCAL_INFERENCE_AVAILABLE
+            "local_available": LOCAL_INFERENCE_AVAILABLE,
+            "lstm_available": LSTM_AVAILABLE
         },
         "tts": {
             "browser": True,  # Always available

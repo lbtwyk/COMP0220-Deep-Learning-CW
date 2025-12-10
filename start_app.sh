@@ -7,7 +7,7 @@ if [ -f "openai_api_key" ]; then
 fi
 
 # Google TTS credentials
-export GOOGLE_APPLICATION_CREDENTIALS="/home/hz/Downloads/comp0220-25f533457317.json"
+export GOOGLE_APPLICATION_CREDENTIALS="/Users/lambertwang/Downloads/api-keys/gemini-tts.json"
 
 # Default to asking for API Key if not present
 if [ -z "$OPENAI_API_KEY" ]; then

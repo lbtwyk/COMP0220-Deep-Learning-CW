@@ -1,0 +1,11 @@
+{
+  "vocab_size": 2775,
+  "embedding_dim": 256,
+  "hidden_dim": 512,
+  "num_layers": 2,
+  "dropout": 0.3,
+  "bidirectional_encoder": true,
+  "use_attention": true,
+  "max_input_length": 128,
+  "max_output_length": 256
+}

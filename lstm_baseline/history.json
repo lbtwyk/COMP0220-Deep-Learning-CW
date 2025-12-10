@@ -1,0 +1,228 @@
+{
+  "train_loss": [
+    5.566688023115459,
+    4.911437210283782,
+    4.653069903976039,
+    4.431505356964312,
+    4.269591911842949,
+    4.144500522237075,
+    3.964648871045364,
+    3.8720795135749015,
+    3.7012942213761177,
+    3.512566560193112,
+    3.3902460807248165,
+    3.209347078674718,
+    3.1066355611148633,
+    2.9180246999389245,
+    2.71503798585189,
+    2.540954193002299,
+    2.4352829456329346,
+    2.3768084551158704,
+    2.3283276965743616,
+    2.2113613847054934,
+    2.087003900816566,
+    1.9922531780443693,
+    1.9503021224548942,
+    1.9058029039909965,
+    1.8696940807919753,
+    1.8194723050845296,
+    1.7594243805659444,
+    1.7052669572202783,
+    1.6736585576283305,
+    1.653174329745142,
+    1.6196959991204112,
+    1.6130751073360443,
+    1.5803911544774707,
+    1.5754261816802777,
+    1.5341024038038755,
+    1.5288671098257367,
+    1.535860317318063,
+    1.5073873761453127,
+    1.5074467627625716,
+    1.4916394274485738,
+    1.4860348560308154,
+    1.475835949966782,
+    1.4522334839168347,
+    1.4451055777700323,
+    1.469511883823495,
+    1.4470845131497634,
+    1.4446909506069987,
+    1.4621606077018536,
+    1.4577471119792837,
+    1.4451777001744823
+  ],
+  "val_loss": [
+    5.236226134830051,
+    5.151275051964654,
+    5.074615478515625,
+    5.08359760708279,
+    5.071095784505208,
+    5.015611754523383,
+    5.023796611362034,
+    5.010318332248264,
+    5.0280447536044655,
+    5.072481791178386,
+    5.117094092898899,
+    5.0816887219746905,
+    5.155776606665717,
+    5.213418430752224,
+    5.23141802681817,
+    5.270300812191433,
+    5.362174246046278,
+    5.35071341196696,
+    5.426924811469184,
+    5.488441838158502,
+    5.502308898501926,
+    5.567349380917019,
+    5.598648018307156,
+    5.620461887783474,
+    5.648442851172553,
+    5.690859953562419,
+    5.732988622453478,
+    5.762532022264269,
+    5.794289006127252,
+    5.8219330045912,
+    5.863180690341526,
+    5.911597993638781,
+    5.89215808444553,
+    5.8873184521993,
+    5.909652551015218,
+    5.928220113118489,
+    5.950934198167589,
+    5.957784122890896,
+    5.985593424903022,
+    5.995828204684788,
+    6.010973082648383,
+    6.001130263010661,
+    6.016410880618626,
+    6.023389286465115,
+    6.028795772128635,
+    6.027172724405925,
+    6.033555348714192,
+    6.033625973595513,
+    6.049004819658068,
+    6.055166403452556
+  ],
+  "samples": [
+    {
+      "epoch": 1,
+      "samples": [
+        {
+          "question": "why is the nickname ' dummy ' considered offensive today?",
+          "reference": "it implies stupidity, though historically it was used to mean ' mute '.",
+          "prediction": "it a ' is how the a deaf."
+        },
+        {
+          "question": "what is ' black asl '?",
+          "reference": "black asl is a dialect of american sign language that evolved in segregated schools for black deaf children, featuring distinct vocabulary and signing styles.",
+          "prediction": "the an ' a. it time and, shake of <UNK> to, ),.."
+        },
+        {
+          "question": "what is the sign for ' cross '?",
+          "reference": "to sign ' cross ', cross your fingers.",
+          "prediction": "p sign ' ' ' ' a."
+        }
+      ]
+    },
+    {
+      "epoch": 10,
+      "samples": [
+        {
+          "question": "why is the nickname ' dummy ' considered offensive today?",
+          "reference": "it implies stupidity, though historically it was used to mean ' mute '.",
+          "prediction": "it generally peripheral <UNK> deaf and the <UNK> missing mouth and to, <UNK> the human <UNK>."
+        },
+        {
+          "question": "what is ' black asl '?",
+          "reference": "black asl is a dialect of american sign language that evolved in segregated schools for black deaf children, featuring distinct vocabulary and signing styles.",
+          "prediction": "the is where the educational philosophy that ethics where the historical due to sign total deaf students of the sign. in it is <UNK> deaf students to sign for asl., property it and method of deaf and this sickness and the natural language <UNK> by the deaf, and sickness and teaching deaf systems."
+        },
+        {
+          "question": "what is the sign for ' cross '?",
+          "reference": "to sign ' cross ', cross your fingers.",
+          "prediction": "to sign ' that '."
+        }
+      ]
+    },
+    {
+      "epoch": 20,
+      "samples": [
+        {
+          "question": "why is the nickname ' dummy ' considered offensive today?",
+          "reference": "it implies stupidity, though historically it was used to mean ' mute '.",
+          "prediction": "it implies stupidity or lack of intelligence, intelligence historically though it. it <UNK> to speak it as a <UNK> for a."
+        },
+        {
+          "question": "what is ' black asl '?",
+          "reference": "black asl is a dialect of american sign language that evolved in segregated schools for black deaf children, featuring distinct vocabulary and signing styles.",
+          "prediction": "it stands for american dialect black deaf segregated evolved to evolved segregated evolved communities,"
+        },
+        {
+          "question": "what is the sign for ' cross '?",
+          "reference": "to sign ' cross ', cross your fingers.",
+          "prediction": "to hands tapping and fingers."
+        }
+      ]
+    },
+    {
+      "epoch": 30,
+      "samples": [
+        {
+          "question": "why is the nickname ' dummy ' considered offensive today?",
+          "reference": "it implies stupidity, though historically it was used to mean ' mute '.",
+          "prediction": "it generally stupidity lack lack lack of intelligence silent historically silent it speak to speak their <UNK> though to lack of."
+        },
+        {
+          "question": "what is ' black asl '?",
+          "reference": "black asl is a dialect of american sign language that evolved in segregated schools for black deaf children, featuring distinct vocabulary and signing styles.",
+          "prediction": "a dialect of that dialect black deaf black black deaf black deaf black schools for it largely distinct language and vocabulary distinct has a distinct signing and signing."
+        },
+        {
+          "question": "what is the sign for ' cross '?",
+          "reference": "to sign ' cross ', cross your fingers.",
+          "prediction": "to sign '. ', circle your index fingers in the person your ) <UNK> your bent <UNK>."
+        }
+      ]
+    },
+    {
+      "epoch": 40,
+      "samples": [
+        {
+          "question": "why is the nickname ' dummy ' considered offensive today?",
+          "reference": "it implies stupidity, though historically it was used to mean ' mute '.",
+          "prediction": "it implies stupidity or lack of intelligence intelligence silent silent ', it is just <UNK> to the, speak."
+        },
+        {
+          "question": "what is ' black asl '?",
+          "reference": "black asl is a dialect of american sign language that evolved in segregated schools for black deaf children, featuring distinct vocabulary and signing styles.",
+          "prediction": "the dialect of the dialect that <UNK> segregated signing black deaf evolved history, to the segregation in the and for two - handed signs."
+        },
+        {
+          "question": "what is the sign for ' cross '?",
+          "reference": "to sign ' cross ', cross your fingers.",
+          "prediction": "to sign ' total ', the your - l ' hand your"
+        }
+      ]
+    },
+    {
+      "epoch": 50,
+      "samples": [
+        {
+          "question": "why is the nickname ' dummy ' considered offensive today?",
+          "reference": "it implies stupidity, though historically it was used to mean ' mute '.",
+          "prediction": "it implies stupidity or lack of intelligence, speak as it implies speak it speak or historically implies meant ' ' speak."
+        },
+        {
+          "question": "what is ' black asl '?",
+          "reference": "black asl is a dialect of american sign language that evolved in segregated schools for black deaf children, featuring distinct vocabulary and signing styles.",
+          "prediction": "the dialect of asl dialect of segregated schools for evolved schools evolved to deaf communities, larger it historical <UNK> space."
+        },
+        {
+          "question": "what is the sign for ' cross '?",
+          "reference": "to sign ' cross ', cross your fingers.",
+          "prediction": "to sign ' total ', <UNK> your hand."
+        }
+      ]
+    }
+  ]
+}

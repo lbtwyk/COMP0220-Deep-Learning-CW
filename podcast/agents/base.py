@@ -25,6 +25,11 @@ _local_model = None
 _local_tokenizer = None
 _local_device = None
 
+# Global reference to shared LSTM model
+_lstm_model = None
+_lstm_vocab = None
+_lstm_config = None
+
 
 def set_local_model(model, tokenizer, device):
     """Set the shared local model for all agents."""
@@ -89,7 +94,7 @@ class BaseAgent(ABC):
         personality: AgentPersonality = AgentPersonality.FUN,
         model: str = "gpt-4o-mini",
         temperature: float = 0.8,
-        use_local_model: bool = False,
+        model_type: str = "api",  # 'api', 'local', or 'lstm'
     ):
         """
         Initialize the agent.
@@ -99,13 +104,13 @@ class BaseAgent(ABC):
             personality: Personality mode (fun or professional)
             model: OpenAI model to use
             temperature: Sampling temperature for responses
-            use_local_model: If True, use local Qwen3 model instead of OpenAI API
+            model_type: Which model to use - 'api' (OpenAI), 'local' (Qwen3), or 'lstm'
         """
         self.config = config
         self.personality = personality
         self.model = model
         self.temperature = temperature
-        self.use_local_model = use_local_model
+        self.model_type = model_type
         
         # Initialize OpenAI client
         self._client: Optional[OpenAI] = None
@@ -142,9 +147,9 @@ class BaseAgent(ABC):
         """Switch personality mode."""
         self.personality = personality
     
-    def set_use_local_model(self, use_local: bool):
-        """Switch between local and API model."""
-        self.use_local_model = use_local
+    def set_model_type(self, model_type: str):
+        """Switch between api, local, and lstm model."""
+        self.model_type = model_type
     
     async def generate_response(
         self,
@@ -163,14 +168,21 @@ class BaseAgent(ABC):
         Returns:
             Generated response text
         """
-        print(f"  [{self.name}] generate_response called (local={self.use_local_model})")
+        print(f"  [{self.name}] generate_response called (model_type={self.model_type})")
         
-        # Use local model if enabled and available
-        if self.use_local_model:
+        # Use LSTM model if specified
+        if self.model_type == "lstm":
+            return await self._generate_lstm_response(
+                conversation_history, current_topic, additional_context
+            )
+        
+        # Use local Qwen3 model if specified
+        if self.model_type == "local":
             return await self._generate_local_response(
                 conversation_history, current_topic, additional_context
             )
         
+        # Default: use OpenAI API
         if not self._client:
             print(f"  [{self.name}] No OpenAI client, using fallback")
             return self._generate_fallback_response(current_topic)
@@ -401,6 +413,82 @@ Introduce the topic in a conversational way and ask {co_host} a question to get 
             return self._generate_fallback_response(current_topic)
         except Exception as e:
             print(f"  [{self.name}] ❌ Local model error: {type(e).__name__}: {e}")
+            import traceback
+            traceback.print_exc()
+            return self._generate_fallback_response(current_topic)
+    
+    async def _generate_lstm_response(
+        self,
+        conversation_history: List[Message],
+        current_topic: str,
+        additional_context: Optional[str] = None,
+    ) -> str:
+        """Generate a response using the LSTM baseline model."""
+        global _lstm_model, _lstm_vocab, _lstm_config
+        
+        # Load LSTM model if not already loaded
+        if _lstm_model is None:
+            try:
+                from pathlib import Path
+                from inference_lstm import load_model as load_lstm_model
+                
+                checkpoint_path = Path("./lstm_baseline/checkpoint_best.pt")
+                if not checkpoint_path.exists():
+                    print(f"  [{self.name}] ❌ LSTM checkpoint not found")
+                    return self._generate_fallback_response(current_topic)
+                
+                import torch
+                device = "cuda" if torch.cuda.is_available() else "cpu"
+                _lstm_model, _lstm_vocab, _lstm_config = load_lstm_model(
+                    checkpoint_path=checkpoint_path,
+                    device=device
+                )
+                print(f"  [{self.name}] ✅ LSTM model loaded on {device}")
+            except Exception as e:
+                print(f"  [{self.name}] ❌ Failed to load LSTM model: {e}")
+                return self._generate_fallback_response(current_topic)
+        
+        print(f"  [{self.name}] Using LSTM model")
+        
+        # Build a simple question from the topic and context
+        if additional_context:
+            question = f"{additional_context} about {current_topic}"
+        else:
+            question = f"Tell me about {current_topic}"
+        
+        try:
+            import asyncio
+            from concurrent.futures import ThreadPoolExecutor
+            from inference_lstm import generate_response as lstm_generate
+            
+            def _run_lstm_inference():
+                return lstm_generate(
+                    model=_lstm_model,
+                    vocab=_lstm_vocab,
+                    question=question,
+                    config=_lstm_config,
+                    temperature=self.temperature
+                )
+            
+            loop = asyncio.get_running_loop()
+            executor = ThreadPoolExecutor(max_workers=1)
+            try:
+                response = await asyncio.wait_for(
+                    loop.run_in_executor(executor, _run_lstm_inference),
+                    timeout=30.0
+                )
+            finally:
+                executor.shutdown(wait=False)
+            
+            cleaned_response = response.strip()
+            print(f"  [{self.name}] ✅ [LSTM] Response ({len(cleaned_response)} chars): {cleaned_response[:80]}...")
+            return cleaned_response
+            
+        except asyncio.TimeoutError:
+            print(f"  [{self.name}] ⏱️ LSTM model timeout after 30s")
+            return self._generate_fallback_response(current_topic)
+        except Exception as e:
+            print(f"  [{self.name}] ❌ LSTM model error: {type(e).__name__}: {e}")
             import traceback
             traceback.print_exc()
             return self._generate_fallback_response(current_topic)

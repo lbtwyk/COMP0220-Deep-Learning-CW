@@ -20,7 +20,7 @@ class PodcastConfig:
     personality: AgentPersonality = AgentPersonality.PROFESSIONAL
     tts_provider: str = "browser"  # Use browser TTS by default
     turn_delay_ms: int = 1500
-    use_local_model: bool = False  # Use local Qwen3 model instead of OpenAI API
+    model_type: str = "api"  # 'api', 'local', or 'lstm'
 
 
 class PodcastManager:
@@ -29,10 +29,10 @@ class PodcastManager:
     def __init__(self, config: Optional[PodcastConfig] = None):
         self.config = config or PodcastConfig()
         
-        # Initialize agents with local model setting
-        self.rick = RickAgent(personality=self.config.personality, use_local_model=self.config.use_local_model)
-        self.morty = MortyAgent(personality=self.config.personality, use_local_model=self.config.use_local_model)
-        self.summer = SummerAgent(personality=self.config.personality, use_local_model=self.config.use_local_model)
+        # Initialize agents with model_type setting
+        self.rick = RickAgent(personality=self.config.personality, model_type=self.config.model_type)
+        self.morty = MortyAgent(personality=self.config.personality, model_type=self.config.model_type)
+        self.summer = SummerAgent(personality=self.config.personality, model_type=self.config.model_type)
         
         # Initialize services
         self.state_machine = PodcastStateMachine()
@@ -56,12 +56,12 @@ class PodcastManager:
         self.ws_handler.register_handler(MessageType.SET_PERSONALITY, self._handle_set_personality)
         self.ws_handler.register_handler(MessageType.SET_MODEL, self._handle_set_model)
     
-    def set_use_local_model(self, use_local: bool):
+    def set_model_type(self, model_type: str):
         """Switch model source for all agents."""
-        self.config.use_local_model = use_local
-        self.rick.set_use_local_model(use_local)
-        self.morty.set_use_local_model(use_local)
-        self.summer.set_use_local_model(use_local)
+        self.config.model_type = model_type
+        self.rick.set_model_type(model_type)
+        self.morty.set_model_type(model_type)
+        self.summer.set_model_type(model_type)
     
     def set_personality(self, personality: AgentPersonality):
         """Switch personality mode for all agents."""
@@ -120,7 +120,7 @@ class PodcastManager:
         self.memory.add_turn(agent, text)
         
         # Determine model source
-        model_source = "local" if self.config.use_local_model else "cloud"
+        model_source = self.config.model_type
         
         try:
             await self.ws_handler.send_speech(
@@ -343,8 +343,21 @@ class PodcastManager:
         await self.ws_handler.request_topic(websocket)
     
     async def _handle_end(self, websocket: WebSocket, data: Dict[str, Any]):
+        """Handle end request - immediately stop the conversation loop."""
         self._running = False
-        await self._send_speech("summer", self.summer.announce_wrap_up())
+        
+        # Cancel the running conversation task if it exists
+        if self._task and not self._task.done():
+            self._task.cancel()
+            try:
+                await self._task
+            except asyncio.CancelledError:
+                print("Conversation loop cancelled")
+        
+        # Reset state
+        self.state_machine.state = PodcastState.IDLE
+        
+        # Send ended signal without wrap-up speech for immediate stop
         await self.ws_handler.send_ended(websocket, "")
     
     async def _handle_set_personality(self, websocket: WebSocket, data: Dict[str, Any]):
@@ -377,21 +390,26 @@ class PodcastManager:
     
     async def _handle_set_model(self, websocket: WebSocket, data: Dict[str, Any]):
         """Handle model source switch during active podcast."""
-        use_local = data.get("use_local", False)
-        old_use_local = self.config.use_local_model
+        model_type = data.get("model_type", "api")
+        old_model_type = self.config.model_type
         
         # Only switch if different
-        if use_local == old_use_local:
+        if model_type == old_model_type:
             return
         
-        model_name = "Local (Qwen3-4B)" if use_local else "Cloud (OpenAI)"
+        model_names = {
+            "api": "Cloud (OpenAI)",
+            "local": "Local (Qwen3-4B)",
+            "lstm": "LSTM (Dummy Model)"
+        }
+        model_name = model_names.get(model_type, model_type)
         print(f"Switching model to: {model_name}")
         
         # Update all agents
-        self.set_use_local_model(use_local)
+        self.set_model_type(model_type)
         
         # Notify frontend of model change
         await self.ws_handler.send_message(websocket, MessageType.STATE, {
             "state": "model_changed",
-            "use_local": use_local,
+            "model_type": model_type,
         })
