@@ -56,3 +56,10 @@ Thumbs.db
 # Node (frontend)
 node_modules/
 
+
+# Debug artifacts
+debug_frames/
+
+# Compiled Python
+__pycache__/
+*.pyc

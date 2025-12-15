@@ -1,0 +1,189 @@
+/* Recording Indicator - Apple Design Style */
+
+.recording-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.recording-indicator.active {
+    background: rgba(255, 59, 48, 0.15);
+    border-color: rgba(255, 59, 48, 0.3);
+}
+
+.rec-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+    transition: opacity 0.2s;
+}
+
+.rec-button:hover {
+    opacity: 0.8;
+}
+
+.rec-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.recording-indicator.active .rec-icon {
+    background: transparent;
+}
+
+.rec-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.recording-indicator.active .rec-dot {
+    width: 12px;
+    height: 12px;
+    background: #ff3b30;
+    /* Apple red */
+    box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7);
+    animation: rec-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes rec-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7);
+    }
+
+    50% {
+        box-shadow: 0 0 0 8px rgba(255, 59, 48, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 59, 48, 0);
+    }
+}
+
+.rec-label {
+    letter-spacing: -0.2px;
+    user-select: none;
+}
+
+.rec-timer {
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timer-display {
+    font-variant-numeric: tabular-nums;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ff3b30;
+    letter-spacing: 0.5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Mono', monospace;
+}
+
+/* Compact variant */
+.recording-indicator.compact {
+    padding: 6px 12px;
+    border-radius: 16px;
+}
+
+.recording-indicator.compact .rec-button {
+    font-size: 13px;
+}
+
+.recording-indicator.compact .rec-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.recording-indicator.compact .rec-dot {
+    width: 8px;
+    height: 8px;
+}
+
+.recording-indicator.compact.active .rec-dot {
+    width: 10px;
+    height: 10px;
+}
+
+/* Dark mode optimization */
+@media (prefers-color-scheme: dark) {
+    .recording-indicator {
+        background: rgba(28, 28, 30, 0.7);
+        border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .recording-indicator.active {
+        background: rgba(255, 59, 48, 0.12);
+        border-color: rgba(255, 59, 48, 0.25);
+    }
+}
+
+/* Light mode */
+@media (prefers-color-scheme: light) {
+    .recording-indicator {
+        background: rgba(255, 255, 255, 0.95);
+        border-color: rgba(0, 0, 0, 0.1);
+        color: #1d1d1f;
+    }
+
+    .recording-indicator.active {
+        background: rgba(255, 59, 48, 0.08);
+        border-color: rgba(255, 59, 48, 0.2);
+    }
+
+    .rec-button {
+        color: #1d1d1f;
+    }
+
+    .rec-icon {
+        background: rgba(0, 0, 0, 0.06);
+    }
+
+    .rec-dot {
+        background: rgba(0, 0, 0, 0.4);
+    }
+}
+
+/* Accessibility */
+.rec-button:focus-visible {
+    outline: 2px solid #007aff;
+    outline-offset: 2px;
+    border-radius: 12px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .rec-dot {
+        animation: none;
+    }
+
+    .recording-indicator,
+    .rec-icon,
+    .rec-dot {
+        transition: none;
+    }
+}

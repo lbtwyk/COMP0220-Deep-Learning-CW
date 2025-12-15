@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef, useCallback } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import axios from 'axios'
+import { VisionSidebar } from './VisionSidebar'
+import './PodcastView.css'
+import './SettingsControls.css'
 
 /**
  * PodcastView - Agentic podcast with TTS support
@@ -21,6 +24,9 @@ export default function PodcastView({ onBack, settings, onOpenSettings }) {
   const [ttsEnabled, setTtsEnabled] = useState(true)
   const [isSwitchingPersonality, setIsSwitchingPersonality] = useState(false)
   const [useLocalModel, setUseLocalModel] = useState(false)
+  const [visionSidebarOpen, setVisionSidebarOpen] = useState(false)
+  const [turnCount, setTurnCount] = useState(0)
+  const [maxTurns, setMaxTurns] = useState(20) // Default 20 turns (~8min)
 
   const audioRef = useRef(null)
   const wsRef = useRef(null)
@@ -301,6 +307,18 @@ export default function PodcastView({ onBack, settings, onOpenSettings }) {
         setPodcastState(msg.state)
         if (msg.topic) setCurrentTopic(msg.topic)
         break
+      case 'podcast_started':
+        setPodcastState(msg.state || 'discussing')
+        setCurrentTopic(msg.topic || '')
+        setTurnCount(0) // Reset turn count when podcast starts
+        break
+
+      case 'state_update':
+        setPodcastState(msg.state || podcastState)
+        if (msg.turn_count !== undefined) {
+          setTurnCount(msg.turn_count)
+        }
+        break
       case 'request_topic':
         console.log('❓ Requesting topic from user')
         setPodcastState('topic_input')
@@ -392,6 +410,13 @@ export default function PodcastView({ onBack, settings, onOpenSettings }) {
 
     // Safety: ensure processing flag is cleared if we forced a stop
     // (Though the onended callback should handle this via the loop exit)
+  }
+
+  const handleVisionInterrupt = (message) => {
+    console.log('📹 Vision interrupt received:', message)
+    stopSpeaking() // Stop current speech
+    send('interrupt', { message })
+    setMessages(prev => [...prev, { role: 'user', content: message }])
   }
 
   useEffect(() => {
@@ -532,6 +557,26 @@ export default function PodcastView({ onBack, settings, onOpenSettings }) {
             </div>
           </div>
 
+          {/* Max Turns Selector */}
+          <div className="sidebar-section">
+            <label className="section-label">Conversation Length</label>
+            <div className="segmented-control" style={{ marginTop: '8px' }}>
+              {[10, 20, 30, 40].map(turns => (
+                <button
+                  key={turns}
+                  className={`segment ${maxTurns === turns ? 'active' : ''}`}
+                  onClick={() => setMaxTurns(turns)}
+                  disabled={podcastState === 'discussing'}
+                >
+                  {turns}
+                </button>
+              ))}
+            </div>
+            <small style={{ color: 'rgba(255,255,255,0.6)', fontSize: '12px', marginTop: '4px', display: 'block' }}>
+              Turns (~20s each: 20=7min, 30=10min, 40=13min)
+            </small>
+          </div>
+
           <div className="sidebar-section">
             <label className="section-label">Text-to-Speech</label>
             <button
@@ -576,7 +621,12 @@ export default function PodcastView({ onBack, settings, onOpenSettings }) {
       <main className="main-content">
         {/* Podcast Mode Banner */}
         <div className="podcast-banner">
-          <span className="podcast-banner-icon">🎙️</span>
+          <span className="podcast-banner-icon">🎙️ Podcast Mode</span>
+          {podcastState === 'discussing' && currentTopic && (
+            <span className="turn-counter">
+              Turn {turnCount}/{maxTurns}
+            </span>
+          )}
           <span className="podcast-banner-text">
             <strong>Podcast Mode</strong> — {personality === 'fun' ? 'Rick & Morty' : 'Dave & Taylor'} discussing sign language
           </span>
@@ -719,7 +769,13 @@ export default function PodcastView({ onBack, settings, onOpenSettings }) {
           </p>
         </div>
       </main>
+
+      {/* Vision Sidebar */}
+      <VisionSidebar
+        onInterrupt={handleVisionInterrupt}
+        isOpen={visionSidebarOpen}
+        onToggle={() => setVisionSidebarOpen(!visionSidebarOpen)}
+      />
     </div>
   )
 }
-
