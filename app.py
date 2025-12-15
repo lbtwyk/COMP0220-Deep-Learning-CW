@@ -565,3 +565,126 @@ async def get_podcast_agents(personality: str = "professional"):
         "summer": SummerAgent(p).to_dict(),
         "personality": personality,
     }
+
+# ============== Vision WebSocket ==============
+
+# Global vision services (lazy loaded)
+vision_recognizer = None
+vision_word_builders = {}  # Per-session word builders
+
+@app.websocket("/ws/vision")
+async def vision_websocket(websocket: WebSocket):
+    """
+    WebSocket endpoint for real-time ASL letter recognition.
+    
+    Receives webcam frames, recognizes letters, buffers them into words,
+    and provides suggestions.
+    """
+    global vision_recognizer
+    
+    await websocket.accept()
+    
+    # Lazy load recognizer (expensive to initialize)
+    if vision_recognizer is None:
+        try:
+            print("Initializing LetterRecognizer...")
+            from vision.services import LetterRecognizer
+            vision_recognizer = LetterRecognizer()
+            print("LetterRecognizer ready!")
+        except Exception as e:
+            await websocket.send_json({
+                "type": "error",
+                "message": f"Failed to initialize vision service: {str(e)}"
+            })
+            await websocket.close()
+            return
+    
+    # Create word builder for this session
+    from vision.services import WordBuilder
+    word_builder = WordBuilder(
+        debounce_threshold=0.3,
+        confidence_threshold=0.4  # 40% - matches 'a' at 30-40%
+    )
+    
+    try:
+        print("Vision WebSocket connected")
+        
+        while True:
+            # Receive data from frontend
+            data = await websocket.receive_json()
+            
+            if data['type'] == 'frame':
+                # Process base64 frame
+                try:
+                    letter, confidence, bbox = vision_recognizer.recognize_base64(data['image'])
+                    
+                    if letter is not None:
+                        # Add to buffer
+                        added = word_builder.add_letter(letter, confidence)
+                        
+                        # Send update
+                        await websocket.send_json({
+                            'type': 'letter_update',
+                            'letter': letter,
+                            'confidence': confidence,
+                            'added_to_buffer': added,
+                            **word_builder.get_state()
+                        })
+                    else:
+                        # No hand detected
+                        await websocket.send_json({
+                            'type': 'no_hand',
+                            **word_builder.get_state()
+                        })
+                
+                except Exception as e:
+                    await websocket.send_json({
+                        'type': 'error',
+                        'message': f"Recognition error: {str(e)}"
+                    })
+            
+            elif data['type'] == 'clear_buffer':
+                word_builder.clear_buffer()
+                await websocket.send_json({
+                    'type': 'buffer_cleared',
+                    **word_builder.get_state()
+                })
+            
+            elif data['type'] == 'delete_last':
+                deleted = word_builder.delete_last()
+                await websocket.send_json({
+                    'type': 'letter_deleted',
+                    'success': deleted,
+                    **word_builder.get_state()
+                })
+            
+            elif data['type'] == 'send_interrupt':
+                # Send current word as interrupt to podcast
+                word = word_builder.get_current_word()
+                if word:
+                    # This will be handled by frontend → podcast WebSocket
+                    await websocket.send_json({
+                        'type': 'interrupt_ready',
+                        'word': word,
+                        'message': f"What does {word.upper()} mean in ASL?"
+                    })
+                    # Clear buffer after sending
+                    word_builder.clear_buffer()
+    
+    except WebSocketDisconnect:
+        print("Vision WebSocket disconnected")
+    except Exception as e:
+        print(f"Vision WebSocket error: {e}")
+        import traceback
+        traceback.print_exc()
+
+@app.get("/vision/status")
+async def vision_status():
+    """Get vision service status."""
+    global vision_recognizer
+    return {
+        "available": True,
+        "recognizer_loaded": vision_recognizer is not None,
+        "model_path": "vision/ASL/models/best_asl_model_resnet34.pth"
+    }
+

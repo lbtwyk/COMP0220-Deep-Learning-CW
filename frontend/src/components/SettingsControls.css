@@ -1,0 +1,150 @@
+/* FPS Selector & Segmented Control Styles */
+
+.fps-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fps-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.7);
+    letter-spacing: -0.2px;
+}
+
+.segmented-control {
+    display: flex;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    padding: 2px;
+    gap: 2px;
+}
+
+.segment {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    background: transparent;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+}
+
+.segment:hover {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.segment.active {
+    background: white;
+    color: #000;
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Conversation Rounds Selector */
+.rounds-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+}
+
+.rounds-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.7);
+    letter-spacing: -0.2px;
+}
+
+.rounds-options {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.rounds-option {
+    padding: 8px 16px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: white;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rounds-option:hover {
+    border-color: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.rounds-option.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.rounds-option.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Toggle Switch (iOS style) */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 12px;
+}
+
+.toggle-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.toggle-switch {
+    position: relative;
+    width: 51px;
+    height: 31px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    border: none;
+    padding: 0;
+}
+
+.toggle-switch.active {
+    background: #34c759;
+    /* iOS green */
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 27px;
+    height: 27px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-switch.active .toggle-slider {
+    transform: translateX(20px);
+}
